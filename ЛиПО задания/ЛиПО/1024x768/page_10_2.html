@@ -1,0 +1,389 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Правила преобразования графа в программу</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Правила преобразования графа в 
+    программу.<br>
+&nbsp;</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><b><font size="2" color="#FF0000">В1.</font></b><font size="2"> 
+    Свести систему графов к как можно меньшему числу отдельных графов с помощью 
+    соответствующих подстановок.</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><b><font size="2" color="#FF0000">В2.</font></b><font size="2"> 
+    Преобразовать каждый граф в описание процедуры в соответствии с приведенными 
+    ниже правилами <b>В3-В7</b>.</font></font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В3.</span></b></font><span style="font-size: 10.0pt; font-family: Arial"> 
+    Последовательность элементов</span></p>
+    <p style="margin-left: 20; margin-right: 20" align="center">
+    <img border="0" src="_10_2_a.gif" width="411" height="39"></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+    <font size="2" face="Arial">переводится в составной оператор </font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{ </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(S<sub>1</sub> ); </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(S<sub>2</sub> );</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; </span>...;</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">&nbsp;&nbsp; 
+    T(S<sub>n</sub> ) </font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">}</font></p>
+    <p class="MsoBodyText" style="margin-left: 20"><font face="Arial">
+    <font color="#FF0000"><b><font size="2">В4.</font></b></font><font size="2"> 
+    Выбор элементов</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 20" align="left">
+    <img border="0" src="_10_2_b.gif" width="254" height="166"></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+    <font face="Arial" size="2">переводится в условный оператор</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">if(belongsTo(ch, L<sub>1</sub>)) T(S<sub>1</sub>); </span>
+    </font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; else if(belongsTo(ch, L<sub>2</sub>)) T(S<sub>2</sub>);
+    </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else ...</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(belongsTo(ch, L<sub>n</sub>)) T(S<sub>n</sub>);</span></font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+    else error();</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">где <i>L</i><sub>i</sub> означает множество 
+    начальных символов конструкции <i>S</i><sub>i</sub> (<i>L</i><sub>i</sub> =
+    <i>first</i>(<i>S</i><sub>i</sub> )), а функция</font> <b>
+    <span lang="EN-US" style="font-family: Courier New">belongsTo</span><span style="font-family: Courier New">(</span><span lang="EN-US" style="font-family: Courier New">ch</span><span style="font-family: Courier New">,
+    </span><span lang="EN-US" style="font-family: Courier New">L<sub>i</sub></span><span style="font-family: Courier New">)</span></b>
+    <font size="2" face="Arial">возвращает истинное значение, если символ</font>
+    <span style="font-family: Courier New; font-weight: 700">ch</span>
+    <font size="2" face="Arial">принадлежит соответствующему множеству начальных 
+    символов <i><span lang="EN-US">L</span></i><sub><span lang="EN-US">i</span></sub> 
+    и ложное значение в противном случае.</font></p>
+    <p style="margin-left: 20"><font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В5.</span></b></font><span style="font-size: 10.0pt; font-family: Arial"> 
+    Цикл вида</span></p>
+    <p style="margin-left: 20">
+    <img border="0" src="_10_2_c.gif" width="192" height="52"></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+    <font size="2" face="Arial">переводится в оператор </font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2">while(<span lang="EN-US">belongsTo</span>(ch, 
+    L)) T(S);</font></p>
+    <p style="margin-left: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">где T(S) есть 
+    отображение S в соответствии с правилами <b>В3-В7</b>, а L есть множество L 
+    = first(S).</span></p>
+    <p style="margin-left: 20" align="justify"><font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В6.</span></b></font><span style="font-size: 10.0pt; font-family: Arial"> 
+    Элемент графа, обозначающий другой граф A</span></p>
+    <p style="margin-left: 20" align="justify">
+    <img border="0" src="_10_2_d.gif" width="129" height="42"></p>
+    <p style="margin-left: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">переводится в оператор 
+    обращения к функции A().</span></p>
+    <p style="margin-left: 20" align="justify"><font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В7.</span></b></font><span style="font-size: 10.0pt; font-family: Arial"> 
+    Элемент графа, обозначающий терминальный символ</span></p>
+    <p style="margin-left: 20" align="justify">
+    <img border="0" src="_10_2_e.gif" width="124" height="42"></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+    <font size="2" face="Arial">переводится в оператор </font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">if(ch 
+    == ’x’) ch = fgetc(input);</font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2">else error();</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">где </font><font face="Courier New">error()</font> 
+    – <font face="Arial" size="2">функция, к которой обращаются при появлении 
+    неправильной конструкции.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Теперь покажем применение этих правил на примере 
+    преобразования редуцированного графа (<a href="image_9_2.gif" target="_blank">см. рис.<span lang="en-us">9</span>.2</a>) 
+    в программу грамматического разбора.</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">char ch;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">void A()</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; if(ch == 'x') ch = fgetc(input); </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; else </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; if(ch == '(')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; {</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2">&nbsp; A();</font></span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(ch == '+')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A();</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New">
+    <span lang="EN-US">&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(ch == ')') ch = fgetc(input);</font></span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else error();</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; }</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; else error();</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">}</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">void main(int argc, char **argv)</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; ch =fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; A</span>();</font></p>
+    <p class="a" style="margin-left: 50"><font size="2">}</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">При этом преобразовании свободно применялись 
+    некоторые очевидные правила программирования, позволяющие упростить 
+    программу. Например, при буквальном переводе четвертая строка имела бы вид:</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">if(ch == 'x')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; if(ch == 'x') ch = fgetc(input); else error();</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">else 
+    ...</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Ясно, что ее можно сократить, как это сделано в 
+    программе. Операторы чтения в восьмой и двенадцатой строках тоже получены с 
+    помощью такого же упрощения.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">По-видимому, полезно определить, когда вообще 
+    возможны подобные упрощения, и показать это непосредственно в виде графов. 
+    Два основных случая покрываются следующими дополнительными правилами: </font>
+    </p>
+    <p style="margin-left: 20"><font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В</span><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">4</span><span style="font-size: 10.0pt; font-family: Arial">а</span><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">.</span></b></font></p>
+    <p style="margin-left: 20" align="justify">
+    <img border="0" src="_10_2_f.gif" width="328" height="165"></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">if(ch == 'x1')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{ </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(S1);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">}</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">else</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">if(ch == 'x2')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(S2);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">}</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">else</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">. . . </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">if(ch = 'xn')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(Sn);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">}</span></font></p>
+    <p style="margin-left: 50">
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">else 
+    error();</span></p>
+    <p style="margin-left: 20"><font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">В<span lang="en-us">5</span>а</span><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">.</span></b></font></p>
+    <p style="margin-left: 20">
+    <img border="0" src="_10_2_g.gif" width="268" height="53"></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">while(ch == 'x')</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{ </span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input); T(S);</span></font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2">}</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Кроме того, часто встречающуюся конструкцию</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">T(S);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">while(W)</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">{</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; </span>T(S);</font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2">}</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">можно, разумеется, выразить короче:</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">do {</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; ch = fgetc(input);</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp; T(S);</span></font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font face="Courier New" size="2"><span lang="EN-US">} while(W);</span></font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Мы намеренно не 
+    описываем пока функцию error (&quot;ошибка&quot;). Поскольку сейчас нас интересует 
+    лишь, как определить, правильно ли входное предложение, мы можем считать, 
+    что эта процедура заканчивает работу программы. На практике в случае 
+    появления неправильных конструкций нужно организовать корректную их 
+    диагностику, что будет рассмотрено далее.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

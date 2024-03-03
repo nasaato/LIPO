@@ -1,0 +1,201 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+
+      <TITLE>Восходящий синтаксический анализ</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Восходящий синтаксический анализ.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">В этом разделе будет рассмотрен основной метод 
+    восходящего синтаксического анали­за, известный как синтаксический анализ 
+    типа &quot;<b><u>перенос/свертка</u></b>&quot; (<span lang="EN-US">shift</span>-<span lang="EN-US">reduce</span>) 
+    и называе­мый далее сокращенно <b><u>ПС-анализом</u></b>. </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">ПС-анализ пытается строить 
+    <a href="page_4_1_2.html" target="mainFrame">дерево разбора</a> для 
+    входной строки, начиная с листьев (снизу) и работая по направлению к корню 
+    дерева (вверх). Этот процесс можно рассмат­ривать как свертку строки</font>
+    <i><span lang="EN-US">w</span></i> <font size="2" face="Arial">к стартовому 
+    символу грамматики. На каждом шаге свертки (<span lang="EN-US">reduction 
+    step</span>) некоторая подстрока, соответствующая правой части продукции, 
+    заменя­ется символом из левой части этой продукции, и если на каждом шаге 
+    подстроки выби­раются корректно, то мы получаем обращенное правое 
+    порождение.</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+    <b><u><font size="2" face="Arial">Пример:</font></u></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Рассмотрим грамматику</font></p>
+    <p class="MsoBodyText" style="text-indent:3.0cm"><i><span lang="EN-US">S
+    </span><span style="font-family:Symbol">®</span> <span lang="EN-US">aABe</span></i></p>
+    <p class="MsoBodyText" style="text-indent:3.0cm"><i><span lang="EN-US">A
+    </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Abc | b</span></i></p>
+    <p class="MsoBodyText" style="text-indent:3.0cm"><i><span lang="EN-US">B
+    </span><span style="font-family:Symbol">®</span><span lang="EN-US"> d</span></i></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Предложение <i>abbcde</i> сводится к <i>S</i> с 
+    помощью следующих шагов:</font></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>abbcde</i></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>aAbcde</i></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>aA.de</i></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>аАВе</i></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>S</i></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size: 10.0pt">Мы сканируем строку <i>
+    abbcde</i> в поисках подстроки, соответствующей правой части какой-либо 
+    продукции. Такими подстроками являются <i>b</i> и <i>d</i>. Выберем крайнее 
+    слева <i>b</i> и заменим его нетерминалом <i>А</i>, который представляет 
+    собой левую часть продукции</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    <i>А</i> </span><span style="font-size: 10.0pt; font-family: Symbol">®</span><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><i>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Times New Roman">b</span></i><span style="font-size: 10.0pt; font-family: Times New Roman">;
+    </span><span style="font-size: 10.0pt"><font face="Arial">таким образом, 
+    получим строку <i>aAbcde</i>. Теперь правым частям продукций соответствуют 
+    подстроки </font><i><font face="Arial">Ab</font></i></span><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">c</span></i><span style="font-size: 10.0pt; font-family: Arial">,
+    <i>b</i> и <i>d</i>. Хотя <i>b</i> и является крайней слева подстрокой, 
+    соответствующей правой части одной из продукций, выберем для замены 
+    подстроку <i>Ab</i></span><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">c</span></i><font face="Arial"><span style="font-size: 10.0pt"> 
+    и заменим ее нетерминалом <i>А</i> в соответствии с продукцией</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    <i>А</i> </span><span style="font-size: 10.0pt; font-family: Symbol">®</span><span style="font-size: 10.0pt; font-family: Times New Roman">
+    <i>Ab</i></span><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Times New Roman">c</span></i><span style="font-size: 10.0pt; font-family: Times New Roman">.
+    </span><font face="Arial"><span style="font-size: 10.0pt">В результате 
+    получим строку <i>aAde</i>. Заменяя <i>d</i> на <i>В</i>, левую часть 
+    продукции</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    <i>В</i> </span><span style="font-size: 10.0pt; font-family: Symbol">®</span><span style="font-size: 10.0pt; font-family: Times New Roman">
+    <i>d</i>, </span><font face="Arial"><span style="font-size: 10.0pt">получаем
+    <i>аАВе</i>, которая в соответствии с первой продукцией заменяется стартовым 
+    символом <i>S</i>. Итак, последовательность из четырех сверток позволяет 
+    привести строку <i>abbcde</i> к стартовому символу <i>S</i>. Эти сокращения 
+    представляют собой обращенное (т.е. записанное в обратном</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><font face="Arial"><span style="font-size: 10.0pt">порядке) правое 
+    приведение</span></font></p>
+    <p style="margin-left: 20; margin-right: 20" align="center">
+    <img border="0" src="_12_1_a.gif" width="278" height="50"></p>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

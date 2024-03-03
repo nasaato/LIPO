@@ -1,0 +1,5 @@
+﻿  LIPO 4.cpp
+C:\21VA1\4 term\LIPO\LIPO 4\LIPO 4.cpp(83,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\21VA1\4 term\LIPO\LIPO 4\LIPO 4.cpp(105,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\21VA1\4 term\LIPO\LIPO 4\LIPO 4.cpp(116,22): warning C4018: <: несоответствие типов со знаком и без знака
+  LIPO 4.vcxproj -> C:\21VA1\4 term\LIPO\LIPO 4\Debug\LIPO 4.exe

@@ -1,0 +1,256 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Этапы синтеза автоматов</TITLE>
+         </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <font color="#FF0000"><b><span style="font-family: Arial">Этапы синтеза 
+    автоматов</span></b></font><b><font color="#FF0000" face="Arial">.</font></b></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">В теории автоматов процесс 
+    синтеза автомата принято подразделять на отдельные этапы.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">На первом, или 
+    предварительном, этапе синтеза формулируются (часто словесно) условия работы 
+    автомата, т. е. определяются условия его взаимодействия с другими 
+    устройствами или какими-либо объектами; выявляются необходимые входы и 
+    выходы автомата и намечается общий закон появления выходных сигналов в 
+    зависимости от воздействия на входы автомата. При синтезе достаточно 
+    сложного автомата часто его разбивают на отдельные блоки. В этом случае 
+    первый этап синтеза иногда называют <u>этапом блочного синтеза автомата</u>.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">В Институте кибернетики АН 
+    УССР под руководством акад. В. М. Глушкова разработана формализованная 
+    методика блочного синтеза ЭВМ, позволяющая получать более экономичные 
+    решения, чем при интуитивном методе.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">М. А. Гаврилов разработал 
+    блочный метод синтеза, позволяющий синтезировать один сложный автомат из 
+    простых блоков, выполняющих отдельные его функции. Такой метод дает 
+    возможность упростить формулировку условий работы (на языке таблиц 
+    переходов) и процесс построения автомата.</span></font></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">На этом этапе в 
+    настоящее время условия работы УА принято задавать в виде процессов 
+    управления на естественном или одном из формализованных языков, в частности 
+    на широко распространенном языке сетей Петри.</span></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt"><A name="level2"></A>На втором этапе синтеза 
+    выявляются закон функционирования автомата (его функции переходов и функции 
+    выходов) и формальное описание автомата одним из принятых для этого 
+    способов. Этот этап синтеза принято называть <u>этапом абстрактного синтеза</u> 
+    или <u>синтезом абстрактного автомата</u>.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">На этапе абстрактного 
+    синтеза автомата не интересуются теми физическими элементами, из которых он 
+    должен состоять. Нет нужды рассматривать, какие значения могут принимать 
+    входы, выходы и элементы памяти автомата. Важно знать лишь число возможных 
+    различных состояний входов и выходов автомата, число различных его 
+    внутренних состояний, а также законы изменения внутренних состояний автомата 
+    и выработки им тех или иных состояний выходов при поступлении на его входы 
+    той или иной последовательности состояний входа.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Исследование абстрактного 
+    синтеза автоматов было начато С. К. Клини, которым был предложен так 
+    называемый язык регулярных событий. В дальнейшем абстрактный синтез 
+    автомата, основанный на использовании этого языка, был усовершенствован В. 
+    М. Глушковым, который разработал алгоритм абстрактного синтеза, годный для 
+    программирования на ЭВМ.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Другим языком, на котором 
+    базируется абстрактный синтез автомата, является язык исчисления предикатов, 
+    исследованный Б. А. Трахтенбротом.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Результатом второго этапа 
+    синтеза является задание автомата одним из стандартных способов, к которым 
+    относятся таблицы и матрицы переходов, а также таблицы включений и диаграммы 
+    переходов.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">В некоторых случаях удобно 
+    задавать автомат временными функциями, а МА — логическими схемами 
+    алгоритмов.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">На втором этапе синтеза, 
+    очевидно, выявляется и емкость памяти автомата. При этом, несмотря на 
+    стремление получить уже при абстрактном синтезе автомат с минимальным числом 
+    внутренних состояний, в ряде случаев получаем автоматы, у которых число 
+    внутренних состояний заметно отличается от минимального. В связи с этим на 
+    следующем, <A name="level3"></A>третьем этапе производится <u>минимизация числа внутренних 
+    состояний автомата</u>.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt"><A name="level4"></A>На четвертом этапе синтеза 
+    производится <u>кодирование</u> или, как говорят, <u>размещение внутренних 
+    состояний</u>. Этот этап находится на грани абстрактного и структурного 
+    рассмотрения автомата. После кодирования внутренних состояний автомата, 
+    состояний входа и выхода выписываются канонические уравнения.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt"><A name="level567"></A>На <u>пятом этапе синтеза</u> 
+    завершается выбор структуры автомата построением так называемой 
+    функциональной схемы комбинационной части автомата (однотактной схемы) или, 
+    как говорят, логического преобразователя. При этом синтез автомата с памятью 
+    (многотактной схемы) сводится к синтезу автомата без памяти (однотактной 
+    схемы) с помощью понятия однотактного эквивалента.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">В настоящее время этот 
+    этап синтеза в теории автоматов наиболее развит.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt"><u>Шестой этап синтеза</u> 
+    включает электрический или другой расчет элементов схемы и моделирование 
+    автомата с целью проверки его работоспособности.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt"><u>На седьмом этапе</u> 
+    осуществляется размещение деталей на платах, составление монтажных схем и 
+    технической документации. При использовании интегральных схем и особенно 
+    схем с большой и сверхбольшой степенью интеграции (БИС и СБИС) на этом этапе 
+    осуществляется размещение элементов функциональной схемы по корпусам, а 
+    затем размещение корпуса на стандартных платах, часто называемых типовыми 
+    элементами замены (ТЭЗ) —типовые элементы замены по блокам и блоки по 
+    шкафам.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Разделение процесса 
+    синтеза на этапы, с одной стороны, облегчает процесс построения автомата, а 
+    с другой стороны, может привести к усложнению его структуры. Так, 
+    рассматривая на отдельных этапах процессы минимизации числа внутренних 
+    состояний, кодирование внутренних состояний и синтез структуры логического 
+    преобразователя, можно прийти к менее оптимальному решению по сравнению с 
+    тем случаем, когда, эти три этапа были бы совмещены. Этот недостаток 
+    пытаются уменьшить тем, что на каждом этапе синтеза стараются учесть его 
+    влияние на следующий этап.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Разделение процесса 
+    синтеза автомата на такие семь этапов является достаточно условным, хотя это 
+    и позволяет облегчить решение всей задачи синтеза автомата. Часто некоторые 
+    этапы синтеза не разделяются между собой, а иногда просто опускаются.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Следует заметить, что 
+    наряду с изложенным выше делением процесса синтеза в последнее время весь 
+    процесс проектирования сложного управляющего автомата чаще подразделяют на 
+    более крупные этапы: системное, программно-логическое, техническое и 
+    технологическое проектирование.</span></font></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

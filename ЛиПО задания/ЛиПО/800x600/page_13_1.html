@@ -1,0 +1,218 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Работа с таблицей символов</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Работа с таблицей символов.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Поскольку <a href="page_9_1.html" target="mainFrame">синтаксический анализатор</a> обычно 
+    использует <a href="page_7_1.html" target="mainFrame">контекстно-свободную грамматику</a>, необходимо найти метод 
+    определения контекстно-зависимых частей языка. Например, во многих языках 
+    идентификаторы не могут применяться, если они не описаны, также имеются 
+    ограничения в отношении способов употребления в программе значений различных 
+    типов. Для запоминания описанных идентификаторов и их типов большинство 
+    компиляторов пользуется таблицей символов.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Когда описывается идентификатор, например,</font></p>
+    <p class="a" align="center" style="text-align:center;line-height:150%">
+    <font face="Courier New" size="2">int a;</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+    <font size="2"><font face="Arial">это называется <b>определяющей реализацией</b></font><span style="font-family: Arial"> 
+    а</span><font face="Arial">. Однако </font><span style="font-family: Arial">
+    а</span><font face="Arial"> может встречаться и в другом контексте:</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span lang="EN-US" style="font-family: Courier New"><font size="2">a=4</font></span><span lang="EN-US">&nbsp;&nbsp;
+    </span><font size="2" face="Arial">или</font><span lang="EN-US">&nbsp;&nbsp;&nbsp; </span>
+    <span lang="EN-US" style="font-family: Courier New"><font size="2">a+b</font></span><span lang="EN-US">&nbsp;
+    </span><font size="2" face="Arial">или</font><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font>
+    </span><span lang="EN-US" style="font-family: Courier New"><font size="2">
+    read(a)</font></span></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2"><font face="Arial">здесь имеются <b>прикладные реализации</b>
+    </font><span style="font-family: Arial">a</span><font face="Arial">.</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">В случае определяющей реализации идентификатора 
+    (специфицируемого пользователем типа данных, операции и т. п.), компилятор 
+    помещает объект в таблицу символов. В случае прикладной реализации в таблице 
+    символов осуществляется поиск элемента, соответствующего определяющей 
+    реализации объекта, чтобы узнать его тип и (возможно) другие признаки, 
+    требующиеся во время компиляции. </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Во многих языках один и тот же идентификатор 
+    может использоваться для представления в разных частях программы различных 
+    объектов. В таких случаях структура программы помогает различать эти 
+    объекты, например </font></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">{</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; int a;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; ...</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">}</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">...</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">{</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; char a;</font></span></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New">
+    <span lang="EN-US"><font size="2">&nbsp; </font></span><font size="2">...</font></font></p>
+    <p class="a" style="margin-left: 50"><font size="2" face="Courier New">}</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2"><font face="Arial">В данном случае в двух разных блоках
+    </font><span style="font-family: Arial">а</span><font face="Arial"> 
+    представляет два разных объекта. Таблица символов должна иметь ту же блочную 
+    структуру, что и программа, чтобы различать виды употребления одного и того 
+    же идентификатора. </font></font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Многие современные языки высокого уровня 
+    обладают следующими свойствами:</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Определяющая реализация идентификатора 
+    появляется (текстуально) раньше любой прикладной реализации.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">При наличии прикладной реализации идентификатора 
+    соответствующая определяющая реализация находится в наименьшем включающем 
+    блоке, в котором содержится описание этого идентификатора.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">В одном и том же блоке идентификатор не может 
+    описываться более одного раза.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">B таблице символов компилятора может содержаться 
+    и другая информация об идентификаторе, необходимая во время компиляции, 
+    например, его адрес в ходе прогона или в случае константы – ее значение.</font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Реализация таблиц 
+    символов внутри программ возможна либо <a href="page_13_2.html" target="mainFrame">в виде массива</a>, либо 
+    <a href="page_13_3.html" target="mainFrame">в виде цепочной 
+    структуры</a>, в которой каждый элемент содержит ссылку на последующий и, 
+    возможно, предыдущий элемент структуры.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

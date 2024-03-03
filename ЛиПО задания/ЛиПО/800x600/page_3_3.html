@@ -1,0 +1,187 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Двухуровневые и атрибутивные грамматики</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Двухуровневые и атрибутивные 
+    грамматики.</font></b></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <b><u><span style="font-size: 10.0pt; font-family: Arial">Двухуровневые 
+    грамматики</span></u></b><span style="font-size: 10.0pt; font-family: Arial"> 
+    (W-грамматики, названной так в честь их изобретателя – А. ван Вейнгаардена). 
+    Идея применения двухуровневой грамматики состоит в том, что если правила 
+    обычной грамматики обеспечивают конечный способ описания языка, состоящего 
+    из бесконечного числа строк, то здесь вторая грамматика применяется для 
+    генерирования бесконечного числа правил, которые в свою очередь генерируют 
+    предложения языка. Применение второй грамматики позволяет избежать рутинной 
+    работы, связанной с написанием бесконечного числа порождающих правил. С 
+    помощью двухуровневой грамматики можно генерировать любой язык типа 0. 
+    Данная концепция является даже слишком мощной (КЗ свойства большинства 
+    машинных языков относительно просты). </span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><u><span style="font-size: 10.0pt; font-family: Arial">Атрибутивные 
+    грамматики</span></u></b><span style="font-size: 10.0pt; font-family: Arial">. 
+    Атрибуты применяются для описания КЗ (точнее К-несвободных) аспектов языка. 
+    Рассмотрим пример. Пусть в некотором языке идентификаторы могут иметь тип 
+    int или char и являются терминалами грамматики. Описание с помощью КС 
+    порождающих правил.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">D </span>
+    </i><font face="Symbol" size="3">®</font><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial"> 
+    int I</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">D </span>
+    </i><font face="Symbol" size="3">®</font><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial"> 
+    char I</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Описав идентификатор, мы 
+    хотим запомнить его тип. Этот тип будет свойством описания, видоизменим 
+    грамматику, чтобы это указать:</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">D </span>
+    </i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">(.ID, 
+    MODE)<i> </i></span><font face="Symbol" size="3">®</font><i><span style="font-size: 10.0pt; font-family: Arial">
+    </span></i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">
+    int<i> </i>(.MODE1)<i> </i>I (.ID1)</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">ID = ID1</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">MODE = 
+    MODE1</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">аналогично для char. 
+    MODE, MODE1, ID, ID1 пишутся в скобках после терминала или нетерминала 
+    грамматики и представляют собой его признаки (атрибуты). Преимущество 
+    атрибутивных грамматик в том, что они выглядят как КС, но могут 
+    специфицировать КЗ конструкции языка. Фактически любой язык типа 0 можно 
+    описать с помощью атрибутивной грамматики. Так как языки программирования 
+    представляется как КС, к которым добавляются контекстные ограничения, 
+    атрибутивные грамматики хорошо подходят для их описания.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

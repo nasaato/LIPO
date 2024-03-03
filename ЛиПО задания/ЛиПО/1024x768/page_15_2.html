@@ -1,0 +1,631 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Преобразование выражения из инфиксной записи в постфиксную</TITLE>
+      <style>
+<!--
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Arial"}
+-->
+      </style>
+   </HEAD>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Преобразование выражения из инфиксной 
+    записи в постфиксную.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Части выражения, заключенные в скобки на самом 
+    нижнем уровне скобочных вложений для данного выражения, должны быть сначала 
+    преобразованы в постфиксную форму, с тем, чтобы их можно было рассматривать 
+    как один операнд. При таком подходе преобразование всего выражения приведет 
+    к полному исключению из него скобок. Последняя открываемая в группе скобок 
+    скобочная пара содержит первое преобразуемое выражение в этой группе. 
+    Принцип &quot;последнее открываемое выражение вычисляется первым&quot; предполагает 
+    использование стека.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Рассмотрим два выражения в инфиксной форме: <i>А</i>+<i>В</i>*<i>С</i> 
+    и (<i>А</i>+<i>В</i>)*<i>С</i> и соответствующие им постфиксные формы <i>АВС</i>*+ 
+    и <i>АВ</i>+<i>С</i>*. В каждом случае порядок следования операндов в этих 
+    формах совпадает с порядком следования операндов в исходных выражениях. При 
+    просмотре первого выражения (<i>А</i>+<i>В</i>*<i>С</i>) первый операнд <i>А</i> 
+    может быть сразу же помещен в постфиксное выражение. Очевидно, что символ 
+    &quot;+&quot; не может быть помещен в это выражение до тех пор, пока туда не будет 
+    помещен второй, еще не просмотренный операнд. Следовательно, он (т.е. символ 
+    &quot;+&quot;) должен быть сохранен, а впоследствии извлечен и помещен в 
+    соответствующую позицию. После просмотра операнда <i>В</i> этот символ 
+    записывается вслед за операндом <i>А</i>. К этому моменту просмотренными уже 
+    оказываются два операнда. Однако извлекать и помещать символ &quot;+&quot; в 
+    постфиксную запись еще рано, т.к. за ним следует символ &quot;*&quot;, имеющий более 
+    высокий приоритет. Во втором выражении наличие скобок обуславливает 
+    выполнение операции &quot;+&quot; в первую очередь. </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Так как при преобразовании инфиксной формы в 
+    постфиксную правила приоритета играют существенную роль, для их учета введем 
+    функцию</font> <span style="font-family: Courier New">precedence(oper1, 
+    oper2)</span>, <font size="2" face="Arial">где</font>
+    <span style="font-family: Courier New">oper1</span> и
+    <span style="font-family: Courier New">oper2</span> – с<font size="2" face="Arial">имволы, 
+    обозначающие операции. Эта функция возвращает значение</font>
+    <span style="font-family: Courier New">TRUE</span>,
+    <font size="2" face="Arial">если</font>
+    <span style="font-family: Courier New">oper1</span>
+    <font size="2" face="Arial">имеет более высокий приоритет, чем</font>
+    <span style="font-family: Courier New">oper2</span>, <i>
+    <font size="2" face="Arial">или они имеют равный приоритет, но</font>
+    <span style="font-family: Courier New">oper1</span>
+    <font size="2" face="Arial">располагается слева от</font>
+    <span style="font-family: Courier New">oper2</span>
+    <font size="2" face="Arial">в бесскобочном выражении</font></i><font size="2" face="Arial">, 
+    представленном в инфиксной форме. В противном случае функция</font>
+    <span style="font-family: Courier New">precedence(oper1, oper2)</span>
+    <font size="2" face="Arial">возвращает значение</font>
+    <span style="font-family: Courier New">FALSE</span>.
+    <font size="2" face="Arial">Например, значения функций</font>
+    <span style="font-family: Courier New">precedence(&quot;*&quot;,&quot;+&quot;)</span>
+    <font size="2" face="Arial">и</font> <span style="font-family: Courier New">
+    precedence(&quot;+&quot; &quot;+&quot;)</span> – <font size="2" face="Arial">&quot;истина&quot;, а</font>
+    <span style="font-family: Courier New">precedence (&quot;+&quot;,&quot;*&quot;)</span> –
+    <font size="2" face="Arial">&quot;ложь&quot;.&nbsp; Фрагмент текста в этом абзаце 
+    подчеркнут, так как неправильное формирование постфиксной записи (как 
+    вручную, так разработанными студентами программными генераторами) для 
+    операций с равным приоритетом является одной из типичных ошибок.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Рассмотрим теперь макет алгоритма для 
+    преобразования строки, представленной в инфиксной форме и не содержащей 
+    скобок, в постфиксную строку. Поскольку мы считаем, что во входной строке 
+    скобки отсутствуют, единственным признаком порядка выполнения операций 
+    является их приоритет.</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">1. (Установить в постфиксную строку &quot; &quot;);</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">2. (Очистить стек с именем</font>
+    <font size="2" face="Courier New">opstk</font><font size="2" face="Arial">);</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">3.</font> <font size="2" face="Courier New">
+    while</font> <font size="2" face="Arial">(на входе еще имеются символы)</font>
+    <font size="2" face="Courier New">{</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">4.</font> &nbsp;<font size="2" face="Courier New">read(symb)</font><font size="2" face="Arial">;</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font face="Arial" size="2">5.</font> &nbsp;<font size="2" face="Courier New">if(isOperand(symb) 
+    == TRUE) {//</font></span><font size="2" face="Arial">символ есть операнд</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (добавить символ к постфиксной строке);</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">7.</font> &nbsp;<font size="2" face="Courier New">} 
+    else {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</font>с<font size="2" face="Arial">имвол есть операция</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">8.</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font size="2" face="Courier New">while(empty(stack) == FALSE) &amp;&amp;</font></span></p>
+    <p class="a" style="text-indent: 70.9pt; margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Courier New">(precedence(stacktop(opstk), 
+    symb) == TRUE)) {</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">9.</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font size="2" face="Courier New">smbtp = pop(opstk);</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Courier New">/*</font> <font size="2" face="Arial">
+    smbtp имеет приоритет больший, чем symb, поэтому она может быть добавлена к 
+    постфиксной строке</font>. <font size="2" face="Courier New">*/</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(добавить smbtp к постфиксной 
+    строке);</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">11.</font> &nbsp;&nbsp;&nbsp;&nbsp;
+    <font size="2" face="Courier New">} // end while</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Courier New">/*</font> <font size="2" face="Arial">в 
+    этой точке либо opstk пуст, либо symb имеет приоритет над stacktop(opstk). 
+    Мы не можем поместить symb в постфиксную строку до тех пор, пока не считаем 
+    следующую операцию, которая может иметь более высокий приоритет. 
+    Следовательно, мы должны сохранить symb.</font> <span lang="EN-US">
+    <font size="2" face="Courier New">*/</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">12.</font>
+    <font size="2" face="Courier New">push(opstk, symb);</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">13.</font><font size="2" face="Courier New"> 
+    } // end if</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">14.</font><font size="2" face="Courier New"> 
+    } // end while</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Courier New">/*</font> <font size="2" face="Arial">к 
+    этому моменту строка оказывается просмотренной целиком. Мы должны поместить 
+    оставшиеся в стеке операции в постфиксную строку.</font> <span lang="EN-US">
+    <font size="2" face="Courier New">*/</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">15.</font><font size="2" face="Courier New"> 
+    while(empty(opstk) == FALSE) {</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <span lang="EN-US"><font size="2" face="Arial">16.</font><font size="2" face="Courier New"> 
+    &nbsp;&nbsp;smbtp=pop(opstk);</font></span></p>
+    <p class="a" style="margin-left: 80; margin-right: 20" align="justify">
+    <font size="2" face="Arial">17.</font><font size="2" face="Courier New"> 
+    &nbsp;&nbsp;(добавить smbtp к постфиксной строке);</font></p>
+    <p class="a" style="margin-left: 80; margin-right: 20; margin-bottom: 6.0pt" align="justify">
+    <font size="2" face="Arial">18.</font><font size="2" face="Courier New"> } 
+    // end while</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Для обеспечения возможности работы со скобками 
+    после считывания открывающейся скобки она записывается в стек. Это может 
+    быть выполнено путем установки правила</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    precedence(op, &quot;(&quot;) == FALSE</font></span> <font size="2" face="Arial">для 
+    любого символа операции, отличного от символа правой (закрывающей) скобки. 
+    Также определим</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    precedence(&quot;(&quot;, op) == FALSE</font></span> <font size="2" face="Arial">для 
+    того, чтобы символ операции, появляющийся после левой скобки, записывался в 
+    стек.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">После считывания закрывающей скобки все операции 
+    вплоть до первой открывающей скобки должны быть прочитаны из стека и 
+    помещены в постфиксную строку. Это может быть сделано путем установки</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    precedence(op, &quot;)&quot;) == TRUE</font></span> <font size="2" face="Arial">для 
+    всех операций</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">op</font></span>,
+    <font size="2" face="Arial">отличных от левой скобки. После считывания этих 
+    операций из стека и закрытия открывающей скобки необходимо выполнить 
+    следующую операцию. Открывающая скобка должна быть удалена из стека и 
+    отброшена вместе с закрывающей скобкой. Обе скобки не помещаются затем ни в 
+    постфиксную строку, ни в стек. Установим функцию</font>
+    <span style="font-family: Courier New"><b><font size="2">precedence(&quot;(&quot;, 
+    &quot;)&quot;)</font></b></span> <font size="2" face="Arial">равной</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    FALSE</font></span>. <font size="2" face="Arial">Это гарантирует нам то, что 
+    при достижении открывающей скобки цикл, начинающийся в строке 8, будет 
+    пропущен, а открывающая скобка не будет помещена в постфиксную строку.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Выполнение продолжится со строки 12. Однако, 
+    поскольку открывающая скобка не должна помещаться в стек, строка 12 
+    заменяется оператором</font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <span lang="EN-US"><font size="2" face="Courier New">if((empty(opstk) == 
+    TRUE) || (symb &lt;&gt; &quot;)&quot;)) </font></span></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <span lang="EN-US"><font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push(opstk, symb);</font></span></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <span lang="EN-US"><font size="2" face="Courier New">else smbtp=pop(opstk);</font></span></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">С учетом приведенных соглашений для функции</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    precedence</font></span>, <font size="2" face="Arial">а также исправлений 
+    для строки 12 рассмотренный алгоритм может быть использован для 
+    преобразования любой строки, записанной в инфиксной форме, в постфиксную. 
+    Подытожим правила приоритетности скобок: </font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span style="font-family: Courier New"><font size="2">precedence(&quot;(&quot;,op) == 
+    FALSE</font></span><font size="2"> <font face="Arial">для любой операции</font>
+    <font face="Courier New">op</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span style="font-family: Courier New"><font size="2">precedence(op,&quot;(&quot;) == 
+    FALSE</font></span><font size="2"> <font face="Arial">для любой операции op, 
+    отличной</font> от &quot;)&quot;</font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span style="font-family: Courier New"><font size="2">precedence(op,&quot;)&quot;) == 
+    TRUE</font></span><font size="2"> <font face="Arial">для любой операции op, 
+    отличной</font> от &quot;(&quot;</font></p>
+    <p class="MsoBodyText" style="margin-left: 50"><font size="2">
+    <span style="font-family: Courier New">precedence(&quot;)&quot;,op) = </span>
+    <font face="Arial">&quot;неопределенно&quot;</font></font><font size="2" face="Arial"> 
+    для любой операции </font><font size="2" face="Courier New">op</font><font size="2" face="Arial">, 
+    (попытка сравнения двух указанных операций означает ошибку)</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Проиллюстрируем этот алгоритм несколькими 
+    примерами:</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+    <font face="Arial"><b><u><font size="2">Пример1:</font></u></b><font size="2">
+    </font></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+    <font face="Arial" color="#FF0000"><i><font size="2">А</font></i><font size="2">+<i>В</i>*</font><i><font size="2">С</font></i></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Приводится содержимое</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">symb</font></span>,
+    <font size="2" face="Arial">постфиксной строки и</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    opstk</font></span> <font size="2" face="Arial">после просмотра каждого 
+    символа. Вершина</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">
+    opstk</font></span> <font size="2" face="Arial">находится справа.</font></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr>
+          <td width="77" style="width: 57.6pt; border: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <!--[if supportFields]><![endif]--><font face="Arial">Строка</font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">symb</font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">Постфиксная строка</font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">opstk</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">1</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">2</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">+</span></font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">+</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">3</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">B</span></font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB</span></font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">+</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">4</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">*</span></font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB</span></font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">+*</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">5</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">C</span></font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">ABC</span></font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial">+*</font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">6</font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">&nbsp;</font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial">ABC*</font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial">+</font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">7</font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">&nbsp;</font></td>
+          <td width="197" style="width: 147.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:17.0pt;text-indent:0cm">
+          <font face="Arial">ABC*+</font></td>
+          <td width="98" style="width: 73.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.5pt;text-indent:0cm">
+          <font face="Arial">&nbsp;</font></td>
+        </tr>
+      </table>
+    </div>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Строки 1, 3 и 5 соответствуют просмотру операнда 
+    таким образом, что символ</font> (<span style="font-family: Courier New; font-weight: 700"><font size="2">symb</font></span>)
+    <font size="2" face="Arial">немедленно помещается в постфиксную строку. В 
+    строке 2 была обнаружена операция, а стек оказался пустым, поэтому операция 
+    помещается в стек. В строке 4 приоритет нового символа (*) больше, чем 
+    приоритет символа, расположенного в вершине стека (+), поэтому новый символ 
+    помещается в стек. На 6-м и 7-м шагах входная строка пуста, поэтому из стека 
+    считываются элементы, которые затем помещаются в постфиксную строку.</font>
+    </p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+    <font face="Arial"><b><u><font size="2">Пример2:</font></u></b><u><font size="2">
+    </font></u></font></p>
+    <p class="MsoBodyText" style="margin-left: 20">
+    <font face="Arial" color="#FF0000"><font size="2">(<i>А</i>+<i>В</i>)*</font><i><font size="2">С</font></i></font></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr>
+          <td width="77" style="width: 57.6pt; border: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <!--[if supportFields]><![endif]--><font face="Arial">Строка</font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">symb</font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial">Постфиксная строка</font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">Opstk</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">1</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">(</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">(</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">2</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">(</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">3</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">+</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">A</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">(+</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">4</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">B</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">(+</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">5</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">)</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB+</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">6</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">*</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB+</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">*</span></font></td>
+        </tr>
+        <tr>
+          <td width="77" style="width: 57.6pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">8</span></font></td>
+          <td width="51" style="width: 38.4pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="230" style="width: 172.8pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:19.95pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">AB+C*</span></font></td>
+          <td width="64" style="width: 48.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:5.65pt;text-indent:0cm">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+        </tr>
+      </table>
+    </div>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">В этом примере при обнаружении правой скобки из 
+    стека начинают извлекаться элементы до тех пор, пока не будет обнаружена 
+    левая скобка, после чего обе скобки отбрасываются. Использование скобок для 
+    изменения приоритетности выполнения операций приводит к последовательности 
+    их расположения в постфиксной строке, отличной от последовательности в 
+    примере 1.</font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Стек используется для 
+    запоминания в нем просмотренных ранее операций. Если текущая просматриваемая 
+    операция имеет больший приоритет, чем операция, расположенная в вершине 
+    стека, то эта новая операция записывается в стек. Это означает, что при 
+    окончательной выборке из стека всех элементов и записи их в одну строку в 
+    постфиксной форме эта новая операция будет предшествовать операции, ранее 
+    расположенной перед ним (что является правильным, поскольку она имеет более 
+    высокий приоритет). С другой стороны, если приоритет новой операции меньший
+    <u>или равный</u>, чем у операции из стека, то операция, находящаяся на 
+    вершине стека, должна быть выполнена первой. Следовательно, она извлекается 
+    из стека и помещается в выходную строку, а текущий рассматриваемый символ 
+    сравнивается со следующим элементом, занимающим теперь вершину стека, и т. 
+    д. Помещая во входную строку скобки, можно изменить последовательность 
+    вычислений. Так, при обнаружении левой скобки она записывается в стек. При 
+    обнаружении соответствующей ей правой скобки все операции между этими 
+    скобками помещаются в выходную строку, поскольку они выполняются прежде 
+    любых других операций, расположенных за этими скобками.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

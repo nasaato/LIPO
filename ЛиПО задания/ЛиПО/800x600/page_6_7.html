@@ -1,0 +1,248 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Проблема отражения времени при проектировании</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" height="455">
+  <tr>
+    <td width="9%" height="19">&nbsp;</td>
+    <td width="41%" height="19">&nbsp;</td>
+    <td width="41%" height="19">&nbsp;</td>
+    <td width="9%" height="19">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="25">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF" height="25">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF" height="25">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC" height="25">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18" height="367">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000" face="Arial">Проблема отражения времени при 
+    проектировании .</font></b></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Предполагается, что автомат функционирует в 
+    дискретные моменты времени, т.е. непрерывная шкала времени разделения на 
+    интервалы, которые занумерованы целыми положительными числами <b>
+    <span lang="en-us">t<sub> i</sub>=0, 1, 2, ... , j ... </span></b>и которые 
+    будем называть <b><i>тактами.</i></b> На протяжении одного такта сохраняются 
+    неизменными состояние входа, состояние выхода и внутреннее состояние 
+    автомата. Время, в течение которого не происходит изменения состояния входа 
+    автомата, обозначим через <b><i>Т</i></b>, и в зависимости от того, чем 
+    определяется длительность этого интервала времени, будем различать два 
+    класса автоматов<b> : <i>синхронные&nbsp; </i></b>и<b><i>&nbsp; асинхронные</i></b>. 
+    Синхронный автомат характеризуется тем, что имеется генератор тактовых (или 
+    синхронизирующих) сигналов ( ТГ ) и входные сигналы могут воздействовать на 
+    автомат лишь при наличии сигнала от ТГ. Таким образом, время <b><i>Т </i>
+    </b>строго фиксировано и определяется длительностью сигнала ТГ. Автомат 
+    может воспринимать новое состояние входа лишь после того, как он перешел в 
+    определенное внутреннее состояние. Поэтому частоту ТГ выбирают такой, чтобы 
+    до появления следующего сигнала от ТГ автомат успел перейти в это внутреннее 
+    состояние (время перехода автомата из одного внутреннего состояния в другое 
+    будем обозначать через <img border="0" src="tau.gif" width="8" height="9">), 
+    т.е. необходимо обеспечить следующее соотношение <b>:</b></font></p>
+    <p align="center" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2"><b>&#8710; <span lang="en-us">&gt;&gt;
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>макс</sub><span lang="en-us"> 
+    ,</span></font></p>
+    <p align="left" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">где &#8710;<b> = Т<i> + </i>
+    &#948;<span lang="en-us"> ; </span>&#948; </b>- интервал между двумя соседними 
+    сигналами от ТГ<b> ;</b> <b> <span lang="en-us">
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>макс </sub>
+    - наибольшее время перехода автомата из одного внутреннего состояния в 
+    другое. Обычно длительность этого сигнала выбирают такой, что <b>
+    <span lang="en-us">T </span></b></font><b><span lang="en-us"><font size="2">
+    &#8804; </font></span></b>
+    <font face="Arial" size="2"><b> <span lang="en-us">
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>мин</sub>, т.е. изменение внутреннего состояния автомата&nbsp; 
+    происходит лишь в интервалах между двумя соседними сигналами от ТГ, когда 
+    входные сигналы не воздействуют на автомат.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Таким образом, для синхронных автоматов интервал 
+    времени <b>
+    <span lang="en-us">T</span> </b>совпадает с тактом работы автомата, так как 
+    состояние входа и внутреннее состояние автомата на протяжении этого времени 
+    остаются неизменными. Обычно в абстрактной теории автоматов не интересуются 
+    поведением автомата в интервалы времени <b>&#948;, </b>а считая, что переход 
+    автомата из одного внутреннего состояния в другое происходит мгновенно, 
+    рассматривают лишь интервалы времени <b>
+    <span lang="en-us">T</span>, </b>каждый из которых сопоставляется с моментом 
+    времени <b>
+    <span lang="en-us">t</span><span lang="en-us"><sub>i</sub></span>. </b>
+    Поэтому в абстрактном автомате может оказаться, что два соседних такта, 
+    определяемые двумя последовательными моментами времени <b>
+    <span lang="en-us">t<sub>i</sub></span><sub> </sub> </b>и <b>
+    <span lang="en-us">t<sub>i</sub></span><sub>+1</sub></b> , будут 
+    соответствовать одним и тем же состояниям входа. Однако заметим еще раз, что 
+    в реальном синхронном автомате эти два момента времени всегда разделены 
+    интервалом <b>&#948;, </b>в течение которого отсутствует синхронизирующий 
+    сигнал от ТГ.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Таким образом, для синхронных автоматов 
+    характерно следующее <b>:<br>
+    1) </b>входные сигналы воздействуют на автомат в строго фиксированные 
+    моменты времени и <span lang="en-us"><b>T=const ;<br>
+    2) </b></span>изменение внутренних состояний автомата осуществляется в 
+    интервалы времени, когда нет воздействия входных сигналов.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">В асинхронных автоматах длительность интервала 
+    времени <b>Т, </b>в течение которого остается неизменным состояние входа, 
+    является величиной переменной и определяется только моментами изменения 
+    состояния входа. Поэтому каким бы продолжительным ни был интервал времени, в 
+    течение которого сохраняется неизменным состояние входа, он будет 
+    восприниматься автоматом как один и тот же интервал времени
+    <span lang="en-us"><b>t. </b></span>Следовательно, двум последовательным 
+    интервалам времени <b>
+    <span lang="en-us">t<sub>i</sub></span><sub> </sub> </b>и <b>
+    <span lang="en-us">t<sub>i</sub></span><sub>+1 </sub></b>всегда должны 
+    соответствовать различные состояния входа.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Обычно считают, что изменение состояния входа 
+    асинхронного автомата может произойти лишь после того, как автомат перешел в 
+    определенное внутреннее состояние<b> Т<sub>мин</sub> <span lang="en-us">&gt;&gt;
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>макс</sub><span lang="en-us"> 
+    , </span>где <b> Т<sub>мин </sub></b>- наименьший интервал времени, в 
+    течение которого сохраняется неизменным состояние входа. В связи с этим 
+    изменение внутреннего состояния автомата происходит при неизменном состоянии 
+    входа, так что одному и тому же интервалу времени <b>Т </b>может 
+    соответствовать несколько различных внутренних состояний. Поэтому интервал 
+    времени <b>Т </b>будет разделен на несколько тактов. Таким образом, переход 
+    к новому такту вызывается не только изменением состояния входа, но и 
+    изменением внутреннего состояния автомата. Такт, предшествующий моменту 
+    изменения состояния входа автомата, часто называют <b><i>устойчивым тактом.
+    </i></b>Такт, предшествующий моменту изменения состояния автомата, называют
+    <b><i>неустойчивым тактом. </i></b>Длительность неустоцивого такта 
+    определяется временем <b> <span lang="en-us">
+    <img border="0" src="tau.gif" width="8" height="9"></span> </b>перехода 
+    автомата из одного внутреннего состояния в другое и зависит от параметров 
+    элементов, образующих структуру автомата. В ряде случаев автомат работает 
+    так, что на протяжении одного и того же интервала времени <b>Т </b>может 
+    быть несколько неустойчивых тактов. Поэтому и должно выполняться неравенство <b> Т<sub>мин</sub> <span lang="en-us">&gt;&gt;
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>макс</sub><span lang="en-us"> 
+    ,</span> чтобы при любом конечном числе <span lang="en-us"><b>r </b></span>
+    неустойчивых тактов <b> <span lang="en-us">
+    <img border="0" src="tau.gif" width="8" height="9"> </span></b><sub>макс </sub>
+    <b><span lang="en-us">r</span> <span lang="en-us">&lt; </span>Т<sub>мин</sub><span lang="en-us"> 
+    .</span></b></font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Для асинхронных автоматов, таким образом, 
+    характерно следующее <b>:<br>
+    1) </b>длительность интервала времени <b>Т</b> является величиной переменной 
+    и определяется лишь изменениями состояния входа автомата <b>;<br>
+    2) </b>переход в новое внутреннее состояние осуществляется при неизменном 
+    состоянии входа.</font></p>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="21">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="20">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="16">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="16">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="25">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF" height="25">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF" height="25">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC" height="25">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC" height="19">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC" height="19">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC" height="19">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC" height="19">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

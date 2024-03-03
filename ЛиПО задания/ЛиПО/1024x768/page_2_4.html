@@ -1,0 +1,213 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Грамматика языка</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Грамматика языка</font></b></p>
+    <p align="justify" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><u><span style="font-size: 10.0pt; font-family: Arial">Грамматика</span></u></b><span style="font-size: 10.0pt; font-family: Arial"> 
+    определяется как четверка (<i>Vt</i>, <i>Vn</i>, <i>P</i>, <i>S</i>), где <i>
+    Vt</i> – алфавит, символы которого называется <b><u>терминальными</u> </b>
+    (терминалами), из них строятся цепочки порождаемые грамматикой. <i>Vn</i> – 
+    алфавит, символы которого называется <b><u>нетерминальными</u> </b>
+    (нетерминалами), используются при построении цепочек; они могут входить в 
+    промежуточные цепочки, но не должны входить в результат порождения. <i>Vt</i> 
+    и <i>Vn</i> не имеют общих символов, т.е. </span><font size="3">Vt
+    <font face="Symbol">З</font>Vn = &Oslash;, </font>
+    <span style="font-size: 10.0pt; font-family: Arial">полный алфавит (словарь) 
+    грамматики <i>V</i> определяется как </span><font size="3">Vt
+    <font face="Symbol">И</font> Vn</font><span style="font-size: 10.0pt; font-family: Arial">.
+    <i>P</i> – набор <b><u>порождающих правил</u></b>, каждый элемент которых 
+    состоит из пары (<i>&#945;</i>, <i>&#946;</i>), где <i>&#945;</i> находится в <i>V+</i>, а
+    <i>&#946;</i> в <i>V*</i>. <i>&#945;</i> – левая часть правила, а <i>&#946;</i> – правая, 
+    т.е. цепочки, построенные из букв алфавита <i>V</i>. Правило записывается
+    </span><font size="3">&#945; <font face="Symbol">®</font> &#946;. </font></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span style="font-family: Arial"><font size="2">S</font></span></i><span style="font-family: Arial"><font size="2"> 
+    принадлежит <i>Vn</i> и называется <b><u>начальным символом</u></b> 
+    (аксиомой). Этот символ – отправная точка в получении любого предложения 
+    языка.</font></span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Грамматикой, 
+    генерирующей язык <i>L</i> = { 0<i><sup>n</sup></i>1<i><sup>n</sup></i> | <i>
+    n</i> </span><span style="font-size: 10.0pt; font-family: Symbol">&sup3;</span><span style="font-size: 10.0pt; font-family: Arial"> 
+    0} является <i>G</i><sub>0</sub> = ( {0,1}, {<i>S</i>}, <i>P</i>, <i>S</i>),&nbsp; 
+    где <i>P</i> = {</span><i><span style="font-family: Arial"><font size="2">S
+    </font></span></i><font face="Symbol" size="3">®</font><span style="font-family: Arial"><font size="2"> 
+    0<i>S</i>1, <i>S </i></font></span><font face="Symbol" size="3">®</font><span style="font-family: Arial"><font size="2"><i> 
+    &#949;</i> }.<br>
+    <br>
+    Грамматикой, генерирующей язык <i>L</i> = { <i>a</i><sup>n </sup><i>b</i></font></span><font size="2"><sup><span lang="EN-US" style="font-family: Arial">m</span></sup><span style="font-family: Arial"> 
+    | <i>n</i>, </span><i><span lang="EN-US" style="font-family: Arial">m</span></i><span lang="EN-US" style="font-family: Arial">
+    </span><span style="font-family: Symbol">&sup3;</span><span style="font-family: Arial"> 
+    0} является <i>G</i><sub>0</sub> = ( { <i>a</i>, <i>b</i>}, {<i>S</i>, <i>A</i>,
+    <i>B</i>}, <i>P</i>, <i>S</i>), где <i>P</i> = { <i>S </i></span></font>
+    <font face="Symbol" size="3">®</font><font size="2"><span style="font-family: Arial"><i> 
+    AB</i>, <i>A </i></span></font><font face="Symbol" size="3">®</font><font size="2"><span style="font-family: Arial"><i> 
+    aA</i>, <i><br>
+    A </i></span></font><font face="Symbol" size="3">®</font><font size="2"><span style="font-family: Arial"><i> 
+    &#949;</i>, <i>B </i></span></font><font face="Symbol" size="3">®</font><font size="2"><span style="font-family: Arial"><i>
+    </i></span><i><span lang="EN-US" style="font-family: Arial">b</span><span style="font-family: Arial">B</span></i></font><span style="font-family: Arial"><font size="2">,
+    <i>B </i></font></span><font face="Symbol" size="3">®</font><span style="font-family: Arial"><font size="2"><i> 
+    &#949;</i> }</font></span></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">Начав с символа <i>S </i>и 
+    применяя последовательно по одному из правил замены нетерминала в выводимой 
+    строке можно, например, генерировать строку <i>aaabb</i>:</font></span></p>
+    <p class="MsoNormal" align="center" style="text-align: center; line-height: 150%">
+    <i><span style="font-family: Arial"><font size="2">S </font></span></i>
+    <font face="Symbol" size="3">Ю </font><i><span style="font-family: Arial">
+    <font size="2">&nbsp;AB </font></span></i><font face="Symbol" size="3">Ю
+    </font><i><span style="font-family: Arial"><font size="2">&nbsp;aAB </font>
+    </span></i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaAB </font></span>
+    </i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaaAB </font></span>
+    </i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaaB </font></span>
+    </i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaabB </font></span>
+    </i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaabbB </font></span>
+    </i><font face="Symbol" size="3">Ю </font><i>
+    <span style="font-family: Arial"><font size="2">&nbsp;aaabb</font></span></i></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2"><A name="sent"></A>Каждая строка, которую можно 
+    вывести из начального символа, называется <font color="#FF0000">сентенциальной формой</font>. Предложение 
+    – сентенциальная форма, содержащая только терминалы. Терминалы будем 
+    обозначать строчными (маленькими) буквами, а нетерминалы – прописными 
+    (большими).</font></span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Как правило, предложения 
+    языка можно генерировать с помощью более чем одной грамматики. Две 
+    грамматики, генерирующие один и тот же язык, называют <b><u>эквивалентными</u></b>. 
+    С точки зрения разработчика <a href="page_1_2.html#transl" target="mainFrame">транслятора</a> одна грамматика может быть гораздо 
+    удобней другой.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

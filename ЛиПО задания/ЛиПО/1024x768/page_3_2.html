@@ -1,0 +1,250 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Регулярные и нерегулярные выражения</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Регулярные и нерегулярные выражения.</font></b></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">Многие &quot;локальные&quot; средства 
+    языков программирования, например константы, ключевые слова языка и строки, 
+    представляются с помощью грамматик типа 3. Некоторые очень простые языки 
+    описания аппаратуры также можно описать с помощью регулярной грамматики. 
+    Однако грамматики типа 3 генерируют только строго ограниченные типы языков – 
+    регулярные выражения.</font></span><font face="Arial" size="2"> </font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">В алфавите <i>А</i> к 
+    регулярным выражениям относятся следующие:</span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2"><font color="#FF0000"><b>1.</b></font> 
+    Элемент <i>А</i> (или пустая строка).</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">Если <i>P</i> и <i>Q</i> – 
+    регулярные выражения, то регулярными будут также и выражения</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2"><font color="#FF0000"><b>2.</b></font>
+    <i>PQ</i> (<i>Q</i> следует за <i>P</i>)</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2"><font color="#FF0000"><b>3.</b></font>
+    <i>P | Q</i> (<i>P</i> или <i>Q</i>)</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2"><font color="#FF0000"><b>4.</b></font>
+    <i>P</i>* (нуль или более экземпляров <i>P</i>)</font></span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">В алфавите {<i>a, b, c</i>}</span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span style="font-family: Arial"><font size="2">ab* | ca*</font></span></i><span style="font-family: Arial"><font size="2"> 
+    – регулярное выражение, которое описывает язык, включающий следующие строки 
+    (помимо прочих):</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span lang="EN-US" style="font-family: Arial"><font size="2">abb&nbsp;&nbsp;&nbsp; c&nbsp;&nbsp;&nbsp;&nbsp; 
+    caaa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ca </font></span></i></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><u><span style="font-family: Arial"><font size="2">Пример регулярного 
+    выражения</font></span></u><font size="2"><span style="font-family: Arial">.</span></font></b><span style="font-family: Arial"><font size="2"> 
+    Регулярное выражение, описывающее идентификатор, имеет вид:</font></span></p>
+    <p class="MsoNormal" align="center" style="text-align: center; text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span style="font-family: Arial"><font size="2">L ( L | D )*</font></span></i><span style="font-family: Arial"><font size="2">, 
+    где <i>L</i> обозначает букву, <i>D</i> – цифру.</font></span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">У регулярных выражений 
+    есть существенные ограничения. Например, регулярное выражение не может 
+    задавать шаблоны скобок произвольной длины, и, следовательно, их нельзя 
+    генерировать с помощью грамматики типа 3.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><u><span style="font-size: 10.0pt; font-family: Arial">Пример 
+    нерегулярного выражения</span></u><span style="font-size: 10.0pt; font-family: Arial">.</span></b><span style="font-size: 10.0pt; font-family: Arial"> 
+    Рассмотрим язык, состоящий из строк открывающих и закрывающих скобок (плюс 
+    пустая строка), обладающих следующими свойствами:</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">При чтении слева направо 
+    число встреченных закрывающих скобок никогда не превышает число встреченных 
+    открывающих скобок.</span></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font color="#FF0000"><b>1)</b></font><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 7.0pt; font-family: Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span></span><span style="font-family: Arial"><font size="2">В каждой 
+    строке содержится одинаковое число открывающих и закрывающих скобок.</font></span></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">Например, следующие строки 
+    принадлежат языку:</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">( ) ( ( ) ( ) ( ( ) ) )</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">( ( ) ( ) ( ( ) ( ( ) ) ) ) 
+    ( ( ) )</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">а приводимые ниже – нет:</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">( ( ( ) ( ) ) – не 
+    соответствует правилу 2.</font></span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-family: Arial"><font size="2">( ) ) ) ( ( ( ) – не 
+    соответствует правилу 1.</font></span></p>
+    <p class="MsoBodyTextIndent3" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Не существует способа 
+    представления этого языка с помощью регулярного выражения или его 
+    генерирования с помощью грамматики типа 3. Однако этот язык генерируется 
+    следующей <a href="page_7_1.html" target="mainFrame">контекстно-свободной грамматикой</a>:</span></p>
+    <p class="MsoNormal" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><span lang="EN-US" style="font-family: Arial">S </span></i>
+    <font face="Symbol" size="3">®</font><i><span lang="EN-US" style="font-family: Arial"> 
+    (S)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; S </span></i><font face="Symbol" size="3">®</font><i><span lang="EN-US" style="font-family: Arial"> 
+    SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp; S </span></i><font face="Symbol" size="3">®</font><i><span style="font-family: Arial">
+    </span><span style="font-family: Arial">&#949;</span><span lang="EN-US" style="font-family: Arial">
+    </span></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">В большинстве языков 
+    программирования и языков описания аппаратуры имеются пары скобок, которые 
+    необходимо согласовывать, например:</span></p>
+    <p class="a" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">( ) , [ ] , begin end</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">каждой открывающей 
+    скобке должна соответствовать закрывающая. Так </span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">begin () end</span><span style="font-size: 10.0pt; font-family: Arial"> 
+    – правильно</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">begin (end)</span><span style="font-size: 10.0pt; font-family: Arial"> 
+    – неправильно</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Контекстно-свободная 
+    грамматика позволяет специфицировать подобные ограничения. Как правило, 
+    большая часть синтаксиса языков программирования и специализированных языков 
+    САПР описывается с помощью КС-грамматики. Однако у большинства языков есть 
+    некоторые свойства, которые нельзя выразить с помощью КС-грамматики. 
+    Например, присваивание X:=Y может быть допустимым, если объявлено, что X и Y 
+    имеют соответствующие типы, или недопустимым при несоответствии типов. 
+    Условие такого вида не может быть специфицировано КС-грамматикой, и 
+    компиляторы обычно выполняют проверку типа не на фазе формального 
+    <a href="page_9_1.html" target="mainFrame">синтаксического анализа</a>. Однако идею КС-грамматики можно расширить, включив 
+    некоторые контекстно-зависимые свойства языков.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

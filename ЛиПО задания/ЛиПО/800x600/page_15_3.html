@@ -1,0 +1,219 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Постфиксная запись операторов (IF и др.)</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Постфиксная запись операторов<span lang="en-us"> 
+    (IF </span>и др.).</font></b></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Ясно, что <a href="page_15_2.html" target="mainFrame">постфиксная запись для выражений</a> 
+    формируется достаточно просто. Для операторов этот процесс выполняется 
+    сложнее. Рассмотрим его на примере оператора IF, синтаксис которого задан 
+    следующей конструкцией:</font></p>
+    <p class="a" style="text-indent: 3.0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;IF_STMT&gt; ::= IF &lt;</font></span><font size="2">ВЫРАЖЕНИЕ</font><span lang="EN-US"><font size="2">&gt; 
+    THEN</font></span></font></p>
+    <p class="a" style="text-indent: 3.0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">&lt;СПИСОК ПРЕДЛОЖЕНИЙ&gt;</font></p>
+    <p class="a" style="text-indent: 3.0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">{ELSE &lt;СПИСОК ПРЕДЛОЖЕНИЙ&gt;}</font></p>
+    <p class="a" style="text-indent: 3.0cm; margin-left: 20; margin-right: 20; margin-bottom: 6.0pt" align="justify">
+    <font size="2" face="Arial">END</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Фигурные скобки здесь являются метасимволами, 
+    обозначающими необязательность конструкции. Чтобы выполнить это предложение, 
+    необходимо оценить выражение и, если его значение ложно, передать управление 
+    группе операторов, следующих за словом ELSE (если оно есть), или в конец 
+    предложения, отмеченный словом END. Однако ключевые слова ELSE или END еще 
+    не прочитаны на данном этапе анализа, и поэтому мы не располагаем точным 
+    указанием места, куда следует передать управление.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Эту трудность можно преодолеть, если определить 
+    точку передачи управления. Мы отметим эту точку так называемой системной 
+    меткой и на текущем этапе разбора поместим имя этой метки в постфиксную 
+    запись непосредственно за выражением. Когда в тексте программы встретится 
+    ключевое слово ELSE (или END), поместим такую же системную метку в 
+    соответствующем месте постфиксной записи. Таким образом, системная метка 
+    присутствует в анализируемой программе в двух местах: после выражения в 
+    точке, где выполняется передача управления вперед, а также в точке, куда 
+    должно быть передано управление. С помощью этих данных 
+    <a href="page_17_1.html" target="mainFrame">генератор кода</a> 
+    установит соответствующую адресную связь. </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Можно построить команду перехода вперед, которая 
+    обходит список операторов, следующих за ключевым словом THEN, однако в связи 
+    с обработкой ключевого слова END могут возникнуть некоторые осложнения. Если 
+    в предложении IF слово ELSE опущено, то передача управления должна быть 
+    совершена в точку, соответствующую слову END. Однако если слово ELSE входит 
+    в предложение IF, то управление должно быть передано в точку, 
+    соответствующую этому слову, а от группы операторов, следующих за словом 
+    THEN, должен происходить безусловный переход к точке, соответствующей слову 
+    END. Эта мера позволит после выполнения операторов из группы, следующей за 
+    словом THEN, обойти выполнение операторов, написанных после слова ELSE. 
+    Заметим, однако, что в обоих случаях слово END представляет точку в 
+    предложении, куда передается управление одной командой перехода вперед. 
+    Благодаря этому обстоятельству удается связать друг с другом части 
+    объектного кода, реализующего предложение IF.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Учитывая сказанное выше, постфиксную запись 
+    предложения IF можно представить в следующей форме:</font></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">&lt;ВЫРАЖЕНИЕ&gt;</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">Метка перехода вперед для слова IF</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">IF</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">&lt;СПИСОК ПРЕДЛОЖЕНИЙ&gt;</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">{Метка обхода /* Метка обхода списка операторов 
+    ELSE */</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">Метка перехода вперед </font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">/* Точка, куда передается управление при обходе 
+    списка операторов THEN */</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">ELSE</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 80"><b>
+    <font size="2" face="Arial">&lt;СПИСОК ПРЕДЛОЖЕНИЙ&gt;}</font></b></p>
+    <p class="a" style="line-height: 150%; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Системная метка для передачи управления из 
+    точки, отмеченной меткой перехода вперед или меткой обхода списка операторов 
+    ELSE</font></p>
+    <p class="a" style="line-height: 150%; margin-left: 50; margin-right: 20; margin-bottom: 6.0pt" align="justify">
+    <font size="2" face="Arial"><b>END_IF</b> </font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">где IF является бинарным 
+    оператором, который проверяет истинность выражения и, если его значение 
+    равно 0 (ЛОЖНО), обходит список операторов THEN, a ELSE – бинарный оператор, 
+    который строит команду перехода к списку операторов ELSE и определяет метку 
+    перехода вперед. Аналогичные действия выполняет и запись END_IF.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

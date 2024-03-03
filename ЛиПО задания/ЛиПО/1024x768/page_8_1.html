@@ -1,0 +1,401 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>S-грамматика</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><span lang="en-us"><font face="Arial" color="#FF0000">S-</font></span><font face="Arial" color="#FF0000">грамматика.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><font color="#FF0000">LL(1)-грамматика</font> – это 
+      грамматика такого типа, на основании которой можно получить 
+      детерминированный синтаксический анализатор, работающий по принципу сверху 
+      вниз. Прежде чем более точно определить <span lang="EN-US">LL</span>(1)-грамматику, 
+      введем понятие <span lang="EN-US">s</span>-грамматики.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><font color="#FF0000">S-грамматика</font> представляет собой 
+      грамматику, в которой:</font></p>
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><font color="#FF0000"><b>1)</b></font> правая 
+      часть каждого порождающего правила начинается с терминала;</font></p>
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><font color="#FF0000"><b>2)</b></font> в тех 
+      случаях, когда в левой части более чем одного порождающего правила 
+      появляется один и тот же нетерминал, соответствующие правые части 
+      начинаются с разных терминалов.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Первое условие аналогично утверждению, что 
+      грамматика находится в <a href="page_7_1_1.html" target="mainFrame">нормальной форме Грейбаха</a>, только за терминалом в 
+      начале каждой правой части правила могут следовать нетерминалы и/или 
+      терминалы.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Второе условие позволяет написать 
+      детерминированный нисходящий анализатор, так как при выводе предложения 
+      языка всегда можно сделать выбор между альтернативными порождающими 
+      правилами для самого левого нетерминала в <a href="page_2_4.html#sent" target="mainFrame">сентенциальной форме</a>, 
+      предварительно исследовав один следующий символ.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Грамматика с порождающими правилами</font>
+    </div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S</span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      pX</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S</span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      qY</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">X
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      aXb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">X
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      x</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Y</span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      y</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Y</span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      aYd</span></i></div>
+    <div class="Section3">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">представляет собой s-грамматику, тогда как 
+      следующая грамматика, которая генерирует тот же язык, не является ею:</font></div>
+    <div class="Section4">
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S
+      </span><span lang="EN-US" style="font-family: Symbol">® </span>
+      <span lang="EN-US">R</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      T</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">R
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      pX</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">T
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      qY</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">X
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      aXb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">X
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      x</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Y
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      aYd</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Y
+      </span><span lang="EN-US" style="font-family: Symbol">®</span><span lang="EN-US"> 
+      y</span></i></div>
+    <div class="Section5">
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">поскольку правые части двух правил не 
+      начинаются с терминалов. </font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Определить, используется ли в качестве 
+      заданной грамматики s-грамматика, очень легко, и в некоторых случаях 
+      грамматику, которая не является s-грамматикой, можно преобразовать в нее, 
+      не затрагивая при этом генерируемый язык.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Рассмотрим проблему разбора строки <i>paaaxbbb</i> 
+      с помощью приведенной выше s-грамматики. Начав с символа <i>S</i>, 
+      попытаемся генерировать строку. Применим левосторонний вывод. Результат 
+      приводится ниже. </font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial"><font size="2">Исходная строка:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><i>
+      <font size="2">paaaxbbb</font></i></font></p>
+      <p class="MsoBodyText" style="margin-left: 20"><font face="Arial"><b><u>
+      <font size="2">Вывод</font></u></b><font size="2">:</font></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>
+      S <span style="font-family:Symbol">®</span> pX
+      <span style="font-family:Symbol">®</span> paXb
+      <span style="font-family:Symbol">®</span> paaXbb
+      <span style="font-family:Symbol">®</span> paaaXbbb
+      <span style="font-family:
+Symbol">®</span> paaaxbbb</i></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">При выводе начальные терминалы в 
+      сентенциальной форме сверяются с символами в исходной строке. Там, где 
+      допускается замена самых левых терминалов в сентенциальной форме с помощью 
+      более чем одного порождающего правила, всегда можно выбрать 
+      соответствующее порождающее правила, исследовав следующий символ во 
+      входной строке. Это связано с тем, что, поскольку мы имеем дело с 
+      s-грамматикой, правые части альтернативных порождающих правил будут 
+      начинаться с различных терминалов. Таким образом, всегда можно написать 
+      детерминированный анализатор, осуществляющий разбор сверху вниз, для 
+      языка, генерируемого s-грамматикой.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">LL(1)-грамматика является обобщением 
+      s-грамматики, и принцип ее обобщения все еще позволяет строить нисходящие 
+      детерминированные анализаторы. Две буквы L в LL(1) означают, что строки 
+      разбираются слева направо (<span lang="EN-US">Left</span>) и используются 
+      самые левые выводы (<span lang="EN-US">Left</span>), а цифра 1 – что 
+      варианты порождающих правил выбираются с помощью одного предварительно 
+      просмотренного символа. Кстати, если речь идет, например, о
+      <span lang="EN-US">LL</span>(2)-грамматике, это значит, что строки 
+      разбираются слева направо и используются самые левые выводы, а варианты 
+      порождающих правил выбираются с помощью двух предварительно просмотренных 
+      символов. Аналогично, термин <span lang="EN-US">LR</span>(1)-грамматика 
+      подразумевает, что строки разбираются слева направо (<span lang="EN-US">Left</span>), 
+      используются самые правые выводы (<span lang="EN-US">Right</span>), а 
+      варианты порождающих правил выбираются с помощью одного предварительно 
+      просмотренного символа. Более подробно <span lang="EN-US">LR</span>-грамматики 
+      будут рассмотрены в параграфе, посвященном методам восходящего разбора.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Даже если правая часть порождающего правила и 
+      не начинается с терминала, каждый вариант какого-либо нетерминального 
+      символа может дать начало только тем строкам, которые начинаются с одного 
+      из конкретного множества терминалов. Например, на основании порождающих 
+      правил</font></div>
+    <div class="Section6">
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> RY</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> TZ</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">R
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> paXb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">T
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> qaYd</span></i></div>
+    <div class="Section7">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">можно вывести, что если для <i>R</i> и <i>
+      <span lang="EN-US">T</span></i> нет других порождающих правил, порождающее 
+      правило</font> <i>S <span style="font-family:Symbol">®</span> RY</i>
+      <font size="2" face="Arial">желательно применять в разборе сверху вниз 
+      (нисходящий разбор – от начального символа – к строке) только когда 
+      предварительно просматриваемым символом является <i>p</i>. Аналогично 
+      порождающее правило</font> <i>S <span style="font-family:Symbol">®</span> 
+      TZ</i> <font face="Arial" size="2">рекомендуется в тех случаях, когда 
+      таким символом окажется <i>q</i>.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Это приводит к идее множеств 
+      символов-предшественников, определяемых как </font></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">a
+      </span><span style="font-family:Symbol">&Icirc;</span><span lang="EN-US"> S(A)
+      </span><span style="font-family:Symbol">&Ucirc;</span><span lang="EN-US"> A
+      </span><span style="font-family:Symbol">&THORN;</span><span lang="EN-US"> a</span>&#945;<span lang="EN-US">,</span></i></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">где <i>A</i> – нетерминальный символ, <i>&#945;</i> 
+      – строка терминалов и/или нетерминалов, а <i>S</i>(<i>A</i>) обозначает 
+      множество символов-предшественников <i>A</i>. В грамматике с порождающими 
+      правилами </font>
+    </div>
+    <div class="Section8">
+      <p class="MsoBodyText" style="margin-left: 40"><i>P
+      <span style="font-family:Symbol">®</span> Aс</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i>P
+      <span style="font-family:Symbol">®</span> Bd</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> a</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> aA</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> b</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> bB</span></i></div>
+    <div class="Section9">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font face="Arial"><i><font size="2">a</font></i><font size="2"> и <i>b</i> 
+      – символы-предшественники для <i>P</i>. Определим также множество 
+      символов-предшественников для строки терминалов и/или нетерминалов:</font></font></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">a</span><span style="font-family:Symbol">&Icirc;</span><span lang="EN-US"> 
+      S(</span>&#945;<span lang="EN-US">) </span><span style="font-family:Symbol">&Ucirc;</span> 
+      &#945; <span style="font-family:Symbol">&THORN;</span><span lang="EN-US"> a</span>&#946;<span lang="EN-US">,</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">где</font> <i>&#945;</i>
+      <font face="Arial" size="2">и</font> <i>&#946;</i> –
+      <font size="2" face="Arial">строки терминалов и/или нетерминалов</font> (<i>&#946;</i>
+      <font size="2" face="Arial">может быть пустой строкой</font>). </p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Необходимым условием того, чтобы грамматика 
+      обладала признаком LL(1), является непересекаемость множеств 
+      символов-предшественников для альтернативных правых сторон порождающих 
+      правил.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Следует проявлять осторожность в тех случаях, 
+      когда нетерминал в начале правой части может генерировать пустую строку. 
+      Например, в грамматике</font></div>
+    <div class="Section10">
+      <p class="MsoBodyText" style="margin-left: 40"><i>P
+      <span style="font-family:Symbol">®</span> AB</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">P
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> BG</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> aA</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span> &#949;</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> bB</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i>B
+      <span style="font-family:Symbol">®</span> c</i></div>
+    <div class="Section11">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">имеем</font> <i>S (AB) = {a, b ,c}, </i>
+      <font size="2" face="Arial">причем <span lang="EN-US">b</span> и
+      <span lang="EN-US">c</span><i><span lang="EN-US"> </span></i>входят в 
+      множество, т.к. <i>А</i> может генерировать пустую строку;</font> <i>S 
+      (BG) = {b, c} – </i><font size="2" face="Arial">множества пересекаются, 
+      следовательно грамматика не будет LL(1).</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Рассмотрим также грамматику с порождающими правилами</font></div>
+    <div class="Section12">
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">T
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> AB</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> PQ</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> BC</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">P
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> pP</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">P
+      </span><span style="font-family:Symbol">®</span> &#949;</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Q
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> qQ</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Q
+      </span><span style="font-family:Symbol">®</span> &#949;</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> bB</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span> е</i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> cC</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> f</span></i></div>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+    <font face="Arial" size="2">для которой</font> <i>S</i>(<i>PQ</i>) = {<i>p</i>,
+    <i>q</i>} и <i><span lang="EN-US">S</span></i>(<i><span lang="EN-US">BC</span></i>) 
+    = {<i><span lang="EN-US">b</span></i>, <i><span lang="EN-US">e</span></i>}
+    </p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Однако так как <i>PQ </i>может генерировать 
+    пустую строку, следующим просматриваемым символом при применении 
+    порождающего правила</font> <i>A <span style="font-family:Symbol">®</span> 
+    PQ</i> <font size="2" face="Arial">может быть <i>b</i> или <i>
+    <span lang="EN-US">e</span></i> (вероятные символы, следующие за <i>A</i>), 
+    и одного следующего просматриваемого символа недостаточно, чтобы различить 
+    две альтернативные правые части для <i>A</i> (<i>b</i> и <i>
+    <span lang="EN-US">e</span></i> являются также символами предшественниками 
+    для <i>BC</i>).</font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Поэтому вводится понятие
+    <b><u><a href="page_8_2.html" target="mainFrame">направляющих символов</a></u></b></span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

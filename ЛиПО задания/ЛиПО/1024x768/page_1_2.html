@@ -1,0 +1,182 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Работа компилятора</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <b><font face="Arial" color="#FF0000">Работа компилятора.<br>
+    <br>
+    </font></b><span style="font-family: Arial"><font size="2">На фазе <b><u>
+    <a href="page_5_1.html" target="mainFrame">лексического анализа</a></u></b> исходный текст программы в виде цепочки 
+    несвязанных друг с другом символов разбивается на единицы, называемые
+    <font color="#FF0000"> <u><a href="page_5_1.html" target="mainFrame">лексемами</a></u></font>. Такими текстовыми единицами являются специальные слова, 
+    используемые в языке (например, IF,DO и др.), имена переменных, константы и 
+    знаки операций (например,<b>*</b> или +). Далее эти слова рассматриваются 
+    как неделимые образования, а не как группы отдельных символов. После 
+    разбиения программы на лексемы следует фаза <b><u><a href="page_9_1.html" target="mainFrame">синтаксического анализа</a></u></b>, 
+    называемая <font color="#FF0000">грамматическим разбором</font>, на которой проверяется 
+    правильность следования операторов. Например, для предложения IF, имеющего 
+    вид IF выражение THEN предложение; грамматический разбор состоит в том, 
+    чтобы убедиться, что вслед за лексемой IF следует правильное выражение, за 
+    этим выражением следует лексема THEN, за которой в свою очередь следует 
+    правильное предложение, оканчивающееся знаком &quot;<b>;</b>&quot;. Последним 
+    выполняется процесс <b><u><a href="page_17_1.html" target="mainFrame">генерации кода</a></u></b>, который использует 
+    результаты синтаксического анализа и создает программу на машинном языке, 
+    пригодную к выполнению. Хотя в состав любого компилятора входят все три 
+    описанных выше компонента, их взаимодействие может осуществляться 
+    разнообразными способами. Рассмотрим наиболее распространенные варианты 
+    взаимосвязи между этими компонентами.</font></span></p>
+    <ul>
+      <li>
+    <p align="justify" style="margin-left: 100; margin-right: 20">
+    <font size="2"><span style="font-family: Arial"><a href="page_1_2_1.html" target="mainFrame">трехпроходный транслятор</a></span></font></p>
+      </li>
+      <li>
+    <p align="justify" style="margin-left: 100; margin-right: 20">
+    <font size="2"><span style="font-family: Arial"><a href="page_1_2_2.html" target="mainFrame">однопроходный транслятор</a></span></font></p>
+      </li>
+      <li>
+    <p align="justify" style="margin-left: 100; margin-right: 20">
+    <font size="2"><span style="font-family: Arial"><a href="page_1_2_3.html" target="mainFrame">двухпроходный транслятор</a></span></font></p>
+      </li>
+    </ul>
+    <p align="justify" style="margin-left: 20; margin-right: 20; text-indent:20">
+    <span style="font-size: 10.0pt; font-family: Arial"><font color="#FF0000">
+    <A name="transl"></A>
+    Уточним термины</font>. Под <b><u>транслятором</u></b> понимают любую 
+    программу, которая преобразует строку символов (т.е. исходную программу) в 
+    другую строку символов (объектную программу). Результатом этого процесса 
+    может быть как программа на машинном языке для той или иной машины, так и 
+    исходный текст программы на каком-либо другом языке. Термин &quot;<b><u>компилятор</u></b>&quot; 
+    будем использовать, понимая под ним программу, которая осуществляет 
+    классическое преобразование исходной программы в программу на машинном 
+    языке. Если же будут подразумеваться все разновидности процесса трансляции, 
+    будем использовать термин &quot;<b><u>транслятор</u></b>&quot;.</span></p>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

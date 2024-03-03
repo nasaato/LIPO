@@ -1,0 +1,196 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Определение КС-грамматик</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000" face="Arial">Определение контекстно-свободных (КС) 
+    грамматик.</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Грамматики типа 3 
+    (регулярные)</a> удобны для генерирования символов, которые создаются во 
+    время <a href="page_5_1.html" target="mainFrame">лексического анализа</a>, но они не очень подходят для описания способов 
+    объединения этих символов в предложения типичных языков высокого уровня. 
+    Например, как уже отмечалось выше, согласование скобок нельзя 
+    специфицировать с помощью <a href="page_3_1.html#gramm3">грамматики типа 3</a>. КС-грамматики (типа 2), хотя и 
+    не могут специфицировать все свойства типичных языков программирования, 
+    являются более универсальными и поэтому более пригодными в качестве основы 
+    для фазы синтаксического анализа (разбора) компиляции.</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">КС-грамматики традиционно служат основой для 
+    фазы синтаксического анализа компиляции. Если какой-либо язык 
+    программирования нельзя генерировать с помощью КС-грамматики, всегда можно 
+    найти такую КС-грамматику, которая генерирует надмножество языка, т.е. язык, 
+    включающий в себя заданный язык программирования.</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Применение такой грамматики для синтаксического 
+    анализа означает, что ряд ограничений в реальном языке (например, 
+    обязательное объявление всех идентификаторов в программе) не будет 
+    проверяться анализатором. Однако в компиляторе нетрудно предусмотреть другие 
+    действия по выполнению необходимых проверок в исходной программе (например, 
+    за счет применения <a href="page_13_1.html" target="mainFrame">таблицы символов</a>).</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Из определения КС-грамматики ясно, что класс 
+    КС-грамматик более мощный (т.е. может генерировать больше языков), чем класс 
+    регулярных грамматик, но менее мощный, чем класс контекстно-зависимых 
+    (КЗ-грамматик). Язык</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><span lang="EN-US">{ <i>a<sup>n</sup> b<sup>n</sup></i> 
+    | <i>n</i> &#8805; 0 }</span></font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">является контекстно-свободным, но не регулярным. 
+    Он генерируется грамматикой с порождающими правилами</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <i><font face="Arial"><span lang="EN-US"><font size="2">S </font></span>
+    </font></i><font face="Symbol">®</font><i><font size="2" face="Arial">
+    <span lang="EN-US">aSb</span> | &#949;</font></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">С другой стороны, язык</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><span lang="EN-US">{ <i>a<sup>n</sup> b<sup>n</sup> 
+    c<sup>n</sup> | n</i> &#8805; 0 }</span></font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">является контекстно-зависимым, а не 
+    контекстно-свободным.</font></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Контекстно-свободные 
+    грамматики имеют ряд характеристик, для которых справедливы следующие 
+    положения.</span></p>
+    <ul>
+      <li>
+    <p align="left" style="margin-left: 120; margin-right:20">
+    <font face="Arial" size="2" color="#FF0000"><a href="page_7_1_1.html" target="mainFrame">каноническая форма</a></font></p>
+      </li>
+      <li>
+    <p align="left" style="margin-left: 120; margin-right:20">
+    <font face="Arial" size="2" color="#FF0000"><a href="page_7_1_2.html" target="mainFrame">самовложение</a></font></p>
+      </li>
+    </ul>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

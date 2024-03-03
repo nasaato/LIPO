@@ -1,0 +1,339 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+
+      <TITLE>Структура виртуальной машины</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Структура виртуальной машины.</font></b></p>
+    <p align="justify" style="margin-left: 20; margin-right:20">
+    <span style="font-size: 10.0pt; font-family: Arial">Последней фазой 
+    компиляции является <a href="page_17_1.html" target="mainFrame">генерация кода</a>. Результатом выполнения этой фазы обычно 
+    является программа в выполняемых кодах той ЭВМ, на которой она должна 
+    выполняться. Однако в ряде случаев в качестве выходного языка транслятора 
+    используют ассемблер. В данной работе мы будем генерировать программу на 
+    языке ассемблера. Чтобы облегчить написание генератора кода и освободить его 
+    от посторонних соображений, связанных с конкретными особенностями какой-либо 
+    ЭВМ, будем использовать гипотетический процессор (виртуальную машину). Этот 
+    процессор не существует на самом деле (в аппаратном виде). При выборе его 
+    архитектуры требовалась максимальная простота и, в то же время, возможность 
+    легко выполнять на нем программы на языках, реализуемых в процессе 
+    выполнения лабораторных работ и курсового проектирования. Особенностью 
+    архитектуры является то, что все действия выполняются только над элементами 
+    в вершине стека, результаты операций также помещаются в вершину стека (рис.<span lang="en-us">17</span>.1). 
+    Поэтому в арифметических и логических операциях нет необходимости в указании 
+    адреса операндов. Если операция имеет 2 операнда, то ее выполнения 
+    подразумевает перенос элемента из вершины стека в регистр-аккумулятор и 
+    «понижение» на один элемент вниз указателя стека. Второй операнд, 
+    оказавшийся в вершине стека, подается непосредственно в АЛУ. Результат 
+    операции помещается в вершину стека вместо него.</span></p>
+    <p align="center" style="margin-left: 20; margin-right:20">
+    <img border="0" src="image_17_1.gif" width="607" height="276"></p>
+    <p align="justify" style="margin-left: 20; margin-right:20">
+    <font size="2" face="Arial"><font color="#FF0000"><b><u>Команды:</u><br>
+    </b></font><br>
+    <font color="#0066FF">LIT const</font><span lang="en-us"> </span>- засылка 
+    константы в стек<br>
+    <font color="#0066FF">LOAD n</font><span lang="en-us"> </span>- поместить 
+    переменную, размещенную по адресу n в вершину стека<br>
+    <font color="#0066FF">STO n</font><span lang="en-us"> </span>- запись 
+    значения из вершины стека по адресу n (присваивание)<br>
+    <font color="#0066FF">JMP k</font><span lang="en-us"> </span>- безусловный 
+    переход к команде, расположенной по адресу k<br>
+    <font color="#0066FF">JEQ k</font><span lang="en-us"> </span>- переход к 
+    команде, расположенной по адресу k<span lang="en-us"> </span>в случае 
+    равенства двух верхних элементов стека<br>
+    <font color="#0066FF">JLT k</font><span lang="en-us"> </span>- переход к 
+    команде, расположенной по адресу k если элемент<span lang="en-us"> </span>в 
+    вершине стека меньше следующего за ним элемента стека<br>
+    <font color="#0066FF">JLE k</font><span lang="en-us"> </span>- переход к 
+    команде, расположенной по адресу k если элемент в<span lang="en-us"> </span>
+    вершине стека меньше или равен следующему за ним элементу стека<br>
+    <font color="#0066FF">JGT k</font><span lang="en-us"> </span>- переход к 
+    команде, расположенной по адресу k если элемент в<span lang="en-us"> </span>
+    вершине стека больше следующего за ним элемента стека<br>
+    <font color="#0066FF">JGE k</font><span lang="en-us"> </span>- переход к 
+    команде, расположенной по адресу k если элемент в<span lang="en-us"> </span>
+    вершине стека больше или равен следующему за ним элементу стека<br>
+    <font color="#0066FF">JNE k</font>&nbsp;- переход к команде, расположенной по 
+    адресу k в случае неравенства двух верхних элементов стека<br>
+    <font color="#0066FF">ADR</font><span lang="en-us"> </span>- содержимое 
+    регистра адреса данных помещается в вершину стека<br>
+    <font color="#0066FF">STAD</font>&nbsp;- содержимое вершины стека помещается в 
+    регистр адреса данных<br>
+    <font color="#0066FF">ADD</font>&nbsp;- сложение двух верхних элементов стека, 
+    результат помещается<span lang="en-us"> </span>в вершину стека<br>
+    <font color="#0066FF">MUL</font>&nbsp;- умножение двух верхних элементов стека, 
+    результат помещается<span lang="en-us"> </span>в вершину стека<br>
+    <font color="#0066FF">SUB</font>&nbsp;- вычитание элемента в вершине стека из 
+    следующего за ним<span lang="en-us"> </span>элемента стека, результат 
+    помещается в вершину стека<br>
+    <font color="#0066FF">DIV</font>&nbsp;- деление на элемент в вершине стека 
+    следующего за ним элемента стека, результат помещается в вершину стека<br>
+    <font color="#0066FF">AND</font>&nbsp;- логическое &quot;И&quot; (логическое умножение) 
+    двух верхних элементов<span lang="en-us"> </span>стека, результат помещается 
+    в вершину стека<br>
+    <font color="#0066FF">OR</font>&nbsp;- логическое &quot;ИЛИ&quot; (логическое сложение) 
+    двух верхних элементов<span lang="en-us"> </span>стека, результат помещается 
+    в вершину стека<br>
+    <font color="#0066FF">XOR</font>&nbsp;- сложение по модулю 2 двух верхних 
+    элементов стека,<span lang="en-us"> </span>результат помещается в вершину 
+    стека<br>
+    <font color="#0066FF">NOT</font>&nbsp;- инверсия элемента в вершине стека<br>
+    <font color="#0066FF">NOP</font>&nbsp;- пустая операция</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="center">
+    <b><u><font size="2" color="#FF0000" face="Arial">Пример генерации кода</font></u></b></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr>
+          <td width="128" valign="top" style="width: 96.0pt; border: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><font face="Arial">Исходная программа</font></td>
+          <td width="128" valign="top" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><font face="Arial">Постфиксная запись</font></td>
+          <td width="90" valign="top" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><font face="Arial">Мнемокод</font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:9.3pt;text-indent:0cm;line-height:
+  normal"><!--[if supportFields]><![endif]--><font face="Arial">
+          <span lang="EN-US">var a,b,c </span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:12.55pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">a b c </span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">LIT 5</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:9.3pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">a=5;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:12.55pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">a 5 = </span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">STO 1</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:9.3pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">b=7+a;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:12.55pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">b 7 a + = </span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">LIT 7</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:9.3pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">c=a*b;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:12.55pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">c a b * = </span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">LOAD 1</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">ADD</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">STO 2</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">LOAD 1</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">LOAD 2</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial"><span lang="EN-US">MUL</span></font></td>
+        </tr>
+        <tr>
+          <td width="128" style="width: 96.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="128" style="width: 96.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="text-indent:0cm;line-height:normal">
+          <font face="Arial"><span lang="EN-US">&nbsp;</span></font></td>
+          <td width="90" style="width: 67.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" style="margin-left:8.7pt;text-indent:0cm;line-height:
+  normal"><font face="Arial">STO 3</font></td>
+        </tr>
+      </table>
+    </div>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

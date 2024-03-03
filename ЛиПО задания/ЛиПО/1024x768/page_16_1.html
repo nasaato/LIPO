@@ -1,0 +1,212 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Внутренние формы</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Внутренние формы - общие положения.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Построение кода программы непосредственно из 
+    <a href="page_15_1.html" target="mainFrame">постфиксной записи</a> возможно, но такую форму записи трудно оптимизировать. 
+    Большинство компиляторов используют
+    <font color="#FF0000">внутренние формы</font></a>, удобные для 
+    оптимизации, для построения объектного кода программы. Одной из наиболее 
+    распространенных форм внутреннего представления генерируемого кода являются 
+    четверки.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><b><u><font size="2" color="#FF0000">Четверка</font></u></b><font size="2"> 
+    – это объект, состоящий из четырех элементов: операции, двух операндов и 
+    результата. Если в результате операции вычисляется значение некоторой 
+    переменной, то такую четверку нетрудно построить. Например, предложение</font></font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><font face="Arial"><i><span lang="EN-US"><font size="2">X</font></span></i><font size="2"> 
+    := </font><i><font size="2"><span lang="EN-US">Y</span>+</font><span lang="EN-US"><font size="2">Z</font></span></i></font></b></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">представляется четверкой</font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><font size="2" face="Arial">(<span lang="EN-US">PLUS</span>_<span lang="EN-US">OP</span>,
+    <span lang="EN-US">Sy</span>, <span lang="EN-US">Sz</span>,
+    <span lang="EN-US">Sx</span>),</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">которая указывает, что надо сложить (<i>PLUS_OP</i>) 
+    переменную, определенную ячейкой <i>Sy</i> таблицы символов, с переменной, 
+    определенной ячейкой <i>Sz</i>, и сохранить результат в <i>S<span lang="EN-US">x</span></i>. 
+    Теперь исходное предложение оказалось представленным самостоятельной 
+    единицей, которую <a href="page_17_1.html" target="mainFrame">генератор кода</a> может обрабатывать независимо от места ее 
+    размещения. Таким образом, оптимизатор может изменять последовательность 
+    операций (четверок), не усложняя процесса генерирования кода.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Для унарных операторов можно просто игнорировать 
+    поле второго операнда четверки, а операции, которые требуют более двух 
+    операндов, можно представить в форме последовательности, состоящей из 
+    нескольких четверок. </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Например, оператор <i>X</i> := <i>F</i>(<i>A,B,C,D</i>) 
+    можно записать в виде группы из трех четверок</font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><span lang="EN-US"><font size="2" face="Arial">(F1,A,B,T1)</font></span></b></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><span lang="EN-US"><font size="2" face="Arial">(F2,T1,C,T2)</font></span></b></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><span lang="EN-US"><font size="2" face="Arial">(F,T2,D,X)</font></span></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Функции <i>F1</i> и <i>F2</i> производят 
+    промежуточные вычисления, а ячейки <i>T1 </i>и <i>T2</i> предназначены для 
+    хранения результатов этих действий. Во время фактического построения 
+    программы генератор кода сможет правильно представить в объектном коде 
+    операцию <i>F1</i> (за которой должны следовать операции <i>F2</i> и <i>F</i>).</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Рассмотрим еще пример, связанный с 
+    использованием промежуточных ячеек. Пусть дано предложение</font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><font face="Arial"><i><font size="2">X</font></i><font size="2"> := <i>
+    X+Y*Z</i>,</font></font></b></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">которое представлено постфиксной записью</font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><font face="Arial"><span lang="EN-US"><font size="2">Sx Sx Sy Sz*+ :=</font></span></font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">В это предложение входят операции умножения <i>Y</i> 
+    на <i>Z</i>, сложения результата с <i>X</i> и присвоения переменной <i>X</i> 
+    значения полученной суммы. Во время генерирования четверки, осуществляющей 
+    умножение, потребуется ячейка, в которой будет храниться промежуточный 
+    результат этого действия. Будем предполагать, что в этом случае создается 
+    временная, или внутренняя переменная. Таким образом, рассматриваемое 
+    предложение будет представлено последовательностью</font></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><span lang="EN-US"><font size="2" face="Arial">(MULT_OP,Sy,Sz,T1)</font></span></b></p>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <b><span lang="EN-US"><font size="2" face="Arial">(ADD_OP,Sx,T1,Sx),</font></span></b></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">в которой первая 
+    четверка указывает на то, что надо умножить <i>Y</i> на <i>Z</i> и записать 
+    результат в <i>T1</i>, а вторая четверка определяет необходимость сложения 
+    переменной <i>X</i> с переменной <i>T1</i>, содержащей результат операции <i>
+    Y*Z</i>, и записи суммы в <i>X</i>.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

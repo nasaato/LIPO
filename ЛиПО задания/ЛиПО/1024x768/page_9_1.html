@@ -1,0 +1,182 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Методы построения синтаксического анализатора</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Методы построения синтаксического 
+    анализатора.</font></b></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Для построения синтаксического анализатора можно 
+    использовать два различных метода. Один из них – это написать универсальную 
+    программу грамматического разбора, пригодную для всех возможных грамматик 
+    заданного класса. В этом случае конкретные грамматики задаются этой 
+    программе в виде данных некоторой структуры, которая управляет ее работой. 
+    Поэтому такая программа называется <font color="#FF0000">таблично-управляемой</font>.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Другой метод – это разработка программы 
+    грамматического разбора специально для заданного конкретного языка; при этом 
+    его синтаксис по определенным правилам отображается в последовательность 
+    операторов, т.е. в программу. Такую реализацию разбора будем называть
+    <font color="#FF0000">программно-управляемой</font>.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Каждый из этих методов имеет свои преимущества и 
+    недостатки<i>.</i> При построении транслятора для конкретного языка 
+    программирования вряд ли потребуется высокая гибкость и параметризация, 
+    свойственные универсальной программе. Программа грамматического разбора, 
+    предназначенная специально для данного языка, обычно оказывается более 
+    эффективной и с ней легче работать, легче встроить выполнение параллельно с 
+    синтаксическим разбором различных дополнительных действий, например, 
+    проверки соответствия типов данных и пр., что может оказаться особенно важно 
+    при реализации специализированных языков САПР. Использование универсальной 
+    программы позволяет разработать синтаксический анализатор максимально 
+    быстро, с меньшими требованиями к квалификации разработчика (в идеале, он 
+    должен только представить в требуемой форме и ввести грамматику реализуемого 
+    языка). В любом случае полезно представлять заданный синтаксис в виде так 
+    называемого <font color="#FF0000">синтаксического графа</font><b> </b>(<b><u>синтаксической</u></b><u>
+    <b>диаграммы</b></u><b>, <u>графа распознавания</u></b>). Такой граф 
+    отражает управление ходом работы при грамматическом анализе предложения.</font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Для нисходящего 
+    грамматического разбора характерно, что цель анализа известна с самого 
+    начала. Эта цель – распознать предложение, т.е. последовательность символов, 
+    которая может порождаться из начального символа. Применение порождающего 
+    правила, т.е. замена одного символа последовательностью символов, 
+    соответствует расщеплению одной цели на некоторое число подцелей, которые 
+    должны следовать в определенном порядке. Поэтому нисходящий метод можно 
+    называть также <font color="#FF0000">целеориентированным грамматическим разбором</font>. 
+    При построении программы грамматического разбора можно воспользоваться этим 
+    очевидным соответствием между нетерминальными символами и целями: для 
+    каждого нетерминального символа строится своя процедура грамматического 
+    разбора. Цель каждой такой процедуры – распознавание части предложения, 
+    которая может порождаться из соответствующего нетерминального символа. 
+    Поскольку мы хотим построить граф, представляющий всю программу 
+    грамматического разбора, то каждый нетерминальный символ будет отражаться в 
+    подграф.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

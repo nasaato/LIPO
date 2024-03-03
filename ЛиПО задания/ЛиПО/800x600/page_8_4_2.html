@@ -1,0 +1,313 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Факторизация</TITLE>
+         </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Факторизация.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Во многих ситуациях грамматики, не обладающие 
+      признаком LL(1), можно преобразовать в LL(1)-грамматики с помощью процесса 
+      факторизации. Рассмотрим пример такой ситуации.</font>
+    </div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span> </i>
+      <font face="Arial" size="2"><b>
+      <span lang="EN-US">begin</span></b></font><i><span lang="EN-US"> D </span></i>
+      <span lang="EN-US">; </span><i>С </i><b><span lang="EN-US">
+      <font size="2" face="Arial">end</font></span></b></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">D
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> d
+      </span></i><span lang="EN-US">,<i> D</i></span></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">D
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> d</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>С
+      <span style="font-family: Symbol">®</span> s </i>;<i> С</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>С
+      <span style="font-family: Symbol">®</span> s</i></div>
+    <div class="Section3">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">В процессе факторизации мы заменяем несколько 
+      правил для одного нетерминала в левой части, правая часть которых 
+      начинается с одного и того же символа (цепочки символов) на одно правило, 
+      где в правой части за общим началом следует дополнительно вводимый 
+      нетерминал. Также грамматика дополняется правилами для дополнительного 
+      нетерминала, согласно которым из него выводятся различные «остатки» 
+      первоначальной правой части правила. Для приведенной выше грамматики это 
+      даст следующую <span lang="EN-US">LL</span>(1)-грамматику:</font></p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span></i> <b>
+      <span lang="EN-US"><font size="2" face="Arial">begin</font></span></b><span lang="EN-US"> <i>D</i> ; </span>
+      <i>С</i> <b><span lang="EN-US"><font size="2" face="Arial">end</font></span></b></p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">D
+      </span><span style="font-family: Symbol">®</span> <span lang="EN-US">d X</span></i> 
+      &nbsp;&nbsp;&nbsp; (<font face="Arial"><font size="2">вводим дополнительный нетерминал
+      </font><i><span lang="EN-US"><font size="2">X</font></span></i></font>)</p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">X
+      </span><span style="font-family: Symbol">®</span> </i>, <i>
+      <span lang="EN-US">D</span></i> &nbsp;&nbsp;&nbsp;&nbsp; (<font face="Arial"><font size="2">по 
+      1-му правилу для <i><span lang="EN-US">D</span></i> исходной грамматики за
+      <i><span lang="EN-US">d</span></i> следует , </font><i><span lang="EN-US">
+      <font size="2">D</font></span></i></font>)</p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">X
+      </span><span style="font-family: Symbol">®</span> &#949;</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<font size="2" face="Arial">по 
+      2-му правилу для <i><span lang="EN-US">D</span></i> исходной грамматики за
+      <i><span lang="EN-US">d</span></i> ничего нет (пустая строка</font>))</p>
+      <p class="MsoBodyText" style="margin-left: 25"><i>С
+      <span style="font-family: Symbol">®</span> <span lang="EN-US">s Y</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      (<font face="Arial"><font size="2">вводим дополнительный нетерминал </font>
+      <i><span lang="EN-US"><font size="2">Y</font></span></i></font>)</p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">Y
+      </span><span style="font-family: Symbol">®</span> </i>;<i> С</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (<font face="Arial"><font size="2">по 
+      1-му правилу для <i><span lang="EN-US">C</span></i> исходной грамматики за
+      <i><span lang="EN-US">s</span></i> следует ; </font><i><span lang="EN-US">
+      <font size="2">C</font></span></i></font>)</p>
+      <p class="MsoBodyText" style="margin-left: 25"><i><span lang="EN-US">Y
+      </span><span style="font-family: Symbol">®</span> &#949;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<font size="2" face="Arial">по 
+      2-му правилу для <i><span lang="EN-US">C</span></i> исходной грамматики за
+      <i><span lang="EN-US">s</span></i> ничего нет (пустая строка</font>))</p>
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Аналогичным образом, порождающие правила</font></div>
+    <div class="Section4">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> aSb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> aSc</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>S
+      <span style="font-family: Symbol">®</span> &#949;</i></div>
+    <div class="Section5">
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">можно преобразовать путем факторизации в 
+      правила</font></div>
+    <div class="Section6">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> aSX</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family: Symbol">®</span> &#949;</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">X
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> b</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">X
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> c</span></i></div>
+    <div class="Section7">
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">и полученной в результате грамматикой будет 
+      LL(1).</font></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Процесс факторизации, однако, нельзя 
+      автоматизировать, распространив его на общий случай. Следующий пример 
+      показывает, что может произойти. Рассмотрим правила </font>
+    </div>
+    <div class="Section8">
+      <p class="MsoBodyText" style="margin-left: 50">1. <i>P
+      <span style="font-family: Symbol">®</span> Qx</i></p>
+      <p class="MsoBodyText" style="margin-left: 50">2. <i>P
+      <span style="font-family: Symbol">®</span> Ry</i></p>
+      <p class="MsoBodyText" style="margin-left: 50">3. <i>Q
+      <span style="font-family: Symbol">®</span> sQm</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><span lang="EN-US">4. <i>Q
+      </i></span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      q</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><span lang="EN-US">5. <i>R
+      </i></span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      sRn</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50">6. <i>R
+      <span style="font-family: Symbol">®</span> r</i></div>
+    <div class="Section9">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Оба множества направляющих символов для двух 
+      вариантов <i>P</i> содержат <i>s</i>, и, пытаясь &quot;вынести <i>s</i> за 
+      скобки&quot;, мы замещаем <i>Q</i> и <i>R</i> в правых частях правил 1 и 2:</font></div>
+    <div class="Section10">
+      <p class="MsoBodyText" style="margin-left: 50"><i>P
+      <span style="font-family: Symbol">®</span> sQmx</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>P
+      <span style="font-family: Symbol">®</span> sRny</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> qx</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> ry</span></i></div>
+    <div class="Section11">
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Эти правила можно заменить следующими:</font>
+    </div>
+    <div class="Section12">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> qx</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> ry</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P
+      </span><span style="font-family: Symbol">®</span><span lang="EN-US"> sP</span></i><sub><span lang="EN-US">1</span></sub></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      Qmx</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>P</i><sub>1</sub> <i>
+      <span style="font-family: Symbol">®</span> Rny</i></div>
+    <div class="Section13">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Правила для <i>P<sub>1</sub></i> аналогичны 
+      первоначальным правилам для <i>P</i> и имеют пересекающиеся множества 
+      направляющих символов. Мы можем преобразовать эти правила так же, как и 
+      правила для <i>P</i>:</font></div>
+    <div class="Section14">
+      <p class="MsoBodyText" style="margin-left: 50"><i>P</i><sub>1</sub> <i>
+      <span style="font-family: Symbol">®</span> sQmmx</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>P</i><sub>1</sub> <i>
+      <span style="font-family: Symbol">®</span> qmx</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      sRnny</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      rny</span></i></div>
+    <div class="Section15">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Факторизуя, получаем</font></div>
+    <div class="Section16">
+      <p class="MsoBodyText" style="margin-left: 50"><i>P</i><sub>1</sub> <i>
+      <span style="font-family: Symbol">®</span> qmx</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      rny</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> sP</span></i><sub><span lang="EN-US">2</span></sub></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">2</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      Qmmx</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">P</span></i><sub><span lang="EN-US">2</span></sub><span lang="EN-US">
+      </span><i><span style="font-family: Symbol">®</span><span lang="EN-US"> 
+      Rnny</span></i></div>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Правила для <i>P<sub>2</sub></i> 
+    аналогично правилам для <i>P<sub>1</sub></i> и <i>P</i>, но длиннее их, и 
+    теперь уже очевидно, что этот процесс бесконечный. Таким образом, не всегда 
+    факторизация позволяет осуществить необходимое преобразование, некоторые 
+    грамматики вообще невозможно преобразовать в LL(1)-форму.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

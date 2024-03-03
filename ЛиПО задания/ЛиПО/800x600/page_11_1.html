@@ -1,0 +1,187 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Построение таблично-управляемой программы грамматического разбора</TITLE>
+      </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Построение таблично-управляемой 
+    программы грамматического разбора.</font></b></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Конкретные грамматики задаются 
+    таблично-управляемой универсальной программе в виде исходных данных, 
+    предшествующих предложениям, которые нужно разобрать. Универсальная 
+    программа работает в строгом соответствии с методом простого нисходящего 
+    грамматического разбора; поэтому она довольно проста, если основана на 
+    детерминированном синтаксическом графе, т.е. если предложения можно 
+    анализировать с просмотром вперед на один символ без возврата.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2"><font face="Arial">В данном случае грамматика (предположим, 
+    что она представлена в виде детерминированного множества синтаксических 
+    графов) преобразуется в подходящую структуру данных, а не в структуру 
+    программы. Естественный способ представить граф – это ввести узел для 
+    каждого символа и связать эти узлы с помощью ссылок. Следовательно, 
+    &quot;таблица&quot; – это не просто массив. Узлы этой структуры представляют собой 
+    структуры (</font><span lang="EN-US" style="font-family: Courier New">struct</span><font face="Arial">) 
+    с объединениями (</font><span lang="EN-US" style="font-family: Courier New">union</span><font face="Arial">). 
+    Объединение позволяет идентифицировать тип узла. Первый идентифицируется 
+    терминальным символом, который он обозначает (</font><span lang="EN-US" style="font-family: Courier New">tsym</span><font face="Arial">), 
+    второй – ссылкой на структуру данных, представляющую соответствующий 
+    нетерминальный символ (</font><span lang="EN-US" style="font-family: Courier New">nsym</span><font face="Arial">). 
+    Оба варианта объединения содержат две ссылки: одна указывает на следующий 
+    символ, <b>последователь</b> (</font><span style="font-family: Courier New">suc</span><font face="Arial">), 
+    а другая связана со списком возможных <b>альтернатив </b>(</font><span style="font-family: Courier New">alt</span><font face="Arial">). 
+    Графически узел можно изобразить следующим образом </font></font></p>
+    <p class="MsoBodyText" align="center" style="margin-left: 20; margin-right: 20">
+    <img border="0" src="_11_1_a.gif" width="105" height="88"></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Также нужен элемент, представляющий пустую 
+    последовательность, символ &quot;пусто&quot;. Обозначим его с помощью терминального 
+    элемента, называемого </font><font size="2" face="Courier New">empty</font><font size="2" face="Arial">.</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">struct node;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">typedef node *pointer;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">struct node {</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; pointer suc;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; pointer alt;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; int isTerminal;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp; union {</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; char tsym;</span></font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; </span>hpointer nsym;</font></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New" size="2">&nbsp; };</font></p>
+    <p style="margin-left: 50">
+    <span style="font-size: 10.0pt; font-family: Courier New">};</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

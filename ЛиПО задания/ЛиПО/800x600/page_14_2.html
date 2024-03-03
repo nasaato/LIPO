@@ -1,0 +1,210 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Символы возобновления</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Символы возобновления.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Игнорирование больших фрагментов текста до 
+    следующего внешнего символа может иметь нежелательные последствия. Поэтому к 
+    множеству символов, прекращающих пропуск текста, добавляют служебные слова, 
+    отмечающие начало конструкции, которую не следует пропускать. Таким образом, 
+    в качестве параметров процедуре разбора передаются <b><u>символы 
+    возобновления</u></b>, а не просто внешние символы. Часто множество символов 
+    возобновления с самого начала содержат отдельные служебные слова и при 
+    проходе иерархии подцелей <a href="page_10_1.html" target="mainFrame">грамматического разбора</a> постепенно дополняются 
+    внешними символами этих подцелей. Для выполнения описанной выше проверки 
+    введем общую функцию и назовем ее</font>
+    <span style="font-family: Courier New; font-weight: 700"><font size="2">test</font></span>.
+    <font size="2" face="Arial">Данная функция имеет три параметра:</font></p>
+    <ul>
+      <li>
+      <p class="MsoBodyText" align="justify" style="margin-left: 50; margin-right: 20">
+      <font size="2" face="Arial">Множество <i>s</i>1 допустимых следующих 
+      символов; если текущий символ к нему не принадлежит, то имеет место 
+      ошибка.</font></li>
+      <li>
+      <p class="MsoBodyText" align="justify" style="margin-left: 50; margin-right: 20">
+      <font size="2" face="Arial">Множество <i>s</i>2 дополнительных символов 
+      возобновления, появление которых определенно является ошибкой, но которые 
+      ни в коем случае нельзя пропускать.</font></li>
+      <li>
+    <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Номер <i>n</i>, который присваивается ошибке, 
+    если функция ее обнаружит. </font></p>
+      </li>
+    </ul>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">void test(char[] s1, char[] s2, int n)</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">{</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; if(!belongsTo(sym, s1)</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; {</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; error(n); </font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; s1= unite(s1, s2);</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; while(!belongsTo(sym, s1)) </font>
+    </span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym = fgetc(input);</font></span></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New">
+    <span lang="EN-US"><font size="2">&nbsp; </font></span><font size="2">}</font></font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font size="2" face="Courier New">}</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Ясно, что ни одна схема, не может эффективно 
+    справляться со всеми возможными неправильными конструкциями. Любая схема 
+    восстановления, реализованная с разумными затратами, потерпит неудачу, т.е. 
+    не сможет адекватно обработать некоторые ошибочные конструкции. Однако 
+    хороший <a href="page_1_2.html#transl" target="mainFrame">транслятор</a> должен обладать такими свойствами:</font></p>
+    <ul>
+      <li>
+      <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+      <font size="2" face="Arial">никакая входная последовательность не должна 
+      приводить к катастрофе;</font></li>
+      <li>
+      <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+      <font size="2" face="Arial">все конструкции, которые по определению языка 
+      являются незаконными, должны обнаруживаться и отмечаться;</font></li>
+      <li>
+      <p class="MsoBodyText" style="margin-left: 50; margin-right: 20" align="justify">
+      <font size="2" face="Arial">ошибки, программиста должны правильно 
+      диагностироваться и не вызывать каких-либо дальнейших отклонений в работе 
+      транслятора сообщений о так называемых <b><u>наведенных</u></b> ошибках.</font></li>
+    </ul>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Первые два требования 
+    должны выполняться безусловно, последнее свойство – пожелание, так как 
+    всегда и полностью избежать наведенных ошибок практически невозможно.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

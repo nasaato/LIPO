@@ -1,0 +1,254 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Лексемы. Фаза лексического анализа</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000" face="Arial">Лексемы. Фаза лексического анализа.</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Первой фазой процесса 
+    компиляции является <font color="#FF0000">лексический анализ</font>, то есть группирование строк литер, 
+    обозначающих идентификаторы, константы или слова языка и т.д., в единые 
+    символы (<font color="#FF0000"><u>лексемы</u></font>). Этот процесс может идти параллельно с 
+    другими фазами компиляции (например, <a href="page_1_2_2.html" target="mainFrame">в однопроходных компиляторах</a>). Однако, 
+    в любом случае, при описании конструкции компилятора и его построения удобно 
+    представлять лексический анализ как самостоятельную фазу.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Блок сканирования (<b><u>сканер</u></b>) 
+    должен выдавать каждую лексему, устанавливая ее принадлежность тому или 
+    иному классу. Выбор классов зависит от особенностей транслируемого языка. 
+    Часто выделяют классы имен переменных, констант, ключевых слов, 
+    арифметических и логических операций (&quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot; и т.д.), 
+    специальных символов (&quot;=&quot;, &quot;;&quot; и т. д.)</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Характер распознаваемых 
+    строк может намного упростить процесс лексического анализа. Например:</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><u><font color="#FF0000">идентификаторы</font></u>:</span></p>
+    <p class="a" align="center" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size:10.0pt;
+font-family:Arial">a1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; one</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><font color="#FF0000"><u>числа</u></font>:</span></p>
+    <p class="a" align="center" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size:10.0pt;
+font-family:Arial">100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.54</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><u><font color="#FF0000">ключевые слова языка</font></u>:</span></p>
+    <p class="a" align="center" style="text-align: justify; text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size:10.0pt;
+font-family:Arial">begin&nbsp;&nbsp;&nbsp; if&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Все эти строки можно генерировать с помощью 
+    <a href="page_3_2.html" target="mainFrame">регулярных 
+    выражений</a>. Например, вещественные числа можно генерировать посредством 
+    регулярного выражения (+ | -) <b>d d</b>*.<b>d</b>* , где </span><b>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">d</span><span lang="EN-US" style="font-size:10.0pt;font-family:Arial">
+    </span></b><span style="font-size:
+10.0pt;font-family:Arial">обозначает любую цифру. Из выражения видно, что 
+    вещественное число состоит из следующих компонентов, расположенных именно в 
+    таком порядке:</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><font color="#FF0000"><b>1.</b></font> возможного знака;</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><font color="#FF0000"><b>2.</b></font> последовательности из 
+    одной или более цифр;</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><font color="#FF0000"><b>3.</b></font> десятичной точки;</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><font color="#FF0000"><b>4.</b></font> последовательности из 
+    нуля или более цифр.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Регулярные выражения эквивалентны 
+    <a href="page_3_1.html#gramm3" target="mainFrame">грамматикам типа 3</a>. 
+    Например, грамматика типа 3, соответствующая регулярному выражению для 
+    вещественного числа, имеет порождающие правила:</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">R </span>
+    </i><font face="Symbol">®</font><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial"> 
+    +S | -S | dQ</span></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">S </span>
+    </i><font face="Symbol">®</font><i><span style="font-size: 10.0pt; font-family: Arial">
+    </span></i><b>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">d</span></b><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">Q</span></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">Q </span>
+    </i><font face="Symbol">®</font><i><span style="font-size: 10.0pt; font-family: Arial">
+    </span></i><b>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">d</span></b><i><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">Q 
+    | .F | .</span></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <i><span style="font-size:10.0pt;font-family:Arial">F </span></i>
+    <font face="Symbol">®</font><i><span style="font-size:10.0pt;font-family:Arial">
+    </span></i><b>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">d</span></b><i><span style="font-size:10.0pt;font-family:Arial"> 
+    | dF</span></i></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">где <i>R</i> - начальный символ, <b>d </b>– цифра.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Существует полное соответствие между регулярными выражениями 
+    (а потому и грамматиками типа 3) и <a href="page_6_1.html" target="mainFrame">конечными автоматами</a>, более подробно 
+    рассмотренными в следующей главе.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Некоторые лексемы (например, *) могут быть распознаны по 
+    одному считанному символу, другие (такие, как :=) – по двум символам, а для 
+    идентификации третьих необходимо прочитать неизвестное заранее число 
+    символов (например, код константы). В последнем случае, чтобы найти конец 
+    лексемы, приходится считывать один лишний символ, не входящий в состав 
+    данной лексемы. Этот символ необходимо запоминать, чтобы при разборе 
+    следующей лексемы он не был утерян. </span></p>
+    <p align="justify" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Лексический анализатор, 
+    наряду с разбиением исходного потока символов на лексемы, может включать в 
+    исходный текст дополнительную информацию или исключать из него строки 
+    символов. Примером дополнительно включаемой информации являются номера 
+    строк. Если их не включить, то информация о том, в какой строке исходного 
+    текста находилась та или иная лексема, будет, в случае выполняющего 
+    сканирование в отдельном проходе компилятора, утеряна после лексического 
+    анализа. Однако для диагностики на фазе синтаксического анализа необходимо 
+    иметь возможность ссылаться на ошибки в программе с указанием номеров строк 
+    оригинального исходного текста. С другой стороны, комментарии включаются в 
+    текст программы или описания объекта проектирования только для 
+    предоставления читателю – человеку дополнительных пояснений. Они никак не 
+    влияют на генерируемый в дальнейшем код, и лексический анализатор обычно их 
+    просто исключает.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

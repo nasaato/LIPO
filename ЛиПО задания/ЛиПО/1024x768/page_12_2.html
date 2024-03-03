@@ -1,0 +1,295 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+
+      <TITLE>Основы</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Основы.</font></b></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Неформально говоря, <b><font color="#FF0000">основа</font></b>, или 
+    <font color="#FF0000"><b>дескриптор</b></font> 
+    (handle) строки – это подстрока, которая совпадает с правой частью продукции 
+    и свертка которой в левую часть продукции представляет собой один шаг 
+    обращенного правого порождения. Во многих случаях крайняя слева подстрока</font>
+    <i>&#946;</i> <font size="2" face="Arial">соответствующая правой части некоторой 
+    продукции</font> <i>А</i> <span style="font-family: Symbol">®</span> <i>&#946;</i>
+    <font size="2" face="Arial">не является основой, поскольку свертка в 
+    соответствии с продукцией</font> <i>А</i> <span style="font-family: Symbol">
+    ®</span> <i>&#946;</i> <font size="2" face="Arial">приводит к строке, которая не 
+    может быть свернута к стартовому символу. Если в предыдущем примере мы 
+    заменим во второй строке <i>aAbcde</i> символ <i>b</i> нетерминалом <i>А</i>, 
+    то получим строку <i>aAAcde</i>, которая не может быть свернута в <i>S</i>. 
+    По этой причине нам следует дать более точное определение основы.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><font size="2">Говоря формально, </font><b><u>
+    <font size="2">основа правосентенциальной формы</font></u></b></font> <i>&#947;</i>
+    <font size="2" face="Arial">является продукцией</font> <i>А</i>
+    <span style="font-family: Symbol">®</span> <i>&#946;</i>
+    <font size="2" face="Arial">и позицией строки</font> <i>&#946;</i>
+    <font face="Arial" size="2">в</font> <i>&#947;</i>, <font size="2" face="Arial">
+    такими, что</font> <i>&#946;</i> <font size="2" face="Arial">может быть заменена 
+    нетерминалом <i>А</i> для получения предыдущей правосентенциальной формы в 
+    правом порождении</font> <i>&#947;.</i> <font size="2" face="Arial">Таким 
+    образом, если</font> <!--[if gte mso 9]><xml>
+    <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025" DrawAspect="Content" ObjectID="_1124380775">
+    </o:OLEObject>
+    </xml><![endif]-->,</p>
+    <p class="MsoBodyText" align="center" style="margin-left: 20; margin-right: 20">
+    <img border="0" src="_12_2_c.gif" width="163" height="49"></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">то</font> <i>А</i>
+    <span style="font-family: Symbol">®</span> <i>&#946;</i>
+    <font size="2" face="Arial">в позиции после а представляет собой основу 
+    строки</font> <i>&#945;&#946;<span lang="EN-US">w</span></i>.
+    <font size="2" face="Arial">Строка</font> <i>w</i>
+    <font size="2" face="Arial">справа от основы содержит только терминальные 
+    символы. Заметим, что грамматика может быть неоднозначной, с несколькими 
+    правыми порождениями</font> <i>&#945;&#946;<span lang="EN-US">w</span></i>.
+    <font size="2" face="Arial">Если грамматика однозначна, то каждая 
+    правосентенциальная форма грамматики имеет ровно одну основу.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">В приведенном выше примере <i>abbcde</i> 
+    представляет собой правосентенциальную форму, основой которой является</font>
+    <i>А</i> <span style="font-family: Symbol">®</span> <i>&#946;</i>
+    <font size="2" face="Arial">в позиции 2. Аналогично <i>aAbcde</i> 
+    представляет собой правосентенциальную форму, дескриптор которой –</font> <i>
+    А</i><span style="font-family: Symbol">®</span><i>Ab<span lang="EN-US">c</span></i>
+    <font size="2" face="Arial">в позиции 2. Иногда мы будем говорить &quot;подстрока</font>
+    <i>&#946;</i> <font size="2" face="Arial">представляет собой основу</font> <i>&#945;&#946;<span lang="EN-US">w</span></i>&quot;,
+    <font size="2" face="Arial">если позиция</font> <i>&#946;</i>
+    <font size="2" face="Arial">и продукция</font> <i>А</i><span style="font-family: Symbol">®</span><i>&#946;</i>
+    <font size="2" face="Arial">определяются однозначно.</font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size: 10.0pt">На рис.1<span lang="en-us">2</span>.1 
+    изображена основа </span></font><span style="font-family: Times New Roman">
+    <i>А</i></span><span style="font-family: Symbol">®</span><i><span style="font-family: Times New Roman">&#946;</span></i><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><font face="Arial"><span style="font-size: 10.0pt">в дереве разбора 
+    правосентенциальной формы</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><span style="font-family: Times New Roman"><i>&#945;&#946;</i></span><i><span lang="EN-US" style="font-family: Times New Roman">w</span></i><span style="font-size: 10.0pt; font-family: Times New Roman">.
+    </span><font face="Arial"><span style="font-size: 10.0pt">Основа 
+    представляет крайнее слева завершенное поддерево, состоящее из узла и </span>
+    </font><span style="layout-grid-mode: line"><font face="Arial">
+    <span style="font-size: 10.0pt">всех его потомков. На рис.1<span lang="en-us">2</span>.1 
+    узел <i>А — </i>нижний крайний слева внутренний узел, все потомки которого 
+    находятся в дереве. Свертку</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><i><span style="font-family: Times New Roman">&#946;</span><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span></i><font face="Arial"><span style="font-size: 10.0pt">к </span>
+    </font><i><font face="Times New Roman">А</font><font face="Arial"><span style="font-size: 10.0pt">
+    </span></font></i><font face="Arial"><span style="font-size: 10.0pt">в</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><i><span style="font-family: Times New Roman">&#945;&#946;w</span><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span></i><font face="Arial"><span style="font-size: 10.0pt">можно 
+    представить как &quot;обрезку основы&quot;, т.е. удаление из дерева разбора всех 
+    потомков</span></font><span style="font-size: 10.0pt; font-family: Times New Roman">
+    </span><i><span style="font-family: Times New Roman">А</span><span style="font-size: 10.0pt; font-family: Times New Roman">.</span></i></span></p>
+    <p style="margin-left: 20; margin-right: 20" align="center">
+    <img border="0" src="image_12_1.gif" width="360" height="339"></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2"><b><u><span style="layout-grid-mode:line">Пример 
+    1<span lang="en-us">2</span>.a</span></u></b></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><span style="layout-grid-mode:line">Рассмотрим 
+    следующую грамматику</span></font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span style="layout-grid-mode:
+line"><font size="2" face="Arial">(1) </font><i><font size="2" face="Arial">Е</font>
+    </i></span>
+    <span style="font-size: 9.0pt; line-height: 150%; font-family: Symbol; layout-grid-mode: line">
+    ® </span><font face="Arial" size="2"><i>
+    <span lang="EN-US" style="layout-grid-mode: line">E</span><span lang="EN-US" style="layout-grid-mode:line">
+    </span></i><span style="layout-grid-mode:
+line">+ </span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i></font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span style="layout-grid-mode:
+line"><font face="Arial" size="2">(2) Е</font> </span>
+    <span style="font-size: 9.0pt; line-height: 150%; font-family: Symbol; layout-grid-mode: line">
+    ® </span><font face="Arial" size="2"><span style="layout-grid-mode:line">Е * 
+    Е</span></font></p>
+    <p class="MsoBodyText" style="margin-left: 50"><font face="Arial">
+    <span style="layout-grid-mode:
+line"><font size="2">(3) </font></span></font><i><font face="Arial">
+    <span lang="EN-US" style="layout-grid-mode: line"><font size="2">E</font></span></font><span lang="EN-US" style="layout-grid-mode:line">
+    </span></i>
+    <span style="font-size: 9.0pt; line-height: 150%; font-family: Symbol; layout-grid-mode: line">
+    ® </span><font face="Arial"><span style="layout-grid-mode:line">
+    <font size="2">(</font></span><font size="2"><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i></font></font><span style="layout-grid-mode:line"><font size="2" face="Arial">)</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="2">(1<span lang="en-us">2</span>.1)</font></span></p>
+    <p class="MsoBodyText" style="margin-left: 50"><font face="Arial">
+    <span style="layout-grid-mode:
+line"><font size="2">(4) </font></span></font><i><font face="Arial">
+    <span lang="EN-US" style="layout-grid-mode: line"><font size="2">E</font></span></font><span lang="EN-US" style="layout-grid-mode:line">
+    </span></i>
+    <span style="font-size: 9.0pt; line-height: 150%; font-family: Symbol; layout-grid-mode: line">
+    ® </span><font face="Arial" size="2">
+    <span lang="EN-US" style="layout-grid-mode: line">id</span></font></p>
+    <p style="margin-left: 20">
+    <span style="font-size: 10.0pt; font-family: Arial; layout-grid-mode: line">
+    и правое порождение</span></p>
+    <p style="margin-left: 20">
+    <img border="0" src="_12_2_a.gif" width="164" height="231"></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="layout-grid-mode:line"><font size="2">Для 
+    удобства мы пометили подстрочными индексами </font></span><font size="2"><b>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span></b><span style="layout-grid-mode:line"> 
+    и подчеркнули основу каждой правосентенциальной формы. Например, </span><b>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">1</span></sub></b><span style="layout-grid-mode:
+line"> представляет собой основу право-сентенциальной формы </span><b>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">1</span></sub><span style="layout-grid-mode:line">+</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">2</span></sub><span style="layout-grid-mode:line">*</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">3</span></sub><span style="layout-grid-mode:line">,
+    </span></b><span style="layout-grid-mode:line">поскольку </span><b>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span></b></font></font><span style="layout-grid-mode:line"><font size="2" face="Arial"> 
+    является правой частью продукции</font> <i>Е</i></span><span style="font-family: Symbol; layout-grid-mode: line">®</span><i><span style="layout-grid-mode:line">
+    </span></i><span lang="EN-US" style="layout-grid-mode: line">id</span><span style="layout-grid-mode:line">,
+    <font size="2" face="Arial">и замена </font></span><font face="Arial">
+    <font size="2"><b><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">1</span></sub></b><span style="layout-grid-mode:
+line"> на </span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line"> 
+    приведет к предыдущей правосентенциальной форме </span><i>
+    <span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line">+</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">2</span></sub><span style="layout-grid-mode:line">*</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">3</span></sub></font><span style="layout-grid-mode:line"><font size="2">. 
+    Обратите внимание на то, что строка справа от основы состоит только из 
+    терминальных символов.</font></span></font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial; layout-grid-mode: line">
+    Поскольку грамматика (1<span lang="en-us">2</span>.1) неоднозначна, имеется 
+    еще одно правое порождение той же строки:</span></p>
+    <p style="margin-left: 20">
+    <img border="0" src="_12_2_b.gif" width="164" height="231"></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span style="layout-grid-mode:line"><font size="2">
+    Рассмотрим правосентенциальную форму </font></span><font size="2"><i>
+    <span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line">+</span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line">*</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">3</span></sub><span style="layout-grid-mode:line">. 
+    В этом порождении </span><i>
+    <span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line">+</span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line"> 
+    – основа </span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i><span style="layout-grid-mode:line">+</span><i><span lang="EN-US" style="layout-grid-mode: line">E</span></i><b><span style="layout-grid-mode:line">*</span><span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">3</span></sub><span style="layout-grid-mode:line">,
+    </span></b><span style="layout-grid-mode:line">в то время как в ранее 
+    представленном порождении ее основой яв­ляется </span>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span><sub><span style="layout-grid-mode:line">3</span></sub></font><span style="layout-grid-mode:line"><font size="2">.</font></span></font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial; layout-grid-mode: line">
+    Первое порождение дает оператору * больший приоритет, чем оператору +, в то 
+    время как во втором порождении выше приоритет оператора +.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

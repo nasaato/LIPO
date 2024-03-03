@@ -1,0 +1,316 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Проблема разбора</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Проблема разбора.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Компилятор должен решить проблему проверки 
+      строк символов, чтобы определить, принадлежат ли они данному языку, и если 
+      да, то распознать структуру строк в терминах порождающих правил 
+      грамматики. Эта проблема известна как <font color="#FF0000">проблема разбора</font>. Исследуем 
+      грамматику с порождающими правилами (E - начальный символ).</font></div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font size="2" face="Arial">1. </font><i><font face="Arial" size="2">Е
+      </font><span style="font-size: 10.0pt; font-family: Symbol">®</span><font size="2" face="Arial"> 
+      Е + Т</font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font size="2" face="Arial">2. </font><i><font face="Arial" size="2">Е
+      </font><span style="font-size: 10.0pt; font-family: Symbol">®</span><font size="2" face="Arial"> 
+      T</font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font face="Arial"><span lang="EN-US"><font size="2">3. <i>T </i>
+      </font></span></font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">®</span><font face="Arial"><span lang="EN-US"><font size="2"> 
+      T * F</font></span></font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font face="Arial"><span lang="EN-US"><font size="2">4. <i>T </i>
+      </font></span></font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">®</span><font face="Arial"><span lang="EN-US"><font size="2"> 
+      F</font></span></font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font face="Arial"><span lang="EN-US"><font size="2">5. <i>F </i>
+      </font></span></font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">®</span><font face="Arial"><font size="2"><span lang="EN-US"> 
+      (</span>Е</font><span lang="EN-US"><font size="2">)</font></span></font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font face="Arial"><span lang="EN-US"><font size="2">6. <i>F </i>
+      </font></span></font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">®</span><font face="Arial"><span lang="EN-US"><font size="2"> 
+      x</font></span></font></i></b></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <b><font size="2" face="Arial">7. </font><i><font face="Arial" size="2">F
+      </font><span style="font-size: 10.0pt; font-family: Symbol">®</span><font size="2" face="Arial"> 
+      y</font></i></b></div>
+    <div class="Section3">
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Ясно, что строка (x + y) * x принадлежит 
+      данному языку. В частности, это можно вывести следующим образом (для 
+      каждого шага вывода указан номер применяемого правила):</font></div>
+    <div class="Section4">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">2) <i>E </i></font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span><font face="Arial"><span lang="EN-US"><font size="2"> 
+      T</font></span></font></i></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">3) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      T * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4)</font></span><font size="2">&#61481;</font></font><font size="2"><span style="font-family: Arial">
+      </span><span lang="EN-US" style="font-family: Arial">&nbsp;&nbsp;&nbsp;&nbsp; </span></font>
+      <i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      F * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">5) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E)* F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">1) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E + T) * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">2) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (T + T) * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4)</font></span></font><font size="2"><span style="font-family: Arial">
+      </span><span lang="EN-US" style="font-family: Arial">&nbsp;&nbsp;&nbsp;&nbsp; </span></font>
+      <i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (F + T) * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">6) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (x + T)*F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4) </font></span>
+      </font><font size="2"><span lang="EN-US" style="font-family: Arial">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (x + F) * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">7)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (x + y) * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">6)</font><font size="2"><span style="font-family: Arial"> 
+      &nbsp;&nbsp;&nbsp;&nbsp; </span></font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font face="Arial"><i><font size="2"> 
+      (<span lang="EN-US">x</span> + <span lang="EN-US">y</span>) * </font>
+      <span lang="EN-US"><font size="2">x</font></span></i></font></div>
+    <div class="Section5">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">Или же это можно вывести так:</font></div>
+    <div class="Section6">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">2) <i>E </i></font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      T</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">3) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      T * F</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">6) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      T * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      F * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">5) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">1) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E + T) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E + F) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">7) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (E + y) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">2) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (T + y) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font face="Arial"><span lang="EN-US"><font size="2">4) &nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </span></font><i><span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span></i><font size="2"><i><font face="Arial"><span lang="EN-US"> 
+      (F + y) * x</span></font></i></font><font face="Arial"><span lang="EN-US"><font size="2">
+      </font></span></font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">6) &nbsp;&nbsp;&nbsp;&nbsp; </font><i>
+      <span style="font-size: 10.0pt; font-family: Symbol">&THORN;</span><font face="Arial"><font size="2"> 
+      (<span lang="EN-US">x</span> + <span lang="EN-US">y</span>) * </font>
+      <span lang="EN-US"><font size="2">x</font></span></font></i></div>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">На каждом этапе первого 
+    вывода самый левый нетерминал <a href="page_2_4.html#sent" target="mainFrame">в сентенциальной форме</a> замещался с помощью 
+    одного из порождающих правил грамматики. Поэтому данный вывод называется <b>
+    <u>левосторонним</u></b>. Второй вывод, на каждом этапе которого замещается 
+    самый правый нетерминал, называется <b><u>правосторонним</u></b>. Существуют 
+    также другие выводы, не являющиеся ни лево-, ни правосторонними, однако при 
+    реализации <a href="page_1_2.html#transl">трансляторов</a> они практически не используются.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Проблему разбора можно свести к</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>1)</b></font>
+    <a href="page_4_1_1.html" target="mainFrame">нахождению левостороннего разбора</a>;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><b><font color="#FF0000">2)</font></b>
+    <a href="page_4_1_1.html" target="mainFrame">нахождению правостороннего разбора</a>;</font></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial"><b>
+    <font color="#FF0000">3)</font></b> <a href="page_4_1_2.html" target="mainFrame">построению синтаксического дерева</a>.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

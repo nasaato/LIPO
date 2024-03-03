@@ -1,0 +1,255 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Пример структуры программы сканирования</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000"><span style="font-family: Arial">Пример структуры 
+    программы сканирования</span></font><font color="#FF0000" face="Arial">.</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Пусть реализуемый язык состоит только из 
+    оператора присваивания <a href="page_2_2.html#BNF" target="mainFrame">БНФ языка</a>:</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2">&lt;Присваивание&gt; ::= &lt;Идент&gt; = &lt;Выражение&gt;</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Правило показывает, что в левой части 
+    присваивания – идентификатор, далее следует символ присваивания (=), справа 
+    – выражение;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2">&lt;Выражение&gt; ::= &lt;Операнд&gt; | &lt;Операнд&gt; 
+    &lt;Бин.оп&gt; &lt;Выражение&gt;</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Выражение – это операнд, или операнд, за которым 
+    следует бинарная операция и выражение;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2">&lt;Бин.оп&gt; ::= &quot;-&quot; | &quot;+&quot; | &quot;*&quot; | &quot;/&quot;</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Бинарная операция – символ арифметической 
+    операции </font><font face="Arial">&quot;<b>-</b>&quot;, &quot;<b>+</b>&quot;,&quot;<b>*</b>&quot;</font><font face="Arial" size="2"> 
+    или </font><font face="Arial">&quot;/&quot;</font><font face="Arial" size="2">;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Cons<span lang="en-us">t</span>&gt;</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Операнд – это идентификатор или константа;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2">&lt;Идент&gt; ::= &lt;Буква&gt;</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Идентификатор состоит из одной буквы;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><font face="Arial" size="2"><span lang="EN-US">&lt;Const&gt; ::= &lt;</span>Цифра<span lang="EN-US">&gt; 
+    &lt;Const&gt; | &lt;</span>Цифра<span lang="EN-US">&gt;</span></font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Константа – последовательность цифр, состоящая 
+    хотя бы из одной цифры.</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Лексический анализатор преобразует исходную 
+    программу в последовательность символов. Для удобства дальнейшей обработки 
+    лексем их разбивают на классы. В данном случае можно выделить следующие 
+    классы лексем:</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>1</b></font> – 
+    идентификатор;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>2</b></font> – 
+    константа;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>3 </b></font>– символ 
+    присваивания;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>4</b></font> – символы 
+    операций умножения и деления;</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2"><font color="#FF0000"><b>5</b></font> – символы 
+    операций сложения и вычитания.</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">Заметим, что необходимость разделения бинарных 
+    операций на две группы диктуется их различным приоритетом, играющим важную 
+    роль при генерации постфиксной записи.</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 25; margin-right: 20">
+    <font face="Arial" size="2"><u><font color="#FF0000"><b><br>
+    <br>
+    </b>Фрагмент программы лексического анализа</font></u>:</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">/* prog - файл с транслируемой программой, 
+    lex - выходной файл лексем */</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">while(!feof (prog))</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">{</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp; <span lang="EN-US">ch</span> = 
+    readsym(); </font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp; /* чтение очередного символа ch с 
+    пропуском пробелов */</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp; <span lang="EN-US">if(isAlpha(ch))</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf(lex, &quot;%c 
+    %d&quot;, ch, 1);</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; else</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; if(isDigit(ch))</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>digit();</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* Процедура чтения числа и вывода 
+    его в файл */</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp; <span lang="EN-US">else</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; if(ch == '=')</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf(lex, &quot;%c 
+    %d&quot;, ch, 3);</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; else</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; if(ch == '*' || ch 
+    == '/')</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf(lex, &quot;%c 
+    %d&quot;, ch, 4);</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; else</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; if(ch == '+' || ch 
+    == '-')</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf(lex, &quot;%c 
+    %d&quot;, ch, 5);</span></font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2"><span lang="EN-US">&nbsp;&nbsp; </span>else</font></p>
+    <p class="a" style="margin-left: 30; margin-right: 20">
+    <font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;Недопустимый символ языка - 
+    %c \n&quot;, ch);</font></p>
+    <p style="margin-left: 30; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Courier New">}</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

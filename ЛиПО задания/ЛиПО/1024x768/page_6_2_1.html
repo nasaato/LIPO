@@ -1,0 +1,186 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Автоматы Мили с конечной памятью</TITLE>
+        </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <font color="#FF0000"><b><span style="font-family: Arial">Автоматы Мили</span></b></font><b><font color="#FF0000" face="Arial"> </font></b>
+    <font color="#FF0000"><b><span style="font-family: Arial">с конечной памятью</span></b></font><b><font color="#FF0000" face="Arial">.</font></b></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Каждое состояние автомата Мили однозначно ( т.е. 
+    с точностью до эквивалентности ) определяется конечным набором входных слов 
+    вместе с соответствующими выходными словами. Это означает, что автомат Мили 
+    может &quot;содержать&quot; только конечное множество входно-выходных связей. Поэтому 
+    выход зависит только от некоторого ограниченного числа предыдущих входов. Мы 
+    увидим, однако, что здесь не существует функциональной зависимости, даже при 
+    использовании выходов в предыдущие моменты времени в качестве дополнительных 
+    аргументов.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <u><b><font face="Arial" size="2">Определение</font></b></u></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2"><a href="page_6_2.html" target="mainFrame">Автомат Мили</a> <span lang="en-us"><b>A = ( Z, X, 
+    Y, f, g )</b></span> называется автоматом Мили с конечной памятью, если для 
+    него существуют натуральные числа <span lang="en-us"><b>p</b>, <b>q </b>
+    </span>и отображение <b> <span lang="en-us">h : X <sup>p+1</sup> *  Y <sup>q
+    <img border="0" src="../800x600/arrow_formula.jpg" width="33" height="12"></sup> Y </span>
+    </b>такие, что для всех <span lang="en-us"><b>z </b></span>из <b>
+    <span lang="en-us">Z</span> </b>и всех слов </font> <span lang="en-us">
+    <font face="Arial" size="2">w = x</font><font face="Arial"><sub>1</sub></font><font face="Arial" size="2"> 
+    ... x</font><font face="Arial"><sub>k</sub></font></span><font face="Arial"><sub> </sub>
+    <font size="2"> <span lang="en-us">
+    из</span> <b><span lang="en-us">F(X), </span></b>где <span lang="en-us"><b>k 
+    &gt; max (p, q), </b></span>выполнено равенство</font></font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <b><span lang="en-us"><font face="Arial" size="2">y<sub>k</sub>=h(x<sub>k</sub>, 
+    x<sub>k-1</sub>, ... , x<sub>k-p</sub>, 
+    y<sub>k-1</sub>, y<sub>k-2</sub>, ... , y<sub>k-q</sub>)</font></span></b></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <span lang="en-us"><font face="Arial" size="2">[ </font></span>
+    <font face="Arial" size="2">При этом<span lang="en-us"> </span>считается, 
+    что <span lang="en-us"><b>y<sub>1</sub> ... y<sub>k</sub> = g * (z, x<sub>1</sub> ... x<sub>k</sub>)</b> ] .</span></font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Наименьшее число <span lang="en-us"><b>m, </b>
+    </span>для которого существуют не превышающие его числа <span lang="en-us">
+    <b>p</b> </span>и <span lang="en-us"><b>q</b></span>, т.е.
+    <span lang="en-us"><b>m=max(p, q)</b>,</span><b> </b>удовлетворяющие 
+    приведенному выше условию, называется <b><i>памятью </i></b>автомата Мили А.</font></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">Итак, автомат Мили имеет конечную память
+    <span lang="en-us"><b>m, </b></span>если существует функция
+    <span lang="en-us"><b>h, </b></span>с помощью которой выход в любой наперед 
+    заданный момент времени <span lang="en-us"><b>k</b></span> может быть 
+    определен только по входу <span lang="en-us"> <b>x<sub>k </sub></b></span>в этот момент и по входам и выходам
+    <b><span lang="en-us">x<sub>k-1</sub>, ... , x<sub>k-m </sub></span>  <sub>&nbsp;</sub></b>и
+    <b> <span lang="en-us">
+    <br>
+    y<sub>k-1</sub>, ... , y<sub>k-m</sub></span> </b>в предыдущие
+    <span lang="en-us"><b>m</b></span> моментов времени, без учета состояний 
+    автомата.</font></p>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

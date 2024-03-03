@@ -1,0 +1,237 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Автомат магазинного типа</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000" face="Arial">Автомат магазинного типа.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">С точки зрения разбора важно, что КС язык в 
+      состоянии распознавать <font color="#FF0000"><u>автомат магазинного типа</u></font>, 
+      эквивалентный конечному автомату, к которому добавлена память магазинного 
+      типа (<font color="#FF0000">стек</font>). В функции автомата магазинного типа входит:</font></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 40; margin-right: 20">
+      <font face="Arial" size="2"><b><font color="#FF0000">а)</font></b> чтение 
+      входного символа, замещение верхнего символа стека строкой символов 
+      (возможно, пустой) и изменение состояния или</font></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 40; margin-right: 20">
+      <font face="Arial" size="2"><font color="#FF0000"><b>б)</b></font> все то 
+      же самое, но без чтения входного символа. </font></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">Автомат магазинного типа можно представить 
+      кратным</font></p>
+      <p class="MsoBodyText" style="margin-left: 40"><span lang="EN-US">(<i>K</i>,
+      <i>S</i>, </span><i>Г</i><span lang="EN-US">, </span><i>
+      <span style="font-family:Symbol">d</span></i><span lang="EN-US">, <i>S</i><sub>0</sub> 
+      , <i>Z</i><sub>0</sub> ),</span></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">где</font> <i>K</i> –
+      <font size="2" face="Arial">конечное множество состояний</font>, <i>S</i> 
+      – <font face="Arial" size="2">входной алфавит</font>, <i>Г</i> –
+      <font face="Arial" size="2">алфавит магазинный</font>, <i>
+      <span style="font-family:Symbol">d</span></i> –
+      <font face="Arial" size="2">множество переходов</font>, <i>S</i><sub>0</sub> 
+      – <font face="Arial" size="2">начальное состояние</font>, <i>Z</i><sub>0</sub> 
+      – <font size="2" face="Arial">символ магазина, который первоначально 
+      находится в стеке.</font></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">Рассмотрим, например, автомат магазинного типа
+      <i>М</i>, определенный следующим образом:</font></div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">K
+      </span></i><span lang="EN-US">= {<i>A</i>},</span></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S</span></i><span lang="EN-US"> 
+      = { '(' , ')'},</span></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i>Г</i> = {<i>O</i>, <i>I</i>},</p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">S</span></i><sub><span lang="EN-US">0</span></sub><span lang="EN-US"> 
+      ={<i>A</i>},</span></p>
+      <p class="MsoBodyText" style="margin-left: 40"><i><span lang="EN-US">Z</span></i><sub><span lang="EN-US">0</span></sub><span lang="EN-US"> 
+      = <i>I</i>.</span></div>
+    <div class="Section3">
+      <p class="MsoBodyText" style="margin-left: 40"><i>
+      <span style="font-family:Symbol">d </span></i>&nbsp;<font face="Arial" size="2">задается 
+      как</font> <i><span style="font-family:Symbol">d</span></i> (<i>A</i>, <i>
+      I</i>, '(') = (<i>A</i>, <i>IO</i>)</p>
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20">
+      <font face="Arial" size="2">(что означает: в состоянии</font> <i>A</i> с
+      <i>I</i> <font size="2" face="Arial">в вершине стека при чтении '(' 
+      перейти к состоянию</font> <i>A</i> <font size="2" face="Arial">и заменить</font>
+      <i>I</i> <font face="Arial" size="2">на</font> <i>IO</i>).</div>
+    <div class="Section4">
+      <p class="MsoBodyText" align="left" style="text-align: left; text-indent: 0cm; margin-left: 40">
+      <i><span style="font-family:Symbol">d</span></i><span lang="EN-US"> (<i>A</i>,
+      <i>O</i>, '(') = (<i>A</i>, <i>OO</i>),</span></p>
+      <p class="MsoBodyText" align="left" style="text-align: left; text-indent: 0cm; margin-left: 40">
+      <i><span style="font-family:Symbol">d</span></i><span lang="EN-US"> (<i>A</i>,
+      <i>O</i>, ')') = (<i>A</i>, </span><i>&#949;</i><span lang="EN-US">),</span></p>
+      <p class="MsoBodyText" align="left" style="text-align: left; text-indent: 0cm; margin-left: 40">
+      <i><span style="font-family:Symbol">d</span></i><span lang="EN-US">(<i>A</i>,
+      <i>I</i>, </span><i>&#949;</i><span lang="EN-US">) = (<i>A</i>, </span><i>&#949;</i><span lang="EN-US">).</span></div>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Автомат <i>М</i> распознает согласуемые пары 
+    скобок. Открывающие скобки (представляемые как <i>O</i>) помещаются в стек и 
+    удаляются оттуда, когда встречается соответствующая закрывающая скобка. 
+    Строка скобок принимается, если после считывания всей строки стек остается 
+    пустым. Это – обычный способ принятия строк автоматами магазинного типа, 
+    хотя можно также определить автоматы магазинного типа, которые принимают 
+    строки по конечному состоянию. Эти два типа эквивалентны.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Описанный выше автомат магазинного типа является 
+    детерминированным, т.е. для каждого допустимого входного символа имеется 
+    однозначный переход. Что же касается конечных автоматов, то мы можем также 
+    определять недетерминированные автоматы магазинного типа, содержащие 
+    множество переходов для заданного входа, состояния и содержания стека.
+    </font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">При разборе происходит эффективное моделирование 
+    соответствующего автомата магазинного типа. Некоторые КС языки не могут 
+    анализироваться детерминированным образом (т.е. без возврата). Язык, 
+    допускающий детерминированный анализ, называется <font color="#FF0000">детерминированным</font>; 
+    большинство языков программирования являются детерминированными или, по 
+    крайней мере, почти таковыми.</font></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Между 
+    <a href="page_7_1.html" target="mainFrame">КС-грамматиками</a> и 
+    автоматами магазинного типа существует полное соответствие, и 
+    детерминированность автомата может зависеть от того, какая грамматика 
+    используется для генерирования языка. Метод разбора является 
+    детерминированным (для конкретной грамматики), если при разборе данной 
+    грамматики не требуется делать возврат. Некоторые языки можно разбирать 
+    детерминировано с помощью только одного из методов грамматического разбора. 
+    В частности, ряд языков можно разбирать детерминировано снизу вверх, но не 
+    сверху вниз. Далее мы будем рассматривать исключительно детерминированные 
+    методами разбора. Недетерминированные методы могут применяться к таким 
+    строчно-ориентированным языкам, как Фортран. Для языков же сильно 
+    рекурсивных (С++, Паскаль), где компилятор может быть вынужден возвращаться 
+    назад не только в текущей строке, но и в большой части программы, издержки, 
+    возникающие в случае возврата, просто неприемлемы. Другой недостаток 
+    возврата заключается в том, что он может вызвать отмену действий 
+    компилятора, которые осуществляются параллельно с <a href="page_9_1.html" target="mainFrame">синтаксическим анализом</a>.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

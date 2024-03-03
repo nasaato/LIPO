@@ -1,0 +1,226 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Основные задачи кодирования конечного автомата</TITLE>
+       </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font color="#FF0000" face="Arial">Основные задачи кодирования конечного 
+    автомата.</font></b></p>
+    <p align="justify" style="margin-left: 20; text-indent:20; margin-right:20">
+    <font face="Arial" size="2">В общем случае кодирование автомата состоит в 
+    сопоставлении с каждым внутренним состоянием определенного набора значений 
+    переменных дополнительных входных сигналов ЛП автомата, с каждым состоянием 
+    входа - набора значений его </font><font face="Arial">
+    <span style="font-size:10.0pt">основных входных сигналов и с каждым 
+    состоянием выхода — набора значений основных выходных сигналов ЛП. Однако во 
+    многих практических случаях состояния входа и выхода оказыва­ются уже 
+    закодированными и задача кодирования автомата сво­дится к кодированию или, 
+    как иногда говорят, размещению его внутренних состояний. Поэтому основное 
+    внимание уделим именно кодированию внутренних состояний автомата. На этом 
+    этапе синтеза автомата определяются многие его свойства, и прежде всего 
+    устойчивость по отношению к состязаниям элементов памяти.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Как уже отмечалось, каждый 
+    реальный элемент памяти вносит определенную задержку
+    <img border="0" src="tau.gif" width="8" height="9">, которая зависит от 
+    свойств данного элемента памяти. Естественно, что различные экземпляры 
+    элемента памяти даже одного и того же типа (например, два однотипных реле 
+    или два триггера) могут иметь различные задержки. Это значит, что если 
+    сигналы на входы двух элементов памяти подать одновременно, то сигналы на их 
+    выходах могут появиться не одновременно, так как время переключения ЭП может 
+    быть различным. С этим обстоятельством связано явление, которое называют <i>
+    <b>состязанием элементов памяти</b></i>.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">С каждым внутренним 
+    состоянием автомата в результате процесса кодирования сопоставляется 
+    определенная кодовая комбинация &#8710;<span lang="en-us"><sub>i</sub> </span></span>
+    <font face="Arial"><span style="font-size:10.0pt">, образованная значениями 
+    переменных, характеризующих состояния ЭП.<span lang="en-us"> </span></span>
+    </font><span style="font-size: 10.0pt; font-family: Arial">Если такое 
+    сопоставление осуществляется произвольным образом, то может оказаться, что 
+    двум внутренним состояниям<span lang="en-us"> <b>x<sub>i</sub> </b></span>и
+    <b><span lang="en-us">x<sub>j</sub></span></b>, между которыми должен быть 
+    переход (соседние внутренние состояния), будут приписаны кодовые комбинации 
+    &#8710;<sub><span lang="en-us">i</span></sub> и &#8710;<sub><span lang="en-us">j</span></sub> 
+    отличающиеся значениями нескольких переменных (несоседние кодовые 
+    комбинации) (рис. 6.8,а). Тогда и возникают условия для состязаний элементов 
+    памяти, состояниями которых отличаются кодовые комбинации внутренних 
+    состояний <span lang="en-us"> <b>x<sub>i</sub> </b></span>и
+    <b><span lang="en-us">x<sub>j</sub></span> . </b>Из-за наличия состязаний 
+    автомат из внутреннего состояния <b><span lang="en-us">x<sub>i</sub></span></b> 
+    под воздействием состояния входа <b>&#961;</b><span lang="en-us"><b><sub>r</sub></b> </span>
+    может попасть не в
+    <b><span lang="en-us">x<sub>j</sub></span> , </b>а в другое внутренне 
+    состояние <span lang="en-us"> <b>x<sub>k</sub> </b></span>и
+    <b><span lang="en-us">x<sub>l </sub></span></b>в зависимости от того, какой 
+    из элементов памяти, участвующих в состязании, раньше изменит свое состояние 
+    (рис. 6.8,б). Если затем при том же состоянии входа <b>&#961;</b><sub><b><span lang="en-us">r</span></b> </sub>
+    автомат из <span lang="en-us"> <b>x<sub>k</sub> </b></span>и <span lang="en-us">
+    <b>x<sub>l</sub></b></span> перейдет во внутреннее состояние
+    <b><span lang="en-us">x<sub>j</sub></span></b>(рис. 6.8,в), то такие 
+    состязания являются допустимыми, или некритическими, так как функция 
+    переходов автомата при этом искажаться не будет.</span></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font size="2"><span style="font-family: Arial">Если же автомат из </span>
+    </font>
+    <b><span style="font-size: 10.0pt; font-family: Arial"><span lang="en-us">x<sub>l</sub></span><sub> </sub></span>
+    </b><font size="2"><span style="font-family: Arial">или </span></font> <b> 
+    <span style="font-size: 10.0pt; font-family: Arial" lang="en-us">x<sub>k</sub></span><span style="font-size: 10.0pt; font-family: Arial"><sub> </sub></span> </b>
+    <font size="2"><span style="font-family: Arial">при состоянии входа </span>
+    </font><span style="font-size: 10.0pt; font-family: Arial"><b>&#961;</b><sub><b><span lang="en-us">r</span>
+    </b></sub></span><font size="2"><span style="font-family: Arial">перейдет в 
+    какое-либо другое состояние ( </span></font> <b>
+    <span style="font-size: 10.0pt; font-family: Arial" lang="en-us">x<sub>m</sub></span><sub><span style="font-size: 10.0pt; font-family: Arial"> </span></sub> </b>
+    <font size="2"><span style="font-family: Arial">) </span></font>
+    <font face="Arial"><span style="font-size:10.0pt">или не изменит своего 
+    внутреннего состояния (рис. 6.8,г), то такие состязания являются 
+    критическими, или недопустимыми, так как при этом исказится функция 
+    переходов автомата и в дальнейшем он будет функционировать неправильно.</span></font></p>
+    <p class="MsoNormal" style="text-autospace: none; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="font-size:10.0pt">Примем, что автомат 
+    работает устойчиво, если в процессе его работы не возникают критические 
+    состязания элементов памяти. Если возможно возникновение критических 
+    состязаний, будем считать, что автомат работает неустойчиво. Очевидно, что 
+    неустойчивая работа автомата недопустима. Поэтому первоочередной задачей, 
+    которая должна решаться при кодировании внутренних состояний автомата, 
+    является обеспечение его устойчивой работы. Это можно сделать двумя 
+    способами, в соответствии с которыми существующие методы разделяют на две 
+    группы.</span></font></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">К первой группе относят 
+    методы кодирования, позволяющие устранить вообще все состязания элементов 
+    памяти. Для этого всем соседним внутренним состояниям, т. е. таким, между 
+    которыми должны быть переходы, необходимо приписать соседние кодовые 
+    комбинации. Методы второй группы осуществляют такое кодирование, при котором 
+    допускаются некритические состязания ЭП. Очевидно, и в том и в другом случае 
+    автомат будет работать устойчиво. Методы и той и другой группы имеют 
+    определенные преимущества и недостатки, причем устранение всех состязаний 
+    может быть осуществлено двумя способами— без преобразования или с 
+    преобразованием заданной таблицы переходов.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

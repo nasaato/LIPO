@@ -1,0 +1,776 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Содержание</TITLE>
+   </HEAD>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Варианты заданий к лабораторным 
+    работам.</font></b></p>
+    <p class="MsoNormal" style="text-indent: 36.0pt; margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Во всех вариантах все переменные должны быть 
+    объявлены до начала вычислений. </font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Буква&gt; – буква латинского алфавита (a...z).</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Цифра&gt; – цифра от 0 до 9.</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;</font></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50" align="left">
+    <b><u><font size="2" face="Arial" color="#FF0000">Вариант 1</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;<b> .</b></font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt; ::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal" style="text-align: justify; text-indent: 36.0pt; margin-right: 20">
+    <font size="2" face="Arial">На одной строке может быть только объявление 
+    переменных или один оператор присваивания</font></p>
+    <p class="MsoNormal"><font size="2" face="Arial">&nbsp;</font></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50" align="left">
+    <b><u><font size="2" face="Arial" color="#FF0000">Вариант 2</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var </font></span>
+    <font size="2" face="Arial">&nbsp;&lt;Список переменных&gt; ;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; , 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 3</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= [ &lt;Список 
+    присваиваний&gt; ]</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 4</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt;&lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p><span lang="EN-US" style="font-family: Arial"><font size="2">
+    <br clear="all" style="page-break-before: always">
+&nbsp;</font></span></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 5</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt; </font><span style="font-family: Arial">
+    <font size="2">.</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; = &lt;Выражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoNormal" style="text-indent:36.0pt"><font size="2" face="Arial">
+    На одной строке может быть только объявление переменных или один оператор 
+    присваивания.</font></p>
+    <p class="MsoNormal"><font size="2" face="Arial">&nbsp;</font></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 6</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt;</font><span style="font-family: Arial"><font size="2">;</font></span><font size="2" face="Arial"> 
+    | &lt;Идент&gt; </font><span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Идент&gt; </font><span style="font-family: Arial"><font size="2">;</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:= </font></span>
+    <font size="2" face="Arial">&lt;Выражение&gt; </font>
+    <span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt;&lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p><span lang="EN-US" style="font-family: Arial"><font size="2">
+    <br clear="all" style="page-break-before: always">
+&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 7</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font><span style="font-family: Arial; font-weight: 700"><font size="2">.</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; </font><span style="font-family: Arial"><font size="2">
+    :Integer;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt;</font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt;&lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 8</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font><span style="font-family: Arial"><font size="2">.</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial"> 
+    &nbsp;&lt;Список переменных&gt; </font><span style="font-family: Arial"><font size="2">
+    :Logical;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt;&lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">!</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">&amp;</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">|</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">^</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Const&gt; ::= 0 | 1</font></p>
+    <p class="MsoNormal"><font size="2" face="Arial">&nbsp;<br>
+&nbsp;</font></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 9</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font><span style="font-family: Arial; font-weight: 700"><font size="2">.</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Var</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; </font><span style="font-family: Arial"><font size="2">
+    :Boolean;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt; | &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; = &lt;Выражение&gt; </font>
+    <span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;</font></span><font size="2">Ун</font><span lang="EN-US"><font size="2">.</font></span><font size="2">оп</font><span lang="EN-US"><font size="2">.&gt; 
+    ::= &quot;</font></span></font><span lang="EN-US" style="font-family: Arial"><font size="2">.NOT.</font></span><span lang="EN-US"><font size="2" face="Arial">&quot;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;</font></span><font size="2">Бин</font><span lang="EN-US"><font size="2">.</font></span><font size="2">оп</font><span lang="EN-US"><font size="2">.&gt; 
+    ::= &quot;</font></span></font><span lang="EN-US" style="font-family: Arial"><font size="2">.AND.</font></span><span lang="EN-US"><font size="2" face="Arial">&quot; 
+    | &quot;</font></span><span lang="EN-US" style="font-family: Arial"><font size="2">.OR.</font></span><span lang="EN-US"><font size="2" face="Arial">&quot; 
+    | &quot;</font></span><span lang="EN-US" style="font-family: Arial"><font size="2">.XOR.</font></span><span lang="EN-US"><font size="2" face="Arial">&quot;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Const&gt; ::= 0 | 1</font></p>
+    <p class="MsoNormal"><font size="2" face="Arial">&nbsp;</font></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 10</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Integer</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt;</font><span style="font-family: Arial"><font size="2">;</font></span><font size="2" face="Arial"> 
+    | &lt;Идент&gt; </font><span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoNormal">&nbsp;</p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 11</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::= &lt;Тип переменных&gt; 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;</font></span><font size="2">Тип 
+    переменных</font><span lang="EN-US"><font size="2">&gt; ::= </font></span>
+    </font><span lang="EN-US" style="font-family: Arial"><font size="2">Integer</font></span><span lang="EN-US"><font size="2" face="Arial"> 
+    | </font></span><span lang="EN-US" style="font-family: Arial">
+    <font size="2">Long Integer</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt;</font><span style="font-family: Arial"><font size="2">;</font></span><font size="2" face="Arial"> 
+    | &lt;Идент&gt; </font><span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><span lang="EN-US"><font size="2">&lt;Const&gt; ::= &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><font size="2">Цифра</font><span lang="EN-US"><font size="2">&gt;</font></span></font></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoNormal"><span lang="EN-US"><font size="2" face="Arial">&nbsp;</font></span></p>
+    <p class="MsoHeading7" style="line-height: 150%; margin-left: 50"><b><u>
+    <font size="2" face="Arial" color="#FF0000">Вариант 12</font></u></b></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Программа&gt; ::= &lt;Объявление переменных&gt; 
+    &lt;Описание вычислений&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Описание вычислений&gt; ::= </font>
+    <span style="font-family: Arial"><font size="2">Begin</font></span><font size="2" face="Arial"> 
+    &lt;Список присваиваний&gt; </font><span style="font-family: Arial">
+    <font size="2">End</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Объявление переменных&gt; ::=&nbsp; </font>
+    <span style="font-family: Arial"><font size="2">Int</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+    <span style="font-family: Arial"><font size="2">Int</font></span><font size="2" face="Arial">&nbsp; 
+    &lt;Список переменных&gt; &lt;Объявление переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список переменных&gt; ::= &lt;Идент&gt;</font><span style="font-family: Arial"><font size="2">;</font></span><font size="2" face="Arial"> 
+    | &lt;Идент&gt; </font><span style="font-family: Arial"><font size="2">,</font></span><font size="2" face="Arial"> 
+    &lt;Список переменных&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Список присваиваний&gt;::= &lt;Присваивание&gt; |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &lt;Присваивание&gt; &lt;Список присваиваний&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Присваивание&gt; ::= &lt;Идент&gt; </font>
+    <span style="font-family: Arial"><font size="2">:=</font></span><font size="2" face="Arial"> 
+    &lt;Выражение&gt; </font><span style="font-family: Arial"><font size="2">;</font></span></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Выражение&gt; ::= &lt;Ун.оп.&gt; &lt;Подвыражение&gt; | 
+    &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Подвыражение&gt; :: = ( &lt;Выражение&gt; ) | &lt;Операнд&gt; 
+    |</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt; 
+    Подвыражение &gt; &lt;Бин.оп.&gt; &lt;Подвыражение&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Ун.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Бин.оп.&gt; ::= &quot;</font><span style="font-family: Arial"><font size="2">-</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">+</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">*</font></span><font size="2" face="Arial">&quot; 
+    | &quot;</font><span style="font-family: Arial"><font size="2">/</font></span><font size="2" face="Arial">&quot;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Операнд&gt; ::= &lt;Идент&gt; | &lt;Const&gt;</font></p>
+    <p class="MsoNormal" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">&lt;Идент&gt; ::= &lt;Буква&gt; &lt;Идент&gt; | &lt;Буква&gt;</font></p>
+    <p style="margin-left: 20; margin-right: 20">
+    <span lang="EN-US" style="font-family: Arial"><font size="2">&lt;Const&gt; ::= &lt;</font></span><span style="font-family: Arial"><font size="2">Цифра</font></span><span lang="EN-US" style="font-family: Arial"><font size="2">&gt; 
+    &lt;Const&gt;&nbsp; | &lt;</font></span><span style="font-family: Arial"><font size="2">Цифра</font></span><span lang="EN-US" style="font-family: Arial"><font size="2">&gt;</font></span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

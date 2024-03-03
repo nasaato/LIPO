@@ -1,0 +1,237 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Синтаксис языка</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Синтаксис языка</font></b></p>
+    <p align="justify" style="text-indent: 20; margin-left: 20; margin-right: 20">
+    <b><u><span style="font-size: 10.0pt; font-family: Arial">Синтаксис</span></u></b><span style="font-size: 10.0pt; font-family: Arial"> 
+    – множество правил, которые задают множество формально правильных 
+    предложений. Синтаксис для конечного языка (состоящего из конечного числа 
+    строк) можно специфицировать, задав список строк.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Строки, принадлежащие 
+    языку, обычно называются <font color="#FF0000">предложениями языка</font>. В реальных языках – 
+    бесконечное число предложений, так что их синтаксис нельзя определит путем 
+    перечисления этих предложений. Синтаксис очень простого языка можно описать 
+    на естественном языке, например – &quot;все строки, состоящие только из 1 и 0&quot; 
+    тогда 1111 и 1000110 – принадлежат языку, а 1020 – нет. Однако естественным 
+    языкам свойственны неоднозначности, поэтому для спецификации синтаксиса 
+    более сложных языков применяется более формальный метод определения 
+    синтаксиса.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Рассмотрим, например, 
+    предложение &quot;Кошки спят&quot;. Слово &quot;кошки&quot; – подлежащее, а &quot;спят&quot; – сказуемое. 
+    Это предложение принадлежит языку, который можно описать, например, при 
+    помощи следующих синтаксических правил: </span></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40; margin-right: 40">
+    <span style="font-size: 10.0pt; font-family: Arial">&lt;предложение&gt; ::= 
+    &lt;подлежащее&gt;&lt;сказуемое&gt;</span></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40">
+    <span style="font-size: 10.0pt; font-family: Arial">&lt;подлежащее&gt; ::= кошки | 
+    собаки</span></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40">
+    <span style="font-size: 10.0pt; font-family: Arial">&lt;сказуемое&gt; ::= едят | 
+    спят</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Смысл этих трех строк 
+    таков: предложение состоит из подлежащего, за которым следует сказуемое. 
+    Подлежащее состоит либо из одного слова &quot;кошки&quot;, либо из одного слова 
+    &quot;собаки&quot;. Сказуемое состоит либо из слова &quot;спят&quot;, либо из слова &quot;едят&quot;.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Идея заключается в том, 
+    что любое предложение можно получить из начального символа &lt;предложение&gt; 
+    последовательным применением правил подстановки.</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial"><A name="BNF"></A>Формализм, или нотация, 
+    использованный при написании этих правил, называется <b><u>Бэкуса–Наура 
+    формой (БНФ)</u></b>. синтаксические единицы &lt;предложение&gt;, &lt;подлежащее&gt; и 
+    &lt;сказуемое&gt; называются нетерминальными символами, слова &quot;кошки&quot;, &quot;собаки&quot;, 
+    &quot;спят&quot;, &quot;едят&quot; – терминальными символами, а правила – порождающими 
+    правилами. Символы “::=”, “|”, а также скобки нетерминальных символов “&lt;&gt;” – 
+    это метасимволы языка БНФ (метасимволы не принадлежат описываемому языку, а 
+    относятся к языку описания.</span><p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;line-height:150%;font-family:
+Arial">Для рассмотрения задачи спецификации синтаксиса дадим несколько 
+    определений.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><u><span style="font-size:10.0pt;line-height:150%;font-family:Arial">
+    Алфавит</span></u></b><i><span style="font-size:10.0pt;line-height:
+150%;font-family:Arial"> </span></i>
+    <span style="font-size:10.0pt;line-height:
+150%;font-family:Arial">– множество символов. Например: Русские буквы, Латинские 
+    буквы, цифры.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;line-height:150%;font-family:
+Arial">Если <i>A</i> – алфавит, <i>A*</i> (замыкание <i>A</i>) обозначает 
+    множество всех строк (включая пустую строку), составленных из символов, 
+    входящих в <i>A</i>. <i>A+</i> обозначает множество всех строк (исключая 
+    пустую строку), состоящих из символов, входящих в <i>A</i>. Пустая строка 
+    обычно обозначается с помощью <i>&#949;</i> (эпсилон).</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Синтаксис языка можно 
+    определить, пользуясь системой изображения множеств, например <i>L</i> = { 0<i><sup>n</sup></i>1<i><sup>n</sup></i> 
+    | <i>n</i> </span><span style="font-size: 10.0pt; font-family: Symbol">&sup3;</span><span style="font-size: 10.0pt; font-family: Arial"> 
+    0}. Данный язык включает строки, состоящие из одного или более нулей и того 
+    же числа последующих единиц, а также пустую строку.</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Более сложный синтаксис 
+    языка лучше определять с помощью <a href="page_2_4.html" target="mainFrame">грамматики</a>. В грамматику входит набор 
+    правил для получения предложений языка. Возьмем синтаксис <i>L</i> и 
+    воспользуемся следующими правилами:</span></p>
+    <ol>
+      <li>
+      <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="3">S <font face="Symbol">®</font> 0S1</font></li>
+      <li>
+      <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="3">S <font face="Symbol">®</font> &#949;</font></li>
+    </ol>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Чтобы вывести 
+    предложение этого языка, поступим следующим образом. Начнем с символа <i>S</i> 
+    и заменим его на 0<i>S</i>1 или <i>&#949;</i>. Если <i>S</i> опять появился в 
+    полученной строке, его опять можно заменить с помощью одного из этих правил, 
+    и т.д. Полученная таким образом любая строка, не содержащая <i>S</i>, 
+    является предложением этого языка. Например</span><span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">,</span></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font size="3">S <font face="Symbol">Ю</font> <span lang="en-us">&nbsp;</span>0S1
+    <font face="Symbol">Ю</font> <span lang="en-us">&nbsp;</span>00S11
+    <font face="Symbol">Ю</font> <span lang="en-us">&nbsp;</span>000S111
+    <font face="Symbol">Ю</font> <span lang="en-us">&nbsp;</span>000111</font><p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Последовательность таких 
+    шагов называется <font color="#FF0000">выводом строки</font> 000111, а символ </span><font size="3">
+    <font face="Symbol">Ю</font> </font>
+    <span style="font-size: 10.0pt; font-family: Arial">&nbsp;служит для 
+    разделения шагов вывода. Все предложения данного языка можно вывести, 
+    руководствуясь двумя правилами, любая строка, которую нельзя вывести с их 
+    помощью, не является предложением этого языка. <a href="page_2_4.html" target="mainFrame">Грамматику</a> часто называют 
+    системой перезаписи.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

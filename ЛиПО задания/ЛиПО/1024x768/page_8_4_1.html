@@ -1,0 +1,300 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+
+      <TITLE>Устранение левой рекурсии</TITLE>
+      </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Устранение левой рекурсии.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Грамматика, содержащая левую рекурсию, не 
+      является LL(1)-грамматикой. Рассмотрим правила</font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>A
+      <span style="font-family:Symbol">®</span></i> <i><span lang="EN-US">Aa</span></i> 
+      (<font size="2" face="Arial">левая рекурсия в A</font>)</p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>A<span style="font-family:Symbol">®</span>
+      <span lang="EN-US">a</span></i></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">Здесь</font> <i>a</i>
+      <font size="2" face="Arial">символ-предшественник для обоих вариантов 
+      нетерминала <i>A</i>. Аналогично грамматика, содержащая левый рекурсивный 
+      цикл, не может быть LL(1)-грамматикой, например</font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">A</span><span style="font-family:Symbol">®</span><span lang="EN-US"> 
+      BC</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> CD</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span> <span lang="EN-US">AE</span></i></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Грамматику, содержащую левый рекурсивный цикл, 
+      можно преобразовать в грамматику, содержащую только прямую левую рекурсию, 
+      и далее, за счет введения дополнительных нетерминалов, левую рекурсию 
+      можно исключить полностью (в действительности она заменяется правой 
+      рекурсией, которая не представляет проблемы в отношении LL(1)-свойства). В 
+      качестве примера рассмотрим грамматику с порождающими правилами </font>
+    </div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Aa</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Bb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span> <span lang="EN-US">Cc</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Dd</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> e</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">D
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Az</span></i></div>
+    <div class="Section3">
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">которая имеет левый рекурсивный цикл, 
+      вовлекающий <i>A, B, C, D</i>. Чтобы заменить этот цикл прямой левой 
+      рекурсией, упорядочим нетерминалы следующим образом: <i>
+      <span lang="EN-US">S</span>, <span lang="EN-US">A</span>,
+      <span lang="EN-US">B</span>, <span lang="EN-US">C</span>,
+      <span lang="EN-US">D</span></i>. </font></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Рассмотрим все порождающие правила вида </font>
+      </p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>Xi
+      <span style="font-family:Symbol">®</span> Xj &#947;,</i></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">где <i>Xi</i> и <i>Xj</i> – нетерминалы, а</font>
+      <i>&#947;</i> – <font size="2" face="Arial">строка терминальных и 
+      нетерминальных символов. В отношении правил, для которых</font> <i>j &#8805; i</i>,
+      <font size="2" face="Arial">никакие действия не производятся. Однако это 
+      неравенство не может выдерживаться для всех правил, если есть левый 
+      рекурсивный цикл. При выбранном нами порядке мы имеем дело с единственным 
+      правилом: </font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> Az</i></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">так как <i>A</i> предшествует <i>D</i> в этом 
+      упорядочении. Теперь начнем замещать <i>A</i>, пользуясь всеми правилами, 
+      имеющими <i>A</i> в левой части. В результате получаем </font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> Bbz</i></p>
+      <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+      <font size="2" face="Arial">Поскольку <i>B</i> предшествует <i>D</i> в 
+      упорядочении, процесс повторяется, что дает правило: </font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> Ccbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Затем он повторяется еще раз и дает два 
+      правила: </font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> ecbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> Ddcbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Теперь преобразованная грамматика выглядит 
+      следующим образом: </font>
+    </div>
+    <div class="Section4">
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">S
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Aa</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">A
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Bb</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">B
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Cc</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Dd</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">C
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> e</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">D
+      </span><span style="font-family:Symbol">®</span><span lang="EN-US"> Ddcbz</span></i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> ecbz</i></div>
+    <div class="Section5">
+      <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Все эти порождающие правила имеют требуемый 
+      вид, а левый рекурсивный цикл заменен прямой левой рекурсией. Чтобы 
+      исключить прямую левую рекурсию, введем новый нетерминальный символ</font>
+      <i>Z</i> <font size="2" face="Arial">и заменим правила </font></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D
+      <span style="font-family:Symbol">®</span> ecbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D<span style="font-family:Symbol">®</span> 
+      Ddcbz</i></p>
+      <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20">
+      <font face="Arial" size="2">на</font></div>
+    <div class="Section6">
+      <p class="MsoBodyText" style="margin-left: 50"><i>D <span style="font-family:Symbol">®</span> ecbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>D <span style="font-family:Symbol">®</span> 
+      ecbzZ</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>Z <span style="font-family:Symbol">®</span> dcbz</i></p>
+      <p class="MsoBodyText" style="margin-left: 50"><i>Z <span style="font-family:Symbol">®</span> 
+      dcbzZ</i></div>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Заметим, что до и после преобразования <i>D</i> 
+    генерирует регулярное выражение </font> </p>
+    <p class="MsoBodyText" style="margin-left: 50"><i>(ecbz) (dcbz)*</i></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Обобщая, можно показать, что если нетерминал <i>A</i> 
+    появляется в левых частях <i>r</i> + <i>s</i> порождающих правил, <i>r</i> 
+    из которых используют прямую левую рекурсию, а <i>s </i>– нет, т.е.</font> </p>
+    <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">A </span>
+    <span style="font-family:Symbol">®</span><span lang="EN-US"> A</span>&#945;</i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">,
+    <i>A </i></span><i><span style="font-family:Symbol">®</span><span lang="EN-US"> 
+    A</span>&#945;</i><sub><span lang="EN-US">2</span></sub><span lang="EN-US">,...,
+    <i>A </i></span><i><span style="font-family:Symbol">®</span><span lang="EN-US"> 
+    A</span>&#945;</i><sub><span lang="EN-US">r</span></sub></p>
+    <p class="MsoBodyText" style="margin-left: 50"><i><span lang="EN-US">A </span>
+    <span style="font-family:Symbol">®</span> &#946;</i><sub><span lang="EN-US">1</span></sub><span lang="EN-US">,
+    <i>A </i></span><i><span style="font-family:Symbol">®</span> &#946;</i><sub><span lang="EN-US">2</span></sub><span lang="EN-US">,...,
+    <i>A </i></span><i><span style="font-family:Symbol">®</span> &#946;</i><sub><span lang="EN-US">s</span></sub></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">то эти правила можно заменить на следующие:</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="left">
+    <img border="0" src="_8_4_1.gif" width="149" height="144"><span lang="EN-US"><!--[if gte mso 9]><xml>
+    <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026" DrawAspect="Content" ObjectID="_1124371984">
+    </o:OLEObject>
+    </xml><![endif]--></span></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Неформальное доказательство заключается в том, что до 
+    и после преобразования <i>A</i> генерирует регулярное выражение</font></p>
+    <p class="MsoBodyText" style="margin-left: 50">(<i>&#946;</i><sub>1</sub> | <i>&#946;</i><sub>2</sub> |... |
+    <i>&#946;</i>s) (<i>&#945;</i><sub>1</sub> | <i>&#945;</i><sub>2</sub> |... | <i>&#945;</i><sub>r</sub>) 
+    *</p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">Следует 
+    обратить внимание, что устранив левую рекурсию (или левый рекурсивный цикл), 
+    мы еще не получаем </span>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">
+    LL</span><span style="font-size: 10.0pt; font-family: Arial">(1)-грамматику, 
+    т.к. для некоторых нетерминалов в правой части правил полученных грамматик 
+    существуют альтернативные левые части, начинающиеся с одних и тех же 
+    символов. Поэтому после устранения левой рекурсии следует продолжить 
+    преобразование грамматики к </span>
+    <span lang="EN-US" style="font-size: 10.0pt; font-family: Arial">
+    LL</span><span style="font-size: 10.0pt; font-family: Arial">(1) 
+    виду.</span></p>
+    </td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

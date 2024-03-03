@@ -1,0 +1,8 @@
+a b c d e ab abc f ;
+a 1 = 
+b 2 ~ = 
+c a = 
+d ~ c b - a / = 
+e 125 = 
+abc d e + a b - - = 
+f 5 a + 1 - = 

@@ -1,0 +1,489 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Конечные автоматы</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <font color="#FF0000"><b><span style="font-family: Arial">Определение 
+    конечного автомата</span></b></font><b><font color="#FF0000" face="Arial">.</font></b></p>
+    <div class="Section1">
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Существует полное соответствие между 
+      <a href="page_3_2.html" target="mainFrame">регулярными выражениями</a> (а поэтому и 
+      <a href="page_3_1.html#gramm3">грамматиками типа 3</a>) и конечными 
+      автоматами, которые определяются следующим образом:</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><b><u>Конечный автомат</u></b> – это 
+      устройство для распознавания строк какого-либо языка. У него есть конечное 
+      множество состояний, отдельные из которых называются последними. По мере 
+      считывания каждой литеры строки контроль передается от состояния к 
+      состоянию в соответствии с заданным множеством переходов. Если после 
+      считывания последней литеры строки автомат будет находиться в одном из 
+      последних состояний, о строке говорят, что она принадлежит языку, 
+      принимаемому автоматом. В ином случае строка не принадлежит языку, 
+      принимаемому автоматом.</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">Конечный автомат формально определяется пятью 
+      характеристиками:</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">-конечным множеством 
+      состояний ( <i>K</i> )</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">-конечным входным 
+      алфавитом ( </font><font size="2"><i>
+      <span style="font-family: Arial">S</span></i></font><font size="2" face="Arial"> 
+      )</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">-множеством переходов 
+      ( </font><font size="2"><i><span style="font-family: Arial">d</span></i></font><font size="2" face="Arial"> 
+      )</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">-начальным состоянием 
+      ( <i><span lang="EN-US">S</span></i><sub>0</sub> </font>
+      <span style="font-size: 10.0pt; font-family: Symbol">&Icirc;</span><font size="2" face="Arial">
+      <i>K</i> )</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">-множеством последних 
+      состояний ( <i>f</i> </font>
+      <span style="font-size: 10.0pt; font-family: Symbol">&Icirc;</span><font size="2" face="Arial">
+      <i>K</i> )</font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial"><span lang="EN-US"><font size="2">M = ( <i>K </i>,<i>
+      </i></font></span></font><font size="2"><i>
+      <span style="font-family: Arial">S </span></i><font face="Arial">
+      <span lang="EN-US">,<i> </i></span></font><i>
+      <span style="font-family: Arial">d </span></i></font><font face="Arial">
+      <span lang="EN-US"><font size="2">,<i> S</i><sub>0</sub> , <i>f</i> ).</font></span></font></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2"><b><u>Пример: </u></b>Состояниями автомата 
+      являются <i>А</i> и <i>В</i>, входным алфавитом – {0,1}, начальным 
+      состоянием – <i>А</i>, множеством последних состояний – {<i>A</i>}, а 
+      переходами</font></div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <b><span style="font-family: Arial"><font size="2">d</font></span><font size="2" face="Arial"> 
+      (А, 0) = А,</font></b></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <b><span style="font-family: Arial"><font size="2">d</font></span><font size="2" face="Arial"> 
+      (А, 1) = В,</font></b></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <b><span style="font-family: Arial"><font size="2">d</font></span><font size="2" face="Arial"> 
+      (В, 0) = В,</font></b></p>
+      <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <b><span style="font-family: Arial"><font size="2">d</font></span><font size="2" face="Arial"> 
+      (В, 1) = А.</font></b></div>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Эти переходы означают , что при чтении 0 в 
+    состоянии <i>А</i> управление передается в состояние <i>А</i> и т.д. При 
+    чтении строки </font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><font face="Arial" size="2">0 1 0 0 1 0 1 1</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">управление последовательно передается в 
+    следующем порядке через состояния:</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><font face="Arial" size="2">А, А, В, В, В, А, А, В, А.</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">Так как <i>А</i> есть последнее состояние, 
+    строка принимается конечным автоматом, однако при чтении строки</font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><font face="Arial" size="2">0 0 1 1 1</font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">автомат проходит через состояния </font></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <b><font face="Arial" size="2"><i>А, А, А, В, А, В</i></font></b></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial" size="2">поскольку В не является последним состоянием, 
+    эта строка не принимается, т.е. она не принадлежит языку, принимаемому этим 
+    автоматом. В связи с тем, что нули не влияют на состояние автомата, а каждая 
+    единица изменяет его состояние с <i>А</i> на <i>В</i> и с <i>В</i> на <i>А</i>, 
+    и начальное состояние является тем же, что и последнее состояние, язык, 
+    принимаемый автоматом, состоит из тех строк, которые содержат четное число 
+    единиц. </font></p>
+    <p style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial"><A name="ssylka1"></A>Переходы можно 
+    представить с помощью таблицы (таблица 6.1) и схематически (рис.6.1).</span></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr style="page-break-inside:avoid;height:20.55pt">
+          <td width="230" colspan="4" valign="top" style="width: 172.65pt; height: 20.55pt; border: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">Состояния</font></b></td>
+        </tr>
+        <tr style="page-break-inside:avoid;height:20.6pt">
+          <td width="69" rowspan="3" style="width: 51.75pt; height: 20.6pt; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">Вход</font></b></td>
+          <td width="56" valign="top" style="width: 41.9pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">&nbsp;</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">А</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">В</font></b></td>
+        </tr>
+        <tr style="page-break-inside:avoid;height:20.55pt">
+          <td width="56" valign="top" style="width: 41.9pt; height: 20.55pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">0</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.55pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">А</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.55pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">В</font></b></td>
+        </tr>
+        <tr style="page-break-inside: avoid; height: 20.6pt">
+          <td width="56" valign="top" style="width: 41.9pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">1</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">В</font></b></td>
+          <td width="53" valign="top" style="width: 39.5pt; height: 20.6pt; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm">
+          <b><font face="Arial">А</font></b></td>
+        </tr>
+      </table>
+    </div>
+    <p align="center" style="margin-left: 20">
+    <font face="Arial" size="2">Таблица 6.1</font></p>
+    <p align="center" style="margin-left: 20">
+    <img border="0" src="image_6_1.gif" width="295" height="125"></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Такой автомат называют <font color="#FF0000"><u>детерминированным</u></font>, 
+    потому что в каждом элементе таблицы переходов содержится одно состояние. В 
+    недетерминированном конечном автомате это положение не выдерживается. </span>
+    </p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial"><A name="ssylka2"></A>Рассмотрим конечный автомат, определяемый следующим образом:<br>
+    <i>M</i><sub>1</sub> = ( <i>K</i><sub>1</sub>, </span>
+    <font face="Symbol" size="3">S</font><span style="font-size:10.0pt;
+font-family:Arial"> <sub>1</sub>, </span><font face="Symbol" size="3">d</font><span style="font-size:10.0pt;
+font-family:Arial"> <sub>1</sub>, <i>S</i><sub>1</sub> , <i>f</i><sub>1</sub> ),</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;font-family:Arial">Где <i>K</i><sub>1</sub> = 
+    {<i>A , В</i>}, </span><font face="Symbol" size="3">S</font><span style="font-size:10.0pt;font-family:Arial">
+    <sub>1</sub>= {0,1}, <i>S</i><sub>1</sub> = {<i>А</i>}, <i>f</i><sub>1</sub>= 
+    {<i>В</i>}, </span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;font-family:Arial">а переходы представлены в 
+    таблице 6.2 и на рис.6.2: </span></p>
+    <p class="MsoBodyText" style="text-indent: 20; line-height: normal; margin-left: 20; margin-right: 20; margin-top: 6.0pt" align="center">
+    <span style="font-size:10.0pt;font-family:Arial">Таблица 6.2</span></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr style="page-break-inside:avoid">
+          <td width="215" colspan="4" valign="top" style="width: 161.2pt; border: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">Состояния</span></td>
+        </tr>
+        <tr style="page-break-inside:avoid">
+          <td width="54" rowspan="3" style="width: 40.3pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">Вход</span></td>
+          <td width="56" valign="top" style="width: 41.9pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">&nbsp;</span></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><i><span style="font-size:10.0pt;font-family:Arial">А</span></i></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><i><span style="font-size:10.0pt;font-family:Arial">В</span></i></td>
+        </tr>
+        <tr style="page-break-inside:avoid">
+          <td width="56" valign="top" style="width: 41.9pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">0</span></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">&Oslash;</span></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">{<i>В</i>}</span></td>
+        </tr>
+        <tr style="page-break-inside: avoid">
+          <td width="56" valign="top" style="width: 41.9pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">1</span></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">{<i>A,В</i>}</span></td>
+          <td width="53" valign="top" style="width: 39.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">{<i>B</i>}</span></td>
+        </tr>
+      </table>
+    </div>
+    <p align="center" style="margin-left: 20">
+    <img border="0" src="image_6_2.gif" width="317" height="131"></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Первая строка будет принята, так как имеется переход 
+    (последовательность переходов), ведущий к последнему состоянию при чтении 
+    строки. Имеется также переход к непоследнему состоянию, но это не влияет на 
+    приемлемость строки. Поэтому прежде чем прийти к выводу о том, что строка не 
+    может быть принята недетерминированным конечным автоматом, необходимо 
+    перепробовать все возможные последовательности переходов.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size:10.0pt;
+font-family:Arial">Существует детерминированный конечный автомат М<sub>2</sub>, 
+    соответствующий автомату <i>М</i><sub>1</sub>, который принимает тот же 
+    язык. Переходы автомата М<sub>2</sub> приведены в таблице 6.3 и на рис.6.3.</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+    <i><span style="font-size:10.0pt;font-family:Arial">M</span></i><sub><span style="font-size:10.0pt;font-family:Arial">2</span></sub><span style="font-size:10.0pt;font-family:Arial"> 
+    = (<i>K</i><sub>2</sub>, </span><font face="Symbol" size="3">S</font><span style="font-size:10.0pt;font-family:Arial"><sub>2</sub>,
+    </span><font face="Symbol" size="3">d</font><span style="font-size:10.0pt;font-family:Arial"><sub>2</sub>,
+    <i>S</i><sub>2</sub> , <i>f</i><sub>2</sub> ), где <i>K</i><sub>2</sub> = {<i>A 
+    , В , C</i>}, </span><font face="Symbol" size="3">S</font><span style="font-size:10.0pt;font-family:Arial"><sub>2</sub>= 
+    {0,1}, <i>S</i><sub>2</sub> = {<i>А</i>}, <i>f</i><sub>2</sub>= {<i>В</i>}</span></p>
+    <p class="MsoBodyText" style="text-indent: 20; margin-left: 20; margin-right: 20" align="center">
+    <span style="font-size:10.0pt;font-family:Arial">Таблица 6.3</span></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
+        <tr style="page-break-inside:avoid">
+          <td width="223" colspan="5" valign="top" style="width: 167.15pt; border: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">Состояния</span></td>
+        </tr>
+        <tr style="page-break-inside:avoid">
+          <td width="62" rowspan="3" style="width: 46.65pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">Вход</span></td>
+          <td width="42" valign="top" style="width: 31.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">&nbsp;</span></td>
+          <td width="43" valign="top" style="width: 32.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">А</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">В</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">C</span></td>
+        </tr>
+        <tr style="page-break-inside:avoid">
+          <td width="42" valign="top" style="width: 31.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">0</span></td>
+          <td width="43" valign="top" style="width: 32.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">C</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">В</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">C</span></td>
+        </tr>
+        <tr style="page-break-inside: avoid">
+          <td width="42" valign="top" style="width: 31.3pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">1</span></td>
+          <td width="43" valign="top" style="width: 32.5pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">В</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">B</span></td>
+          <td width="38" valign="top" style="width: 1.0cm; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding: 0cm">
+          <p class="MsoBodyText" align="center" style="text-align:center;text-indent:0cm;
+  line-height:normal"><span style="font-size:10.0pt;font-family:Arial">C</span></td>
+        </tr>
+      </table>
+    </div>
+    <p align="center" style="margin-left: 20">
+    <img border="0" src="image_6_3.gif" width="300" height="217"></p>
+    <div class="Section1">
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Как и <i>М</i><sub>1</sub>, <i>М</i><sub>2</sub> 
+      принимает строки из нулей и единиц тогда и только тогда, когда строка 
+      начинается с единицы. Однако при распознавании строки с помощью <i>М</i><sub>2</sub> 
+      возврат никогда не требуется, т.к. в процессе чтения определенного 
+      входного символа из любого состояния произойдет точно один переход к 
+      другому состоянию. Это значит, что при использовании <i>М</i><sub>2</sub> 
+      время распознавания строки будет пропорционально ее длине. </font></p>
+      <p class="MsoBodyText" style="line-height: normal; text-indent: 20; margin-left: 20; margin-right: 20" align="justify">
+      <font size="2" face="Arial">Соответствие лексическому анализу заключается 
+      в том, что каждому языку типа 3 соответствует детерминированный конечный 
+      автомат, который распознает строки этого языка. Например, строки, 
+      генерируемые грамматикой <i>G</i><sub>1</sub>c порождающими правилами:</font></p>
+      <p class="MsoBodyText" style="line-height: normal; margin-left: 40; margin-right: 40">
+      <i>А</i> <span style="font-family:Symbol">®</span> 1<i>А</i> | 1<i>В</i> | 
+      1</p>
+      <p class="MsoBodyText" style="line-height: normal; margin-left: 40; margin-right: 40">
+      В <span style="font-family:
+Symbol">®</span> 0<i>В</i> | 1<i>В</i> | 0 | 1</p>
+      <p class="MsoBodyText" style="text-indent: 0cm; line-height: normal; margin-left: 20; margin-right: 20" align="justify">
+      <font face="Arial" size="2">где <i>А</i> – начальный символ, распознаются 
+      с помощью <i>М</i><sub>1</sub> или <i>М</i><sub>2</sub>. Грамматику 
+      получают из недетерминированного конечного автомата <i>М</i><sub>1</sub> 
+      следующим образом:</font></p>
+      <p class="MsoBodyText" style="margin-left: 60; margin-right: 20">
+      <font face="Arial" size="2"><font color="#FF0000"><b>1.</b></font> 
+      Начальное состояние автомата становится начальным символом предложения 
+      грамматики.</font></p>
+      <p class="MsoBodyText" style="margin-left: 60; margin-right: 20">
+      <font face="Arial" size="2"><font color="#FF0000"><b>2.</b></font> 
+      Переходам </font>
+    </div>
+    <div class="Section2">
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20"><i>
+      <span style="font-family:Symbol">d</span></i> (<i>А</i>, 1) = <i>А</i>,</p>
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20"><i>
+      <span style="font-family:Symbol">d</span></i> (<i>А</i>, 1) = <i>В</i>,</p>
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20"><i>
+      <span style="font-family:Symbol">d</span></i> (<i>В</i>, 0) = <i>В</i>,</p>
+      <p class="MsoBodyText" style="margin-left: 40; margin-right: 20"><i>
+      <span style="font-family:Symbol">d</span></i> (<i>В</i>, 1) = <i>В</i>.</div>
+    <p class="MsoBodyText" style="text-indent: 0cm; line-height: normal; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">соответствуют порождающие правила </font></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40; margin-right: 20">
+    <i>А </i><span style="font-family:Symbol">®</span> 1<i>А</i> | 1<i>В</i></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40; margin-right: 20">
+    <i>В</i> <span style="font-family:Symbol">®</span> 0<i>В</i> | 1<i>В</i></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; line-height: normal; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">тому, что в состоянии <i>А</i> есть переход при 
+    чтении 1 к последнему состоянию <i>В</i> соответствует</font> </p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40"><i>А</i>
+    <span style="font-family:Symbol">®</span> 1</p>
+    <p class="MsoBodyText" style="text-indent: 0cm; line-height: normal; margin-left: 20; margin-right: 20">
+    <font face="Arial" size="2">и аналогично</font></p>
+    <p class="MsoBodyText" style="line-height: normal; margin-left: 40"><i>В</i>
+    <span style="font-family:Symbol">®</span> 0 | 1</p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial">Можно также, наоборот, 
+    из грамматики вывести автомат <i>М</i><sub>1</sub>.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

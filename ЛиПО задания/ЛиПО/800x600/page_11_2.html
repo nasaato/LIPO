@@ -1,0 +1,284 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Правила преобразования графов в структурах данных</TITLE>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Правила преобразования графов в 
+    структурах данных.</font></b></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Правила преобразования графов в структуре данных 
+    аналогичны правилам <b>В1-В7</b>. </font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">&nbsp;</p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial"><u><font color="#FF0000">Правила преобразования 
+    графов в структурах данных</font></u><font color="#FF0000">:</font></font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font face="Arial"><font color="#FF0000"><b><font size="2">С1</font></b></font><font size="2"><font color="#FF0000"><b>.</b></font> 
+    Свести систему графов к как можно меньшему числу отдельных графов с помощью 
+    соответствующих подстановок.</font></font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial"><b><font color="#FF0000">С2.</font></b> 
+    Преобразовать каждый граф в структуру данных согласно правилам <b>С3-С5</b>, 
+    приведенным ниже.</font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">С3</span></b></font><span style="font-size: 10.0pt; font-family: Arial"><font color="#FF0000"><b>.</b></font> 
+    Последовательность элементов (см. рис. к правилу <b>В3</b>) преобразуется в 
+    следующий список узлов: </span></p>
+    <p align="left" style="margin-left: 20">
+    <img border="0" src="_11_2_a.gif" width="413" height="66"></p>
+    <p align="left" style="margin-left: 20">
+    <font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">С4</span></b></font><span style="font-size: 10.0pt; font-family: Arial"><font color="#FF0000"><b>.</b></font> 
+    Список альтернатив (см. рис. к правилу <b>В4</b>) преобразуется в следующую 
+    структуру данных:</span></p>
+    <p align="left" style="margin-left: 20">
+    <img border="0" src="_11_2_b.gif" width="105" height="282"></p>
+    <p align="left" style="margin-left: 20">
+    <font color="#FF0000"><b>
+    <span style="font-size: 10.0pt; font-family: Arial">С5.</span></b></font><span style="font-size: 10.0pt; font-family: Arial"> 
+    Цикл (см. рис. к правилу <b>В5</b>) преобразуется в следующую структуру:</span></p>
+    <p align="left" style="margin-left: 20">
+    <img border="0" src="_11_2_c.gif" width="133" height="154"></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">В качестве примера рассмотрим построение 
+    структуры данных для сводного синтаксического графа, приведенного  на 
+    <a href="image_9_2.gif" target="_blank">рис.<span lang="en-us">9</span>.2</a>. </font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Структура данных идентифицируется <b><u>
+    узлом-заголовком</u></b>, который содержит имя нетерминального символа 
+    (цели), к которому относится структура. Вообще говоря, заголовок не является 
+    необходимым, так как можно вместо поля цели указывать непосредственно на 
+    &quot;вход&quot; в соответствующую структуру. Однако заголовок можно использовать для 
+    хранения выводимого на печать имени структуры:</font></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">struct header;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">typedef header *hpointer;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">struct header {</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp; pointer entry;</font></span></p>
+    <p class="a" style="margin-left: 50"><font face="Courier New">
+    <span lang="EN-US"><font size="2">&nbsp;&nbsp; </font></span><font size="2">char sym;</font></font></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font size="2" face="Courier New">};</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Программа, производящая грамматический разбор 
+    предложения, представленного в виде последовательности символов входного 
+    файла, состоит из повторяющегося оператора, описывающего переход от одного 
+    узла к следующему узлу. </font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">В поле sym для 
+    терминального символа помещается сам символ, для нетерминального – ссылка на 
+    соответствующую структуру данных. Она оформлена как процедура, задающая 
+    интерпретацию графа; если встречается узел, представляющий нетерминальный 
+    символ, то интерпретация графа, на который ссылается данный узел, 
+    предшествует завершению интерпретации текущего графа. Следовательно, 
+    процедура интерпретации вызывается рекурсивно. Если текущий символ (</span><font face="Courier New"><span style="font-size: 10.0pt; font-weight: 700">sym</span></font><span style="font-size: 10.0pt; font-family: Arial">) 
+    входного файла совпадает с символом в текущем узле структуры данных, то 
+    процедура переходит к узлу, на который указывает поле </span>
+    <font face="Courier New"><span style="font-size: 10.0pt"><b>suc</b></span></font><span style="font-size: 10.0pt; font-family: Arial">, 
+    иначе – к узлу, на который указывает поле </span><font face="Courier New">
+    <span style="font-size: 10.0pt"><b>alt</b></span></font><span style="font-size: 10.0pt; font-family: Arial">. 
+    Полученная структура данных приведена на <a href="image_11_1.html" target="_blank">рис.1<span lang="en-us">1</span>.1.</a></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">void parse(hpointer goal, int &amp;match)</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">{</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; pointer s;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; s = goal-&gt;entry;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; do </font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; {</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; if(s-&gt;isTerminal)</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; {</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(s-&gt;tsym == sym)</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; match = 1;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym = fgetc(input);</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else </font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; match = (s-&gt;tsym == empty)? 1 : 
+    0;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; }</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; else </font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parse(s-&gt;nsym, match);</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; if(match) </font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = s-&gt;suc;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; else</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = s-&gt;alt;</font></span></p>
+    <p class="a" style="margin-left: 50"><span lang="EN-US">
+    <font size="2" face="Courier New">&nbsp; } while(s != NULL);</font></span></p>
+    <p class="a" style="margin-left: 50; margin-bottom: 6.0pt">
+    <font size="2" face="Courier New">}</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">Программа грамматического разбора, приведенная 
+    выше, &quot;стремится&quot; к новой подцели <i>G</i>, как только она появляется, не 
+    проверяя даже, содержится ли текущий символ входного файла во множестве 
+    начальных символов соответствующего графа <i>first</i>(<i>G</i>). Это 
+    предполагает, что в синтаксическом графе не должно существовать выбора между 
+    несколькими альтернативными нетерминальными элементами. В частности, если 
+    какой-либо нетерминальный символ может порождать пустую последовательность, 
+    то ни одна из правых частей соответствующих ему порождающих правил не должна 
+    начинаться с нетерминального символа.</font></p>
+    <p class="MsoBodyText" align="justify" style="margin-left: 20; margin-right: 20">
+    <font size="2" face="Arial">При такой организации грамматического разбора 
+    программа обычно считывает представленную в определенном формате грамматику 
+    языка, заполняя при этом соответствующие структуры данных, и только после 
+    этого читает текст на разбираемом языке и выполняет его синтаксический 
+    анализ.</font></p>
+    <p align="justify" style="margin-left: 20; margin-right: 20">
+    <span style="font-size: 10.0pt; font-family: Arial">На основе этой программы 
+    грамматического разбора можно построить более сложные 
+    <a href="page_11_1.html" target="mainFrame">таблично-управляемые 
+    программы грамматического разбора</a>, которые могут работать с более широкими 
+    классами грамматик. Небольшая модификация позволяет также осуществлять и 
+    возвраты, но это будет сопровождаться значительной потерей эффективности.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>

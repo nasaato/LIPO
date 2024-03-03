@@ -1,0 +1,429 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Language" content="ru">
+      <TITLE>Конфликты в процессе ПС-анализа</TITLE>
+      <style>
+<!--
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Arial"}
+-->
+      </style>
+   </HEAD><LINK href="style.css" rel=stylesheet type=text/css>
+   <body bgcolor="#CCCCCC" leftMargin="0" rightMargin="0" topMargin="0">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="9%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="41%">&nbsp;</td>
+    <td width="9%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_topL.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right">
+    <img border="0" src="51x25_topright.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="82%" bgcolor="#FFFFFF" colspan="2" rowspan="18">
+    <p align="left" style="margin-left: 20">
+    <b><font face="Arial" color="#FF0000">Конфликты в процессе ПС-анализа.</font></b></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="layout-grid-mode: line"><font size="2">
+    Существуют контекстно-свободные грамматики, для которых ПС-анализ не 
+    применим. Любой ПС-анализатор для такой грамматики может достичь 
+    конфигурации, в которой синтаксический анализатор по информации о содержимом 
+    стека и об очередном входном символе не в состоянии решить, должен ли 
+    использоваться перенос или свертка (<b><u>конфликт перенос/свертка</u></b>,<i>
+    </i></font></span><font size="2"><b><u>
+    <span lang="EN-US" style="layout-grid-mode: line">shift</span><span style="layout-grid-mode: line">/</span><span lang="EN-US" style="layout-grid-mode: line">reduce</span><span lang="EN-US" style="layout-grid-mode: line">
+    </span><span lang="EN-US" style="layout-grid-mode: line">conflict</span></u></b><span style="layout-grid-mode: line">), 
+    либо какая из нескольких возможных сверток должна применяться (<b><u>конфликт 
+    свертка/свертка</u></b>,<i> </i></span>
+    <span lang="EN-US" style="layout-grid-mode: line">reduce</span><span style="layout-grid-mode: line">/</span><span lang="EN-US" style="layout-grid-mode: line">reduce</span><span lang="EN-US" style="layout-grid-mode: line">
+    </span><span lang="EN-US" style="layout-grid-mode: line">conflict</span><span style="layout-grid-mode: line">). 
+    Сейчас мы рассмотрим несколько примеров синтаксических конструкций, 
+    приводящих к построению таких грамматик. Технически эти грамматики не входят 
+    в класс </span><span lang="EN-US" style="layout-grid-mode: line">LR</span><span style="layout-grid-mode: line">(</span><i><span lang="EN-US" style="layout-grid-mode: line">k</span></i><span style="layout-grid-mode: line">)-грамматик, 
+    мы говорим о них как о не-</span><span lang="EN-US" style="layout-grid-mode: line">LR</span><span style="layout-grid-mode: line">-грамматиках.
+    </span><i><span lang="EN-US" style="layout-grid-mode: line">k</span><span lang="EN-US" style="layout-grid-mode: line">
+    </span></i><span style="layout-grid-mode: line">в </span>
+    <span lang="EN-US" style="layout-grid-mode: line">LR</span><span style="layout-grid-mode: line">(</span><i><span lang="EN-US" style="layout-grid-mode: line">k</span></i><span style="layout-grid-mode: line">) 
+    означает количество символов входного потока, следующих за текущим, которые 
+    синтаксический анализатор может при необходимости просмотреть, не перенося в 
+    стек. Практически используемые грамматики в основном принадлежат классу
+    </span><span lang="EN-US" style="layout-grid-mode: line">LR</span></font><span style="layout-grid-mode: line"><font size="2">(1).</font></span></font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <u><font size="2" face="Arial" color="#FF0000">Пример 1<span lang="en-us">2</span>.d</font></u></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="layout-grid-mode: line"><font size="2">
+    Неоднозначная грамматика не может быть </font></span><font size="2">
+    <span lang="EN-US" style="layout-grid-mode: line">LR</span><span style="layout-grid-mode: line">-грамматикой. 
+    Рассмотрим классический случай грамматики &quot;кочующего </span>
+    <span lang="EN-US" style="layout-grid-mode: line">else</span></font><span style="layout-grid-mode: line"><font size="2">&quot;:</font></span></font></p>
+    <p class="MsoBodyText" style="margin-left: 50">
+    <span lang="EN-US" style="layout-grid-mode: line">
+    <font face="Courier New" size="2">stmt</font>&nbsp;&nbsp; </span>
+    <span style="font-family: Symbol; layout-grid-mode: line">®</span><span lang="EN-US" style="layout-grid-mode: line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font face="Courier New"><b><font size="2">if</font></b><font size="2"> expr
+    <b>then</b> stmt</font></font></span></p>
+    <p class="MsoBodyText" style="text-indent: 70.9pt; margin-left: 50">
+    <span lang="EN-US" style="layout-grid-mode: line">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font face="Courier New"><b><font size="2">if</font></b><font size="2"> <i>
+    expr </i><b>then </b><i>stmt </i><b>else</b> </font><i><font size="2">stmt</font></i></font></span></p>
+    <p class="MsoBodyText" style="text-indent: 70.9pt; margin-left: 50">
+    <span style="layout-grid-mode: line">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+    <span lang="EN-US" style="layout-grid-mode: line">
+    <font size="2" face="Courier New">other</font></span></p>
+    <p class="MsoBodyText" style="margin-left: 20">
+    <span style="layout-grid-mode: line"><font size="2" face="Arial">Если 
+    ПС-анализатор находится в конфигурации</font></span></p>
+    <p class="MsoBodyText" align="left" style="text-align: left; text-indent: 220pt">
+    <b><font face="Arial">Стек<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;&nbsp; </span>Вход</font></b></p>
+    <p class="MsoBodyText" align="center" style="text-align: center; text-indent: 0cm">
+    <font face="Courier New" size="2"><span lang="EN-US">$... <b>if</b> <i>expr</i>
+    <b>then</b> <i>stmt</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>else</b> ... </span>$</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">то мы не можем сказать, является ли подстрока</font>
+    <font face="Courier New"><b><span lang="EN-US"><font size="2">if</font></span></b><font size="2"><span lang="EN-US">
+    </span><i><span lang="EN-US">expr</span></i><span lang="EN-US"> </span><b>
+    <span lang="EN-US">then</span></b><span lang="EN-US"> </span></font><i>
+    <span lang="EN-US"><font size="2">stmt</font></span></i></font>
+    <font size="2" face="Arial">основой, независимо от того, что находится в 
+    стеке под нею. Здесь возникает конфликт перенос/свертка – в зависимости от 
+    того, что следует за</font> <b><span lang="EN-US">
+    <font size="2" face="Courier New">else</font></span></b>
+    <font size="2" face="Arial">во входном потоке, верным решением может 
+    оказаться свертка</font> <font face="Courier New"><b><span lang="EN-US">
+    <font size="2">if</font></span></b><font size="2"><span lang="EN-US"> </span>
+    <i><span lang="EN-US">expr</span></i><span lang="EN-US"> </span><b>
+    <span lang="EN-US">then</span></b><span lang="EN-US"> </span></font><i>
+    <span lang="EN-US"><font size="2">stmt</font></span></i></font>
+    <font face="Arial" size="2">в</font> <i><span lang="EN-US">
+    <font size="2" face="Courier New">stmt</font></span></i>,
+    <font size="2" face="Arial">а может – перенос</font> <b><span lang="EN-US">
+    <font size="2" face="Courier New">else</font></span></b>
+    <font size="2" face="Arial">и поиск еще одного</font><font face="Courier New"><font size="2">
+    </font><i><span lang="EN-US"><font size="2">stmt</font></span></i></font>
+    <font size="2" face="Arial">для завершения альтернативы</font>
+    <font face="Courier New"><b><span lang="EN-US"><font size="2">if</font></span></b><font size="2"><span lang="EN-US">
+    </span><i><span lang="EN-US">expr</span></i><span lang="EN-US"> </span><b>
+    <span lang="EN-US">then</span></b><span lang="EN-US"> </span><i>
+    <span lang="EN-US">stmt</span></i><span lang="EN-US"> </span><b>
+    <span lang="EN-US">else</span></b><span lang="EN-US"> </span></font><i>
+    <span lang="EN-US"><font size="2">stmt</font></span></i></font>.
+    <font size="2" face="Arial">Таким образом, мы не можем сказать, что следует 
+    использовать в данном случае – перенос или свертку, а значит, грамматика не 
+    является <span lang="EN-US">LR</span>(1)-грамматикой. Более того, никакая 
+    неоднозначная грамматика не может быть <span lang="EN-US">LR</span>(<i><span lang="EN-US">k</span></i>)-грамматикой 
+    ни при каком <i><span lang="EN-US">k</span></i>.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Следует отметить, однако, что ПС-анализ может 
+    быть легко адаптирован к разбору некоторых неоднозначных грамматик вроде 
+    приведенной выше. При построении такого синтаксического анализатора для 
+    грамматики, содержащей две приведенные выше про­дукции, мы получим конфликт 
+    переноса/свертки – перено<span lang="EN-US">c</span>е</font> <b>
+    <span lang="EN-US"><font size="2" face="Courier New">else</font></span></b>
+    <font size="2" face="Arial">или свертки</font> <i><span lang="EN-US">
+    <font size="2" face="Courier New">stmt</font></span></i><font size="2"><span lang="EN-US">
+    </span><span style="font-family: Symbol; layout-grid-mode: line">® </span>
+    <font face="Courier New"><b><span lang="EN-US">if</span></b><span lang="EN-US">
+    </span><i><span lang="EN-US">expr</span></i><span lang="EN-US"> </span><b>
+    <span lang="EN-US">then</span></b><span lang="EN-US"> </span></font></font>
+    <font face="Courier New"><i><span lang="EN-US"><font size="2">stmt</font></span></i></font>.
+    <font size="2" face="Arial">Если мы разрешим конфликт в пользу переноса, 
+    синтаксический анализатор будет работать нормально.</font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Еще одна причина того, что грамматика не 
+    является <span lang="EN-US">LR</span>, возникает, когда есть основа, но 
+    содержимого стека и очередного входного символа недостаточно для определения 
+    продукции, которая должна использоваться в свертке. Следующий пример 
+    иллюстрирует эту ситуацию.</font></p>
+    <p class="MsoBodyText" style="text-indent: 0cm; margin-left: 20; margin-right: 20" align="justify">
+    <u><font size="2" face="Arial" color="#FF0000">Пример 1<span lang="en-us">2</span>.e</font></u></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2" face="Arial">Предположим, что есть лексический анализатор, 
+    который возвращает символ <b><span lang="EN-US">id</span></b> для всех 
+    идентификаторов, независимо от их использования. Предположим также, что наш 
+    язык вызывает процедуры по именам, с параметрами взятыми в скобки; тот же 
+    синтаксис используется и для работы с массивами. Поскольку трансляции 
+    индексов массива и параметров процедуры существенно отличаются друг от 
+    друга, мы должны использовать различные продукции для порождения списка 
+    фактических параметров и индексов. Следовательно, наша грамматика может 
+    иметь (среди прочих) продукции типа</font></p>
+    <div align="center">
+      <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(1)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">stmt</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial"><b>
+          <span lang="EN-US">id</span></b><span lang="EN-US">(parameter_list)</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(2)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">stmt</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">expr :=</span><span lang="EN-US" style="layout-grid-mode: line">
+          </span><span lang="EN-US">expr</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(3)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">parameter_list</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">parameter_list , parameter</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(4)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">parameter_list</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">parameter</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(5)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">parameter</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">id</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(6)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">expr</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial"><b>
+          <span lang="EN-US">id</span></b><span lang="EN-US">(expr_list)</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(7)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">expr</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">id</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(8)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">expr_list</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">expr_list , expr</span></font></td>
+        </tr>
+        <tr>
+          <td width="41" valign="top" style="width: 30.45pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">(9)</span></font></td>
+          <td width="127" valign="top" style="width: 95.1pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 2.85pt"><font face="Arial">
+          <span lang="EN-US">expr_list</span></font></td>
+          <td width="310" valign="top" style="width: 232.85pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+          <p class="MsoBodyText" style="text-indent: 0cm"><font face="Arial">
+          <span lang="EN-US">expr</span></font></td>
+        </tr>
+      </table>
+    </div>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font size="2"><font face="Arial">Инструкция, начинающаяся с </font>
+    <span style="font-family: Arial">А(</span><span lang="EN-US" style="font-family: Arial">I</span><span style="font-family: Arial">,</span><span lang="EN-US" style="font-family: Arial">J</span><span style="font-family: Arial">)</span><font face="Arial">, 
+    будет передана синтаксическому анализатору как поток символов <b>
+    <span lang="EN-US">id</span></b>(<b><span lang="EN-US">id</span></b>, <b>
+    <span lang="EN-US">id</span></b>). После переноса первых трех символов в 
+    стек ПС-анализатор окажется в конфигурации</font></font></p>
+    <p class="MsoBodyText" align="center" style="text-align: center; text-indent: 0cm">
+    <font face="Arial"><b>Стек&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Вход</b></font></p>
+    <p class="MsoBodyText" align="center" style="text-align: center; text-indent: 0cm">
+    ... <b><span lang="EN-US">id</span> ( <span lang="EN-US">id</span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>, <span lang="EN-US">id</span></b> ...</p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="layout-grid-mode: line"><font size="2">
+    Очевидно, что символ </font></span></font><font size="2"><font face="Arial">
+    <b><span lang="EN-US" style="layout-grid-mode: line">id </span></b>
+    <span style="layout-grid-mode: line">на вершине стека должен быть свернут, 
+    но какой продукцией? Правильный выбор – продукция <font color="#FF0000">(5)</font>, 
+    если </span></font><span style="font-family: Arial; layout-grid-mode: line">
+    А</span><font face="Arial"><span style="layout-grid-mode: line"> – 
+    процедура, и <font color="#FF0000">(7)</font>, если </span></font>
+    <span style="font-family: Arial; layout-grid-mode: line">А</span><font face="Arial"><span style="layout-grid-mode: line"> 
+    – массив. Содержимое стека не может подсказать, чем является </span></font>
+    <span style="font-family: Arial; layout-grid-mode: line">А</span><font face="Arial"><span style="layout-grid-mode: line">; 
+    для принятия решения мы должны использовать информацию из таблицы символов, 
+    которая была занесена туда при объявлении </span></font>
+    <span style="font-family: Arial; layout-grid-mode: line">А</span></font><span style="layout-grid-mode: line"><font size="2" face="Arial">.</font></span></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <font face="Arial"><span style="layout-grid-mode: line"><font size="2">Одно 
+    из решений состоит в замене символа </font></span><font size="2"><b>
+    <span lang="EN-US" style="layout-grid-mode: line">id</span></b><span style="layout-grid-mode: line"> 
+    в продукции <font color="#FF0000">(1)</font> на </span><b>
+    <span lang="EN-US" style="layout-grid-mode: line">procid </span></b>
+    <span style="layout-grid-mode: line">и использовании более интеллектуального 
+    лексического анализатора, который возвращает </span><b>
+    <span lang="EN-US" style="layout-grid-mode: line">procid </span></b></font>
+    <span style="layout-grid-mode: line"><font size="2">при распознавании 
+    идентификатора, представляющего собой имя процедуры. Такой способ требует от 
+    лексического анализатора обращения к таблице символов перед тем, как вернуть 
+    символ.</font></span></font></p>
+    <p class="MsoBodyText" style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="layout-grid-mode: line"><font size="2" face="Arial">Если мы 
+    внесем эти изменения, то при обработке </font></span><font size="2">
+    <span style="font-family: Arial; layout-grid-mode: line">А(</span><span lang="EN-US" style="font-family: Arial; layout-grid-mode: line">I</span><span style="font-family: Arial; layout-grid-mode: line">,</span><span lang="EN-US" style="font-family: Arial; layout-grid-mode: line">J</span><span style="font-family: Arial; layout-grid-mode: line">)</span></font><span style="layout-grid-mode: line"><font size="2" face="Arial"> 
+    синтаксический анализатор может оказаться либо в конфигурации, приведенной 
+    ранее, либо в следующей:</font></span></p>
+    <p class="MsoBodyText" align="center" style="text-align: center; text-indent: 0cm">
+    <font face="Arial"><b>Стек<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+    Вход</b></font></p>
+    <p class="MsoBodyText" align="center" style="text-align: center; text-indent: 0cm">
+    <span lang="EN-US">... <b>procid</b> ( <b>id</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; , <b>id</b> 
+    ...</span></p>
+    <p style="margin-left: 20; margin-right: 20" align="justify">
+    <span style="font-size: 10.0pt; font-family: Arial; layout-grid-mode: line">
+    В первом случае выбираем свертку по продукции <font color="#FF0000">(7)</font>; 
+    в последнем – по продукции <font color="#FF0000">(5)</font>. Обратите 
+    внимание, что выбор определяется третьим от вершины символом в стеке, 
+    который даже не участвует в свертке. Для управления разбором ПС-анализ может 
+    использовать информацию &quot;из глубин&quot; стека.</span></td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <img border="0" src="51x25_LEFT.JPG" width="51" height="25"></td>
+    <td width="41%" bgcolor="#FFFFFF">
+    <p align="right"><img border="0" src="51x25r.JPG" width="51" height="25"></td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="41%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+    <td width="9%" bgcolor="#CCCCCC">
+    &nbsp;</td>
+  </tr>
+  </table>
+
+
+</HTML>
